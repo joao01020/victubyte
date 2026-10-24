@@ -1,0 +1,70 @@
+[gd_scene format=4 uid="uid://cj7qt8yj26phb"]
+
+[ext_resource type="Script" uid="uid://d0nfqoigi20wy" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://2xfton16hdv5" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c2s03707idaa3" path="res://assets/tilesets/industrial_floor.png" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
+size = Vector2(480, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+texture = ExtResource("3_h2yge")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_m13ap"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_1bvp3")
+
+[node name="Main" type="Node2D" unique_id=1323503699]
+script = ExtResource("1_ig7tw")
+
+[node name="Player" parent="." unique_id=2135112223 instance=ExtResource("2_0xm2m")]
+z_index = 10
+position = Vector2(80, 180)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=657128163]
+position = Vector2(240, 240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1219628722]
+shape = SubResource("RectangleShape2D_m13ap")
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground" unique_id=1770356272]
+color = Color(0.14509805, 0.21568628, 0.3137255, 1)
+polygon = PackedVector2Array(-240, -12, 240, -12, 240, 12, -240, 12)
+
+[node name="IndustrialFloor" type="TileMapLayer" parent="." unique_id=1386542433]
+tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQACAAAAAAADAAMAAQAEAAAAAAAEAAMAAQABAAAAAAAFAAMAAQAFAAAAAAAGAAMAAQAGAAAAAAAHAAMAAQAEAAAAAAAAAAQAAQAAAAEAAAABAAQAAQAAAAEAAAACAAQAAQAAAAEAAAADAAQAAQABAAEAAAAEAAQAAQAAAAEAAAAFAAQAAQAAAAEAAAAGAAQAAQAAAAEAAAAHAAQAAQABAAEAAAAIAAQAAQAAAAEAAAAJAAQAAQAAAAEAAAAKAAQAAQAAAAEAAAAIAAMAAQABAAAAAAAJAAMAAQABAAAAAAD//wQAAQABAAEAAAD+/wQAAQAAAAEAAAD9/wQAAQAAAAEAAAD//wMAAQAEAAAAAAD+/wMAAQABAAAAAAD9/wMAAQABAAAAAAAKAAMAAQABAAAAAAALAAMAAQAHAAAAAAAMAAMAAQAAAAAAAAALAAQAAQABAAEAAAAMAAQAAQAAAAEAAAANAAQAAQAAAAEAAAAOAAQAAQAAAAEAAAAPAAQAAQABAAEAAAD8/wQAAQAAAAEAAAD8/wMAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_m13ap")

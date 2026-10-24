@@ -1,0 +1,15 @@
+# Godot 4
+.godot/
+
+# Arquivos temporários
+*.tmp
+*.bak
+*~
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# Compilações
+/build/
+/dist/
