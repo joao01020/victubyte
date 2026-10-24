@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://dgeo2s1nvxncc"]
+
+[ext_resource type="Texture2D" uid="uid://1xc4nkxglyfh" path="res://assets/terminals/security_terminal.png" id="1_8s8lc"]
+[ext_resource type="Script" uid="uid://pdppaxhg8xvw" path="res://scenes/security_terminal.gd" id="1_rf76f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf76f"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yomo8"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc7qm"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lx0f"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekvl1"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhl5h"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly8nv"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grw54"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhu5p"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(512, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xnf0"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(576, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsmdu"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(640, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwjfn"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(704, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5punn"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(768, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a1o4"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(832, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2k7n"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(896, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg3dm"]
+atlas = ExtResource("1_8s8lc")
+region = Rect2(960, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m13ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf76f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yomo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc7qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lx0f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekvl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhl5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly8nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grw54")
+}],
+"loop": 1,
+"name": &"interacting",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhu5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xnf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsmdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwjfn")
+}],
+"loop": 1,
+"name": &"processing",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5punn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a1o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2k7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg3dm")
+}],
+"loop": 1,
+"name": &"unlocked",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
+size = Vector2(110, 110)
+
+[node name="SecurityTerminal" type="Area2D" unique_id=890956503]
+script = ExtResource("1_rf76f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=466747509]
+sprite_frames = SubResource("SpriteFrames_m13ap")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612576550]
+shape = SubResource("RectangleShape2D_m13ap")
+
+[node name="InteractionLabel" type="Label" parent="." unique_id=443319422]
+offset_left = -61.0
+offset_top = -95.0
+offset_right = 69.0
+offset_bottom = -72.0
+text = "[E] Usar terminal"
