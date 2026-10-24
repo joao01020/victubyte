@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dqq8e0jtgy8t6"]
+
+[ext_resource type="Script" uid="uid://j7ltby4llln" path="res://scenes/door.gd" id="1_hpvv5"]
+[ext_resource type="Texture2D" uid="uid://tmhse5rd07a1" path="res://assets/doors/green_door.png" id="2_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
+size = Vector2(32, 96)
+
+[node name="Door" type="Node2D" unique_id=1795148932]
+script = ExtResource("1_hpvv5")
+
+[node name="DoorBody" type="Node2D" parent="." unique_id=746298756]
+z_index = -1
+
+[node name="DoorSprite" type="Sprite2D" parent="DoorBody" unique_id=708355935]
+position = Vector2(0.50000113, -48.5)
+scale = Vector2(0.042, 0.05)
+texture = ExtResource("2_uvdjg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DoorBody" unique_id=540178389]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBody/StaticBody2D" unique_id=1531494333]
+position = Vector2(0, -48)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_m13ap")
+
+[node name="ClosedPos" type="Marker2D" parent="." unique_id=1321376238]
+
+[node name="OpenPos" type="Marker2D" parent="." unique_id=1116376223]
+position = Vector2(0, 112)
