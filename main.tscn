@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqq8e0jtgy8t6" path="res://scenes/door.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dgeo2s1nvxncc" path="res://scenes/security_terminal.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cdhluipqbjowe" path="res://scenes/security_camera.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" path="res://scenes/laptop_desktop.tscn" id="7_272bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(480, 24)
@@ -95,5 +96,7 @@ scale = Vector2(0.041269764, 0.04059283)
 [node name="CameraMount" parent="SecurityCamera" index="2" unique_id=483373215]
 position = Vector2(-3.0000005, 1.9999998)
 rotation = 1.5707964
+
+[node name="LaptopDesktop" parent="." unique_id=1164033447 instance=ExtResource("7_272bh")]
 
 [editable path="SecurityCamera"]
