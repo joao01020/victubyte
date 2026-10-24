@@ -6,19 +6,32 @@ extends CharacterBody2D
 @export var jump_velocity: float = -280.0
 @export var gravity: float = 850.0
 
+const NORMAL_SCALE := Vector2(0.15, 0.15)
+const LAPTOP_SCALE := Vector2(0.04, 0.04)
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+var is_equipping_laptop: bool = false
+var is_using_laptop: bool = false
 
 
 func _ready() -> void:
+	sprite.scale = NORMAL_SCALE
 	sprite.play("idle")
 
 
 func _physics_process(delta: float) -> void:
-	# Gravidade
+	# Apply gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Movimento horizontal
+	# Stop horizontal movement while using the laptop.
+	if is_equipping_laptop or is_using_laptop:
+		velocity.x = 0.0
+		move_and_slide()
+		return
+
+	# Horizontal movement.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var target_speed := direction * speed
 
@@ -35,11 +48,11 @@ func _physics_process(delta: float) -> void:
 			friction * delta
 		)
 
-	# Pulo
+	# Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
 
-	# Pulo variável
+	# Variable jump height.
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
 		velocity.y *= 0.5
 
@@ -48,7 +61,11 @@ func _physics_process(delta: float) -> void:
 
 
 func update_animation() -> void:
-	# Selecionar animação conforme o movimento
+	# Do not interrupt the laptop animation.
+	if is_equipping_laptop or is_using_laptop:
+		return
+
+	# Select animation based on movement.
 	if not is_on_floor():
 		if velocity.y < 0.0:
 			sprite.play("jump")
@@ -59,8 +76,59 @@ func update_animation() -> void:
 	else:
 		sprite.play("idle")
 
-	# Virar personagem conforme a direção
+	# Face the movement direction.
 	if velocity.x > 1.0:
 		sprite.flip_h = false
 	elif velocity.x < -1.0:
 		sprite.flip_h = true
+
+
+func start_laptop_equip() -> void:
+	# Prevent duplicate interactions.
+	if is_equipping_laptop or is_using_laptop:
+		return
+
+	is_equipping_laptop = true
+	velocity.x = 0.0
+
+	# Face right for the current terminal interaction.
+	sprite.flip_h = false
+
+	# Apply the correct scale before starting the animation.
+	sprite.scale = LAPTOP_SCALE
+
+	# Restart the equip animation from the first frame.
+	sprite.play("laptop_equip")
+	sprite.set_frame_and_progress(0, 0.0)
+
+	await sprite.animation_finished
+
+	# Handle unexpected animation interruptions.
+	if sprite.animation != "laptop_equip":
+		is_equipping_laptop = false
+		sprite.scale = NORMAL_SCALE
+		update_animation()
+		return
+
+	is_equipping_laptop = false
+	is_using_laptop = true
+
+	# Keep the notebook visible after the animation finishes.
+	sprite.stop()
+	sprite.frame = sprite.sprite_frames.get_frame_count("laptop_equip") - 1
+
+	print("Player: laptop equipped")
+
+
+func finish_laptop_interaction() -> void:
+	# Restore normal player movement.
+	is_equipping_laptop = false
+	is_using_laptop = false
+
+	# Restore the original sprite scale.
+	sprite.scale = NORMAL_SCALE
+
+	# Return to the normal animation.
+	sprite.play("idle")
+
+	print("Player: laptop interaction finished")

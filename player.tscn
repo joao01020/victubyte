@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://upmu6hw6dunx" path="res://assets/characters/player/idle.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cxurm3wwrce6v" path="res://assets/characters/player/jump.png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://b8uwd3fu5hbkv" path="res://assets/characters/player/run.png" id="5_dw050"]
+[ext_resource type="Texture2D" uid="uid://jodv34h53568" path="res://assets/laptop_equip/frame_00.png" id="5_nvl01"]
+[ext_resource type="Texture2D" uid="uid://baqn8b04v8egj" path="res://assets/laptop_equip/frame_01.png" id="6_ivps1"]
+[ext_resource type="Texture2D" uid="uid://nrwerlyqmvp2" path="res://assets/laptop_equip/frame_02.png" id="7_urp6f"]
+[ext_resource type="Texture2D" uid="uid://bv3emx8872w3d" path="res://assets/laptop_equip/frame_03.png" id="8_bwjto"]
+[ext_resource type="Texture2D" uid="uid://dlx4e3qyw800m" path="res://assets/laptop_equip/frame_04.png" id="9_606se"]
+[ext_resource type="Texture2D" uid="uid://0ty46po6hu22" path="res://assets/laptop_equip/frame_05.png" id="10_u1c27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(16, 28)
@@ -115,6 +121,29 @@ animations = [{
 "speed": 6.0
 }, {
 "frames": [{
+"duration": 2.6,
+"texture": ExtResource("5_nvl01")
+}, {
+"duration": 2.6,
+"texture": ExtResource("6_ivps1")
+}, {
+"duration": 2.6,
+"texture": ExtResource("7_urp6f")
+}, {
+"duration": 2.6,
+"texture": ExtResource("8_bwjto")
+}, {
+"duration": 2.6,
+"texture": ExtResource("9_606se")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_u1c27")
+}],
+"loop": 0,
+"name": &"laptop_equip",
+"speed": 15.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_urp6f")
 }, {
@@ -160,5 +189,6 @@ polygon = PackedVector2Array(-8, -14, 8, -14, 8, 14, -8, 14)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=439018693]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_4w2fo")
-animation = &"run"
-frame_progress = 0.8852155
+animation = &"laptop_equip"
+frame = 5
+frame_progress = 1.0
