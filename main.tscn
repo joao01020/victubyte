@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c2s03707idaa3" path="res://assets/tilesets/industrial_floor.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dqq8e0jtgy8t6" path="res://scenes/door.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dgeo2s1nvxncc" path="res://scenes/security_terminal.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cdhluipqbjowe" path="res://scenes/security_camera.tscn" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(480, 24)
@@ -76,5 +77,23 @@ tile_set = SubResource("TileSet_m13ap")
 position = Vector2(768, 216)
 
 [node name="SecurityTerminal" parent="." unique_id=890956503 instance=ExtResource("5_lquwl")]
-position = Vector2(652, 182)
-scale = Vector2(0.35, 0.35)
+position = Vector2(654, 175)
+scale = Vector2(0.45, 0.45)
+
+[node name="SecurityCamera" parent="." unique_id=43128996 instance=ExtResource("6_7mycd")]
+position = Vector2(201, 106)
+
+[node name="CollisionShape2D" parent="SecurityCamera/DetectionArea" parent_id_path=PackedInt32Array(43128996, 1129456261) index="0" unique_id=1160548947]
+position = Vector2(64, 55)
+scale = Vector2(0.3, 0.32)
+
+[node name="CameraSprite" parent="SecurityCamera/CameraPivot" parent_id_path=PackedInt32Array(43128996, 833092106) index="0" unique_id=65151989]
+position = Vector2(-3.7587671, 1.3680793)
+rotation = 0.5235988
+scale = Vector2(0.041269764, 0.04059283)
+
+[node name="CameraMount" parent="SecurityCamera" index="2" unique_id=483373215]
+position = Vector2(-3.0000005, 1.9999998)
+rotation = 1.5707964
+
+[editable path="SecurityCamera"]
