@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cdhluipqbjowe"]
+
+[ext_resource type="Script" uid="uid://dbbyn2ofqgei5" path="res://scenes/security_camera.gd" id="1_7mono"]
+[ext_resource type="Texture2D" uid="uid://bk1fw42t7jc3p" path="res://assets/cameras/camera_body.png" id="2_nogw0"]
+[ext_resource type="Texture2D" uid="uid://dk7uw6wjplo37" path="res://assets/cameras/camera_mount.png" id="3_w5a04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(400, 250)
+
+[node name="SecurityCamera" type="Node2D" unique_id=43128996]
+script = ExtResource("1_7mono")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1129456261]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1160548947]
+position = Vector2(0, 125)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="CameraPivot" type="Node2D" parent="." unique_id=833092106]
+position = Vector2(9, 7)
+rotation = 0.34906584
+
+[node name="CameraSprite" type="Sprite2D" parent="CameraPivot" unique_id=65151989]
+position = Vector2(6, -12)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_nogw0")
+hframes = 4
+
+[node name="CameraMount" type="Sprite2D" parent="." unique_id=483373215]
+position = Vector2(4.9999995, 2.9999998)
+scale = Vector2(0.052999996, 0.0573718)
+texture = ExtResource("3_w5a04")
