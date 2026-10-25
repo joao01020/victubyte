@@ -65,12 +65,9 @@ func update_animation() -> void:
 	if is_equipping_laptop or is_using_laptop:
 		return
 
-	# Select animation based on movement.
+	# Use jump animation during both ascent and descent.
 	if not is_on_floor():
-		if velocity.y < 0.0:
-			sprite.play("jump")
-		else:
-			sprite.play("fall")
+		sprite.play("jump")
 	elif abs(velocity.x) > 10.0:
 		sprite.play("run")
 	else:
@@ -94,10 +91,10 @@ func start_laptop_equip() -> void:
 	# Face right for the current terminal interaction.
 	sprite.flip_h = false
 
-	# Apply the correct scale before starting the animation.
+	# Apply the laptop animation scale.
 	sprite.scale = LAPTOP_SCALE
 
-	# Restart the equip animation from the first frame.
+	# Restart the equip animation from its first frame.
 	sprite.play("laptop_equip")
 	sprite.set_frame_and_progress(0, 0.0)
 
@@ -113,22 +110,22 @@ func start_laptop_equip() -> void:
 	is_equipping_laptop = false
 	is_using_laptop = true
 
-	# Keep the notebook visible after the animation finishes.
+	# Keep the notebook visible after the animation.
 	sprite.stop()
 	sprite.frame = sprite.sprite_frames.get_frame_count("laptop_equip") - 1
 
-	print("Player: laptop equipped")
+	print("Jogador: notebook equipado.")
 
 
 func finish_laptop_interaction() -> void:
-	# Restore normal player movement.
+	# Restore normal movement.
 	is_equipping_laptop = false
 	is_using_laptop = false
 
 	# Restore the original sprite scale.
 	sprite.scale = NORMAL_SCALE
 
-	# Return to the normal animation.
+	# Return to the idle animation.
 	sprite.play("idle")
 
-	print("Player: laptop interaction finished")
+	print("Jogador: interação com notebook finalizada.")

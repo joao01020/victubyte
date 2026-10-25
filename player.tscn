@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://2xfton16hdv5"]
 
 [ext_resource type="Script" uid="uid://beqcn52so2cil" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://ck2mfltaoeq6w" path="res://assets/characters/player/fall.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://upmu6hw6dunx" path="res://assets/characters/player/idle.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://cxurm3wwrce6v" path="res://assets/characters/player/jump.png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://b8uwd3fu5hbkv" path="res://assets/characters/player/run.png" id="5_dw050"]
@@ -14,14 +13,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(16, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
-atlas = ExtResource("2_sweqy")
-region = Rect2(0, 0, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
-atlas = ExtResource("2_sweqy")
-region = Rect2(320, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("3_2hs0m")
@@ -81,17 +72,6 @@ region = Rect2(960, 320, 320, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4w2fo"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sweqy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hs0m")
-}],
-"loop": 1,
-"name": &"fall",
-"speed": 6.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jxqw")
@@ -174,6 +154,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=2135112223]
+visible = false
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2134140844]
@@ -187,8 +168,6 @@ polygon = PackedVector2Array(-8, -14, 8, -14, 8, 14, -8, 14)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2003499023]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=439018693]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_4w2fo")
-animation = &"laptop_equip"
-frame = 5
-frame_progress = 1.0
+animation = &"idle"
