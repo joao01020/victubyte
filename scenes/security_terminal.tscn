@@ -87,19 +87,19 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 7.2,
 "texture": SubResource("AtlasTexture_ekvl1")
 }, {
-"duration": 1.0,
+"duration": 7.2,
 "texture": SubResource("AtlasTexture_hhl5h")
 }, {
-"duration": 1.0,
+"duration": 7.2,
 "texture": SubResource("AtlasTexture_ly8nv")
 }, {
-"duration": 1.0,
+"duration": 7.2,
 "texture": SubResource("AtlasTexture_grw54")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"interacting",
 "speed": 6.0
 }, {
