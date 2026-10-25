@@ -18,6 +18,34 @@
 [ext_resource type="Texture2D" uid="uid://bu418kx77t0" path="res://assets/environment/industrial/walls/wall_05.png" id="16_d13ii"]
 [ext_resource type="Texture2D" uid="uid://c6j7wfqwie2e" path="res://assets/environment/industrial/walls/wall_06.png" id="17_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://5nch5yxttsuf" path="res://assets/environment/industrial/walls/wall_07.png" id="18_0odxb"]
+[ext_resource type="Texture2D" uid="uid://dyxqbb7l4rk8g" path="res://assets/environment/industrial/wall_props/cable_bundle.png" id="19_0cp0l"]
+[ext_resource type="Texture2D" uid="uid://yeuod6jb4kyx" path="res://assets/environment/industrial/wall_props/cable_horizontal.png" id="20_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://crblamvp1x6wy" path="res://assets/environment/industrial/wall_props/pipe_corner_top_left.png" id="21_gngh3"]
+[ext_resource type="Texture2D" uid="uid://cdta5kfmbo3ki" path="res://assets/environment/industrial/wall_props/pipe_corner_top_right.png" id="22_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://cf6untfsa0uur" path="res://assets/environment/industrial/wall_props/pipe_cross.png" id="23_qnost"]
+[ext_resource type="Texture2D" uid="uid://c8pja6b15wxc3" path="res://assets/environment/industrial/wall_props/pipe_horizontal.png" id="24_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://b6nbod1wrayfc" path="res://assets/environment/industrial/wall_props/pipe_horizontal_double.png" id="25_f6a44"]
+[ext_resource type="Texture2D" uid="uid://dhxs3p6u183t7" path="res://assets/environment/industrial/wall_props/pipe_horizontal_joint.png" id="26_0cbny"]
+[ext_resource type="Texture2D" uid="uid://beywu4mnv11lt" path="res://assets/environment/industrial/wall_props/pipe_horizontal_rusted.png" id="27_hrvbo"]
+[ext_resource type="Texture2D" uid="uid://b17731jgodtdu" path="res://assets/environment/industrial/wall_props/pipe_t_down.png" id="28_uypp3"]
+[ext_resource type="Texture2D" uid="uid://bghac7lss8llx" path="res://assets/environment/industrial/wall_props/pipe_valve.png" id="29_blkrb"]
+[ext_resource type="Texture2D" uid="uid://dc4a4ol6d053f" path="res://assets/environment/industrial/wall_props/pipe_vertical.png" id="30_abqjc"]
+[ext_resource type="Texture2D" uid="uid://bpbx0g0oc2p8f" path="res://assets/environment/industrial/wall_props/cable_loop_dark.png" id="31_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://2vvymnd5faln" path="res://assets/environment/industrial/wall_props/pipe_vertical_double.png" id="32_4w656"]
+[ext_resource type="Texture2D" uid="uid://8yvlwsbgpesh" path="res://assets/environment/industrial/wall_props/pipe_vertical_joint.png" id="33_e71vb"]
+[ext_resource type="Texture2D" uid="uid://d1aq0wkj5rafi" path="res://assets/environment/industrial/wall_props/pipe_vertical_rusted.png" id="34_rnkwl"]
+[ext_resource type="Texture2D" uid="uid://c8yamk2ca1o1e" path="res://assets/environment/industrial/wall_props/wall_vent.png" id="35_vke2r"]
+[ext_resource type="Texture2D" uid="uid://bjxu7du4quwyw" path="res://assets/environment/industrial/wall_props/cable_loop_orange.png" id="36_uit24"]
+[ext_resource type="Texture2D" uid="uid://bv42ovi86jl4u" path="res://assets/environment/industrial/wall_props/cable_vertical.png" id="37_ruth0"]
+[ext_resource type="Texture2D" uid="uid://bctpyahc1t5yt" path="res://assets/environment/industrial/wall_props/electric_junction_box.png" id="38_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://d04eic2137k26" path="res://assets/environment/industrial/wall_props/electric_warning_box.png" id="39_pjyto"]
+[ext_resource type="Texture2D" uid="uid://de6if7e4mqgnj" path="res://assets/environment/industrial/wall_props/fluorescent_light_cyan.png" id="40_sm6fg"]
+[ext_resource type="Texture2D" uid="uid://c1e4l6jg7uu0y" path="res://assets/environment/industrial/wall_props/pipe_corner_bottom_left.png" id="41_b17eg"]
+[ext_resource type="Texture2D" uid="uid://crpojwuvq41rl" path="res://assets/environment/industrial/wall_props/pipe_corner_bottom_right.png" id="42_ntx8l"]
+[ext_resource type="Texture2D" uid="uid://dsy2ma6t46cqy" path="res://assets/environment/industrial/lights/light_soft_radial.png" id="43_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://cnkx85qmosull" path="res://assets/environment/industrial/lights/light_fluorescent.png" id="44_gngh3"]
+[ext_resource type="Script" uid="uid://c4q7r5rnm2q1n" path="res://scenes/lighting/light_flicker.gd" id="45_0n3wm"]
+[ext_resource type="Script" uid="uid://ctbwo70w461pd" path="res://scenes/effects/electric_sparks.gd" id="46_qnost"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(480, 24)
@@ -127,6 +155,161 @@ sources/5 = SubResource("TileSetAtlasSource_seu75")
 sources/6 = SubResource("TileSetAtlasSource_htxhm")
 sources/7 = SubResource("TileSetAtlasSource_jq2sk")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uatky"]
+texture = ExtResource("19_0cp0l")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqtf5"]
+texture = ExtResource("20_d2t1y")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1vm84"]
+texture = ExtResource("21_gngh3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu3dr"]
+texture = ExtResource("22_0n3wm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cyx1q"]
+texture = ExtResource("23_qnost")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dhbp"]
+texture = ExtResource("24_wnkbs")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jx0wj"]
+texture = ExtResource("25_f6a44")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkkcx"]
+texture = ExtResource("26_0cbny")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34ol3"]
+texture = ExtResource("27_hrvbo")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2n8d"]
+texture = ExtResource("28_uypp3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wy5fy"]
+texture = ExtResource("29_blkrb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gx4rg"]
+texture = ExtResource("30_abqjc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5dllo"]
+texture = ExtResource("31_6iyjs")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phcyf"]
+texture = ExtResource("32_4w656")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_birbe"]
+texture = ExtResource("33_e71vb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1p13"]
+texture = ExtResource("34_rnkwl")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4obbf"]
+texture = ExtResource("35_vke2r")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovcoh"]
+texture = ExtResource("36_uit24")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppx11"]
+texture = ExtResource("37_ruth0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yv1y"]
+texture = ExtResource("38_rm4vd")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yh34"]
+texture = ExtResource("39_pjyto")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjuso"]
+texture = ExtResource("40_sm6fg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23xmf"]
+texture = ExtResource("41_b17eg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swlj1"]
+texture = ExtResource("42_ntx8l")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4w2fo"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_uatky")
+sources/1 = SubResource("TileSetAtlasSource_rqtf5")
+sources/2 = SubResource("TileSetAtlasSource_5dllo")
+sources/3 = SubResource("TileSetAtlasSource_ovcoh")
+sources/4 = SubResource("TileSetAtlasSource_ppx11")
+sources/5 = SubResource("TileSetAtlasSource_1yv1y")
+sources/6 = SubResource("TileSetAtlasSource_5yh34")
+sources/7 = SubResource("TileSetAtlasSource_pjuso")
+sources/8 = SubResource("TileSetAtlasSource_23xmf")
+sources/9 = SubResource("TileSetAtlasSource_swlj1")
+sources/10 = SubResource("TileSetAtlasSource_1vm84")
+sources/11 = SubResource("TileSetAtlasSource_wu3dr")
+sources/12 = SubResource("TileSetAtlasSource_cyx1q")
+sources/13 = SubResource("TileSetAtlasSource_0dhbp")
+sources/14 = SubResource("TileSetAtlasSource_jx0wj")
+sources/15 = SubResource("TileSetAtlasSource_kkkcx")
+sources/16 = SubResource("TileSetAtlasSource_34ol3")
+sources/17 = SubResource("TileSetAtlasSource_c2n8d")
+sources/18 = SubResource("TileSetAtlasSource_wy5fy")
+sources/19 = SubResource("TileSetAtlasSource_gx4rg")
+sources/20 = SubResource("TileSetAtlasSource_phcyf")
+sources/21 = SubResource("TileSetAtlasSource_birbe")
+sources/22 = SubResource("TileSetAtlasSource_f1p13")
+sources/23 = SubResource("TileSetAtlasSource_4obbf")
+
+[sub_resource type="Gradient" id="Gradient_0n3wm"]
+offsets = PackedFloat32Array(0, 0.35185185, 0.5308642, 0.6728395, 0.7962963)
+colors = PackedColorArray(0, 0, 0, 1, 0.40602916, 0.40602916, 0.40602916, 1, 0.48156947, 0.48156947, 0.48156947, 1, 0.93103445, 0.93103445, 0.93103445, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_wnkbs"]
+offsets = PackedFloat32Array(0.055555556, 0.5123457, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.5123457, 0.5123457, 0.5123457, 1, 1, 1, 1, 1)
+
 [node name="Main" type="Node2D" unique_id=1323503699]
 script = ExtResource("1_ig7tw")
 
@@ -198,7 +381,92 @@ texture = ExtResource("9_kek77")
 
 [node name="IndustrialWall" type="TileMapLayer" parent="." unique_id=485256724]
 z_index = -5
-tile_map_data = PackedByteArray("AAAAAAIABQAAAAAAAAAAAAEABQAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAABAAEAAwAAAAAAAAABAAIAAQAAAAAAAAD//wIAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAwAAAAAAAAADAAEABAAAAAAAAAAAAAAABQAAAAAAAAAEAAIABQAAAAAAAAAEAAEABQAAAAAAAAABAAAAAQAAAAAAAAACAAAABAAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAADAAIAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAABQAAAAAAAAAAAAUAAQAAAAAAAAD//wUAAQAAAAAAAAD+/wUAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAEAAwAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEABAAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAwAAAAAAAAAHAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAALAAEAAwAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAANAAIAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAwAAAAAAAAAOAAIAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAAMAP//AQAAAAAAAAANAP//AQAAAAAAAAAOAP//AQAAAAAAAAAPAAIAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAAAAQAAAAAAAAAPAP//AQAAAAAAAAAQAAIAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAAAAQAAAAAAAAAQAP//AQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAwAAAAAAAAARAAIAAQAAAAAAAAASAAIAAQAAAAAAAAARAP//AQAAAAAAAAASAP//AQAAAAAAAAASAAAAAQAAAAAAAAASAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAAEAAQAAAAAAAAATAAAAAQAAAAAAAAATAP//AQAAAAAAAAAUAP//AQAAAAAAAAAUAAEAAwAAAAAAAAAUAAAAAQAAAAAAAAAUAAIAAQAAAAAAAAAVAAIAAQAAAAAAAAAVAAEAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAWAAEAAQAAAAAAAAAWAAIAAQAAAAAAAAAXAAIAAQAAAAAAAAAXAAEAAwAAAAAAAAAXAAAAAQAAAAAAAAAYAAEAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAIAAQAAAAAAAAAZAAEAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAaAAEAAwAAAAAAAAAaAAIAAQAAAAAAAAAbAAIAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIABQAAAAAAAAAAAAEABQAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAABAAEAAwAAAAAAAAABAAIAAQAAAAAAAAD//wIAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAQAAAAAAAAADAAEABAAAAAAAAAAAAAAABQAAAAAAAAAEAAIABQAAAAAAAAAEAAEABQAAAAAAAAABAAAAAQAAAAAAAAACAAAABAAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAADAAIAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAABQAAAAAAAAAAAAUAAQAAAAAAAAD//wUAAQAAAAAAAAD+/wUAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAwAAAAAAAAAHAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAALAAEAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAANAAIAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAQAAAAAAAAAOAAIAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAAMAP//AQAAAAAAAAANAP//AQAAAAAAAAAOAP//AQAAAAAAAAAPAAIAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAAAAQAAAAAAAAAPAP//AQAAAAAAAAAQAAIAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAAAAQAAAAAAAAAQAP//AQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAQAAAAAAAAARAAIAAQAAAAAAAAASAAIAAQAAAAAAAAARAP//AQAAAAAAAAASAP//AQAAAAAAAAASAAAAAQAAAAAAAAASAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAAEAAQAAAAAAAAATAAAAAQAAAAAAAAATAP//AQAAAAAAAAAUAP//AQAAAAAAAAAUAAEAAQAAAAAAAAAUAAAAAQAAAAAAAAAUAAIAAQAAAAAAAAAVAAIAAQAAAAAAAAAVAAEAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAWAAEAAQAAAAAAAAAWAAIAAQAAAAAAAAAXAAIAAQAAAAAAAAAXAAEAAQAAAAAAAAAXAAAAAQAAAAAAAAAYAAEAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAIAAQAAAAAAAAAZAAEAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAaAAEAAQAAAAAAAAAaAAIAAQAAAAAAAAAbAAIAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD8////AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_y2f8h")
+
+[node name="WallDetails" type="TileMapLayer" parent="." unique_id=532166190]
+z_index = -4
+tile_map_data = PackedByteArray("AAACAAAABAAAAAAAAAACAP//DwAAAAAAAAACAAIABAAAAAAAAAACAAEABAAAAAAAAAD//wEABgAAAAAAAAD//wAABwAAAAAAAAADAAAABwAAAAAAAAAHAAAABwAAAAAAAAALAAAABwAAAAAAAAAPAAAABwAAAAAAAAATAAAABwAAAAAAAAAXAAAABwAAAAAAAAAbAAAABwAAAAAAAAD8////DwAAAAAAAAD9////DwAAAAAAAAD+////DwAAAAAAAAD/////DwAAAAAAAAAAAP//DwAAAAAAAAABAP//DwAAAAAAAAADAP//DwAAAAAAAAAEAP//DwAAAAAAAAAFAP//DwAAAAAAAAAGAP//DwAAAAAAAAAHAP//DwAAAAAAAAAIAP//CwAAAAAAAAAIAAAAEwAAAAAAAAAIAAIAEwAAAAAAAAANAAIAFAAAAAAAAAANAAEAFAAAAAAAAAANAAAAFAAAAAAAAAANAP//FAAAAAAAAAD//wIAAgAAAAAAAAAPAAEABgAAAAAAAAAPAAIAAgAAAAAAAAAXAAIAAgAAAAAAAAAKAAIABAAAAAAAAAAKAAEABAAAAAAAAAAKAAAABAAAAAAAAAAKAP//BAAAAAAAAAAXAAEABgAAAAAAAAA=")
+tile_set = SubResource("TileSet_4w2fo")
+
+[node name="AmbientLighting" type="CanvasModulate" parent="." unique_id=247310257]
+color = Color(0.4091606, 0.4485743, 0.48801643, 1)
+
+[node name="SceneLighting" type="Node2D" parent="." unique_id=1572796854]
+
+[node name="TVGlow" type="PointLight2D" parent="SceneLighting" unique_id=494730091]
+position = Vector2(134, 126)
+color = Color(0.27058825, 0.9019608, 0.7411765, 1)
+energy = 2.46
+texture = ExtResource("43_d2t1y")
+texture_scale = 0.35
+
+[node name="CeilingLight01" type="PointLight2D" parent="SceneLighting" unique_id=401882861]
+position = Vector2(-22, 34)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="CeilingLight01" type="PointLight2D" parent="SceneLighting/CeilingLight01" unique_id=1844530420]
+position = Vector2(501, 6)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="CeilingLight01" type="PointLight2D" parent="SceneLighting/CeilingLight01/CeilingLight01" unique_id=1837664747]
+position = Vector2(255, 4)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="SmokeEffects" type="Node" parent="." unique_id=2113903022]
+
+[node name="VentSmoke01" type="CPUParticles2D" parent="SmokeEffects" unique_id=1696123141]
+z_index = -3
+position = Vector2(545, 98)
+amount = 12
+lifetime = 5.5
+preprocess = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, -5)
+initial_velocity_min = 1.5
+initial_velocity_max = 4.0
+damping_min = 2.0
+damping_max = 4.0
+scale_amount_min = 0.8
+scale_amount_max = 1.4
+color = Color(0.50980395, 0.5764706, 0.6039216, 1)
+color_ramp = SubResource("Gradient_0n3wm")
+
+[node name="ElectricSparks01" type="Node2D" parent="." unique_id=496400133]
+script = ExtResource("46_qnost")
+min_interval = 1.5
+max_interval = 5.0
+spark_count = 14
+
+[node name="Sparks" type="CPUParticles2D" parent="ElectricSparks01" unique_id=697862126]
+z_index = 2
+position = Vector2(-12, 130)
+amount = 14
+lifetime = 0.3
+explosiveness = 1.0
+direction = Vector2(1, -1)
+gravity = Vector2(0, 130)
+initial_velocity_min = 25.0
+initial_velocity_max = 65.0
+color = Color(0, 1, 1, 1)
+color_ramp = SubResource("Gradient_wnkbs")
 
 [editable path="SecurityCamera"]
