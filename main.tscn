@@ -7,6 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dgeo2s1nvxncc" path="res://scenes/security_terminal.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cdhluipqbjowe" path="res://scenes/security_camera.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" path="res://scenes/laptop_desktop.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://duejssheipr8t" path="res://scenes/characters/female_protagonist.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dq6moah7ix6us" path="res://assets/props/security_tv/tv.png" id="9_kek77"]
+[ext_resource type="Shader" uid="uid://cvofqqyngwib8" path="res://assets/props/security_tv/security_static.gdshader" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://2v1k4jajn8uy" path="res://assets/environment/industrial/walls/wall_00.png" id="11_074og"]
+[ext_resource type="Texture2D" uid="uid://hac7ou7t6q5r" path="res://assets/environment/industrial/walls/wall_01.png" id="12_cegan"]
+[ext_resource type="Texture2D" uid="uid://c51eha6qwdgp" path="res://assets/environment/industrial/walls/wall_02.png" id="13_82xsv"]
+[ext_resource type="Texture2D" uid="uid://dpmjrev4oi3m1" path="res://assets/environment/industrial/walls/wall_03.png" id="14_getpj"]
+[ext_resource type="Texture2D" uid="uid://ooan52d3tbgh" path="res://assets/environment/industrial/walls/wall_04.png" id="15_ryguw"]
+[ext_resource type="Texture2D" uid="uid://bu418kx77t0" path="res://assets/environment/industrial/walls/wall_05.png" id="16_d13ii"]
+[ext_resource type="Texture2D" uid="uid://c6j7wfqwie2e" path="res://assets/environment/industrial/walls/wall_06.png" id="17_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://5nch5yxttsuf" path="res://assets/environment/industrial/walls/wall_07.png" id="18_0odxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(480, 24)
@@ -52,10 +63,75 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_1bvp3")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = ExtResource("10_4c57u")
+shader_parameter/background_color = Color(0.015, 0.05, 0.045, 1)
+shader_parameter/noise_intensity = 0.65
+shader_parameter/animation_speed = 18.0
+shader_parameter/block_scale_x = 110.0
+shader_parameter/block_scale_y = 60.0
+shader_parameter/fine_noise_scale_x = 260.0
+shader_parameter/fine_noise_scale_y = 180.0
+shader_parameter/glitch_strength = 0.28
+shader_parameter/scanline_strength = 0.24
+shader_parameter/flicker_strength = 0.05
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lswn8"]
+texture = ExtResource("11_074og")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6jrf"]
+texture = ExtResource("12_cegan")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xuqvo"]
+texture = ExtResource("13_82xsv")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsp4k"]
+texture = ExtResource("14_getpj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq58d"]
+texture = ExtResource("15_ryguw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_seu75"]
+texture = ExtResource("16_d13ii")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htxhm"]
+texture = ExtResource("17_1u8w0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq2sk"]
+texture = ExtResource("18_0odxb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_y2f8h"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_lswn8")
+sources/1 = SubResource("TileSetAtlasSource_a6jrf")
+sources/2 = SubResource("TileSetAtlasSource_xuqvo")
+sources/3 = SubResource("TileSetAtlasSource_qsp4k")
+sources/4 = SubResource("TileSetAtlasSource_kq58d")
+sources/5 = SubResource("TileSetAtlasSource_seu75")
+sources/6 = SubResource("TileSetAtlasSource_htxhm")
+sources/7 = SubResource("TileSetAtlasSource_jq2sk")
+
 [node name="Main" type="Node2D" unique_id=1323503699]
 script = ExtResource("1_ig7tw")
 
 [node name="Player" parent="." unique_id=2135112223 instance=ExtResource("2_0xm2m")]
+visible = true
 z_index = 10
 position = Vector2(80, 180)
 
@@ -98,5 +174,31 @@ position = Vector2(-3.0000005, 1.9999998)
 rotation = 1.5707964
 
 [node name="LaptopDesktop" parent="." unique_id=1164033447 instance=ExtResource("7_272bh")]
+
+[node name="FemaleProtagonist" parent="." unique_id=1173313793 instance=ExtResource("8_5vw27")]
+visible = false
+position = Vector2(49, 200)
+scale = Vector2(0.13, 0.13)
+
+[node name="SecurityTV" type="Node2D" parent="." unique_id=1277165496]
+scale = Vector2(2, 2)
+
+[node name="ScreenBackground" type="ColorRect" parent="SecurityTV" unique_id=76964004]
+material = SubResource("ShaderMaterial_kek77")
+offset_left = 53.0
+offset_top = 55.0
+offset_right = 83.0
+offset_bottom = 69.0
+color = Color(0, 0, 0, 1)
+
+[node name="TVFrame" type="Sprite2D" parent="SecurityTV" unique_id=432146360]
+position = Vector2(68.6, 62.4)
+scale = Vector2(0.026171874, 0.026171874)
+texture = ExtResource("9_kek77")
+
+[node name="IndustrialWall" type="TileMapLayer" parent="." unique_id=485256724]
+z_index = -5
+tile_map_data = PackedByteArray("AAAAAAIABQAAAAAAAAAAAAEABQAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAABAAEAAwAAAAAAAAABAAIAAQAAAAAAAAD//wIAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAwAAAAAAAAADAAEABAAAAAAAAAAAAAAABQAAAAAAAAAEAAIABQAAAAAAAAAEAAEABQAAAAAAAAABAAAAAQAAAAAAAAACAAAABAAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAADAAIAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAABQAAAAAAAAAAAAUAAQAAAAAAAAD//wUAAQAAAAAAAAD+/wUAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAEAAwAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEABAAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAwAAAAAAAAAHAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAALAAEAAwAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAANAAIAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAwAAAAAAAAAOAAIAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAAMAP//AQAAAAAAAAANAP//AQAAAAAAAAAOAP//AQAAAAAAAAAPAAIAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAAAAQAAAAAAAAAPAP//AQAAAAAAAAAQAAIAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAAAAQAAAAAAAAAQAP//AQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAwAAAAAAAAARAAIAAQAAAAAAAAASAAIAAQAAAAAAAAARAP//AQAAAAAAAAASAP//AQAAAAAAAAASAAAAAQAAAAAAAAASAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAAEAAQAAAAAAAAATAAAAAQAAAAAAAAATAP//AQAAAAAAAAAUAP//AQAAAAAAAAAUAAEAAwAAAAAAAAAUAAAAAQAAAAAAAAAUAAIAAQAAAAAAAAAVAAIAAQAAAAAAAAAVAAEAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAWAAEAAQAAAAAAAAAWAAIAAQAAAAAAAAAXAAIAAQAAAAAAAAAXAAEAAwAAAAAAAAAXAAAAAQAAAAAAAAAYAAEAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAIAAQAAAAAAAAAZAAEAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAaAAEAAwAAAAAAAAAaAAIAAQAAAAAAAAAbAAIAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_y2f8h")
 
 [editable path="SecurityCamera"]
