@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://duejssheipr8t"]
+
+[ext_resource type="Texture2D" uid="uid://dnuh74kkkb0" path="res://assets/characters/female_protagonist/idle/idle_00.png" id="1_dj2kq"]
+[ext_resource type="Script" uid="uid://br5ubrfag7xew" path="res://scenes/characters/female_protagonist.gd" id="1_pfkv8"]
+[ext_resource type="Texture2D" uid="uid://bsd5v2q8cihws" path="res://assets/characters/female_protagonist/idle/idle_01.png" id="2_pfkv8"]
+[ext_resource type="Texture2D" uid="uid://bay2nwq0ccb51" path="res://assets/characters/female_protagonist/idle/idle_02.png" id="3_nq4nn"]
+[ext_resource type="Texture2D" uid="uid://c3ee6uyo0w1wr" path="res://assets/characters/female_protagonist/idle/idle_03.png" id="4_ruyhh"]
+[ext_resource type="Texture2D" uid="uid://do8pxccgb4mna" path="res://assets/characters/female_protagonist/jump/jump_00.png" id="5_w68oi"]
+[ext_resource type="Texture2D" uid="uid://6ukduie61jj" path="res://assets/characters/female_protagonist/jump/jump_01.png" id="6_44fxk"]
+[ext_resource type="Texture2D" uid="uid://bhnnfxlm6845n" path="res://assets/characters/female_protagonist/jump/jump_02.png" id="7_xop1d"]
+[ext_resource type="Texture2D" uid="uid://dtc0ft8i3u0mn" path="res://assets/characters/female_protagonist/jump/jump_03.png" id="8_4g672"]
+[ext_resource type="Texture2D" uid="uid://cpav3otjeta58" path="res://assets/characters/female_protagonist/run/run_00.png" id="9_vnnyu"]
+[ext_resource type="Texture2D" uid="uid://bmhpmoh14u1fs" path="res://assets/characters/female_protagonist/run/run_01.png" id="10_5vved"]
+[ext_resource type="Texture2D" uid="uid://dxw7mm41hjbx2" path="res://assets/characters/female_protagonist/jump/jump_04.png" id="10_ruyhh"]
+[ext_resource type="Texture2D" uid="uid://cc14t4itj0ebs" path="res://assets/characters/female_protagonist/run/run_02.png" id="11_muukf"]
+[ext_resource type="Texture2D" uid="uid://cqubko4q726de" path="res://assets/characters/female_protagonist/jump/jump_05.png" id="11_w68oi"]
+[ext_resource type="Texture2D" uid="uid://bcnsunhhdgcr2" path="res://assets/characters/female_protagonist/run/run_03.png" id="12_1yo06"]
+[ext_resource type="Texture2D" uid="uid://c8eedtvcww2q0" path="res://assets/characters/female_protagonist/jump/jump_06.png" id="12_44fxk"]
+[ext_resource type="Texture2D" uid="uid://1y1a8jgyqwgy" path="res://assets/characters/female_protagonist/run/run_04.png" id="13_8xvfy"]
+[ext_resource type="Texture2D" uid="uid://0qhs6vpd0i1p" path="res://assets/characters/female_protagonist/jump/jump_07.png" id="13_xop1d"]
+[ext_resource type="Texture2D" uid="uid://cgn2ilutcbkbh" path="res://assets/characters/female_protagonist/run/run_05.png" id="14_1en2g"]
+[ext_resource type="Texture2D" uid="uid://j6aevlyx5k6i" path="res://assets/characters/female_protagonist/run/run_06.png" id="15_nhvcc"]
+[ext_resource type="Texture2D" uid="uid://13hleysy1kib" path="res://assets/characters/female_protagonist/run/run_07.png" id="16_erup0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0t6db"]
+radius = 37.0
+height = 176.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3rxr"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("1_dj2kq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_pfkv8")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_nq4nn")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_ruyhh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w68oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_44fxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xop1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4g672")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ruyhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w68oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_44fxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xop1d")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 2.4,
+"texture": ExtResource("9_vnnyu")
+}, {
+"duration": 2.4,
+"texture": ExtResource("10_5vved")
+}, {
+"duration": 2.4,
+"texture": ExtResource("11_muukf")
+}, {
+"duration": 2.4,
+"texture": ExtResource("12_1yo06")
+}, {
+"duration": 2.4,
+"texture": ExtResource("13_8xvfy")
+}, {
+"duration": 2.4,
+"texture": ExtResource("14_1en2g")
+}, {
+"duration": 2.4,
+"texture": ExtResource("15_nhvcc")
+}, {
+"duration": 2.4,
+"texture": ExtResource("16_erup0")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 12.0
+}]
+
+[node name="FemaleProtagonist" type="CharacterBody2D" unique_id=1173313793]
+script = ExtResource("1_pfkv8")
+player_controlled = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1032863541]
+position = Vector2(4, 13)
+shape = SubResource("CapsuleShape2D_0t6db")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1144888626]
+position = Vector2(-7.000001, 56)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_p3rxr")
+animation = &"idle"
+frame_progress = 0.3192356
