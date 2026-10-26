@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d0nfqoigi20wy" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://2xfton16hdv5" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://vhlltl8b3lw2" path="res://scenes/equipment/esp32_controller.gd" id="3_34ol3"]
 [ext_resource type="Texture2D" uid="uid://c2s03707idaa3" path="res://assets/tilesets/industrial_floor.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dqq8e0jtgy8t6" path="res://scenes/door.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://y5oxlwpcofp0" path="res://scenes/equipment/esp32_light_anchor.gd" id="4_wy5fy"]
 [ext_resource type="PackedScene" uid="uid://dgeo2s1nvxncc" path="res://scenes/security_terminal.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cdhluipqbjowe" path="res://scenes/security_camera.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" path="res://scenes/laptop_desktop.tscn" id="7_272bh"]
@@ -73,6 +75,7 @@
 [ext_resource type="Texture2D" uid="uid://cnxohqaisb8a" path="res://assets/environment/industrial/laboratory/damage/furniture/chairs/chair_industrial_03.png" id="66_1vm84"]
 [ext_resource type="Texture2D" uid="uid://dvj0gyg7trlpx" path="res://assets/environment/industrial/laboratory/damage/exposed_wires/wire_double_hanging_06.png" id="66_wu3dr"]
 [ext_resource type="Texture2D" uid="uid://b4hrf6yjqw1om" path="res://assets/environment/industrial/laboratory/damage/broken_glass/glass_spiderweb_crack_01.png" id="67_0dhbp"]
+[ext_resource type="Script" uid="uid://b0swql5p37k3f" path="res://scenes/equipment/esp32_hud.gd" id="75_c2n8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(480, 24)
@@ -353,6 +356,20 @@ visible = true
 z_index = 10
 position = Vector2(-14, 177)
 
+[node name="ESP32Controller" type="Node2D" parent="Player" unique_id=1059401734]
+script = ExtResource("3_34ol3")
+
+[node name="ESP32LightAnchor" type="Marker2D" parent="Player" unique_id=1787065541 node_paths=PackedStringArray("player_sprite")]
+script = ExtResource("4_wy5fy")
+player_sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ESP32Light" type="PointLight2D" parent="Player/ESP32LightAnchor" unique_id=489923868]
+scale = Vector2(0.035693362, 0.035693362)
+skew = 0.31066862
+color = Color(2.2651708, 2.4093745, 2.5495398, 1)
+energy = 1.16
+texture = ExtResource("43_d2t1y")
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=657128163]
 position = Vector2(240, 240)
 
@@ -367,6 +384,7 @@ polygon = PackedVector2Array(-240, -12, 240, -12, 240, 12, -240, 12)
 [node name="IndustrialFloor" type="TileMapLayer" parent="." unique_id=1386542433]
 tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQACAAAAAAADAAMAAQAEAAAAAAAEAAMAAQABAAAAAAAFAAMAAQAFAAAAAAAGAAMAAQAGAAAAAAAHAAMAAQAEAAAAAAAAAAQAAQAAAAEAAAABAAQAAQAAAAEAAAACAAQAAQAAAAEAAAADAAQAAQABAAEAAAAEAAQAAQAAAAEAAAAFAAQAAQAAAAEAAAAGAAQAAQAAAAEAAAAHAAQAAQABAAEAAAAIAAQAAQAAAAEAAAAJAAQAAQAAAAEAAAAKAAQAAQAAAAEAAAAIAAMAAQABAAAAAAAJAAMAAQABAAAAAAD//wQAAQABAAEAAAD+/wQAAQAAAAEAAAD9/wQAAQAAAAEAAAD//wMAAQAEAAAAAAD+/wMAAQABAAAAAAD9/wMAAQABAAAAAAAKAAMAAQABAAAAAAALAAMAAQAHAAAAAAAMAAMAAQAAAAAAAAALAAQAAQABAAEAAAAMAAQAAQAAAAEAAAANAAQAAQAAAAEAAAAOAAQAAQAAAAEAAAAPAAQAAQABAAEAAAD8/wQAAQAAAAEAAAD8/wMAAQABAAAAAAANAAMAAQABAAAAAAAOAAMAAQABAAAAAAAPAAMAAQAEAAAAAAAQAAQAAQAAAAEAAAATAAQAAQABAAEAAAARAAQAAQAAAAEAAAASAAQAAQAAAAEAAAAUAAQAAQAAAAEAAAAVAAQAAQAAAAEAAAAWAAQAAQAAAAEAAAAQAAMAAQABAAAAAAARAAMAAQABAAAAAAASAAMAAQABAAAAAAATAAMAAQAEAAAAAAAUAAMAAQABAAAAAAAVAAMAAQABAAAAAAAWAAMAAQABAAAAAAAXAAQAAQABAAEAAAAYAAQAAQAAAAEAAAAZAAQAAQAAAAEAAAAaAAQAAQAAAAEAAAAbAAQAAQABAAEAAAAXAAMAAQAEAAAAAAAYAAMAAQABAAAAAAAZAAMAAQABAAAAAAAaAAMAAQABAAAAAAAbAAMAAQAEAAAAAAA=")
 tile_set = SubResource("TileSet_m13ap")
+metadata/_edit_lock_ = true
 
 [node name="Door" parent="." unique_id=1795148932 instance=ExtResource("4_1bvp3")]
 position = Vector2(768, 216)
@@ -375,7 +393,7 @@ position = Vector2(768, 216)
 position = Vector2(654, 175)
 scale = Vector2(0.45, 0.45)
 
-[node name="SecurityCamera" parent="." unique_id=43128996 instance=ExtResource("6_7mycd")]
+[node name="SecurityCamera" parent="." unique_id=43128996 groups=["security_cameras"] instance=ExtResource("6_7mycd")]
 position = Vector2(201, 106)
 
 [node name="CollisionShape2D" parent="SecurityCamera/DetectionArea" parent_id_path=PackedInt32Array(43128996, 1129456261) index="0" unique_id=1160548947]
@@ -495,16 +513,6 @@ script = ExtResource("45_0n3wm")
 test_mode = true
 metadata/_edit_lock_ = true
 
-[node name="CeilingLight01" type="PointLight2D" parent="SceneLighting/CeilingLight01/CeilingLight01/CeilingLight01/CeilingLight02" unique_id=1251826645]
-position = Vector2(770, -4)
-color = Color(0.5882353, 0.9647059, 0.9098039, 1)
-energy = 6.73
-texture = ExtResource("44_gngh3")
-texture_scale = 1.02
-script = ExtResource("45_0n3wm")
-test_mode = true
-metadata/_edit_lock_ = true
-
 [node name="SmokeEffects" type="Node" parent="." unique_id=2113903022]
 
 [node name="VentSmoke01" type="CPUParticles2D" parent="SmokeEffects" unique_id=1696123141]
@@ -590,9 +598,10 @@ texture = ExtResource("47_6iyjs")
 metadata/_edit_lock_ = true
 
 [node name="WallScratches2" type="Sprite2D" parent="LaboratoryProps/WallScratches2" unique_id=408313612]
-position = Vector2(5800.7207, 2871.4531)
+position = Vector2(5819.992, 2832.9102)
 scale = Vector2(0.4744414, 0.4744414)
 texture = ExtResource("47_6iyjs")
+metadata/_edit_lock_ = true
 
 [node name="WallScratches" type="Sprite2D" parent="LaboratoryProps" unique_id=649670975]
 position = Vector2(-96, 157.00002)
@@ -681,6 +690,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-3708.3281, -65.185486)
 scale = Vector2(0.5626815, 0.5626815)
 texture = ExtResource("47_0cbny")
+metadata/_edit_lock_ = true
 
 [node name="ContainmentChamber" type="Sprite2D" parent="LaboratoryProps" unique_id=443242428]
 position = Vector2(865, 139)
@@ -944,4 +954,8 @@ scale = Vector2(0.5347221, 0.80499256)
 texture = ExtResource("66_wu3dr")
 metadata/_edit_lock_ = true
 
+[node name="ESP32HUD" type="CanvasLayer" parent="." unique_id=1544678539]
+script = ExtResource("75_c2n8d")
+
+[editable path="Player"]
 [editable path="SecurityCamera"]
