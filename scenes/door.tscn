@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tmhse5rd07a1" path="res://assets/doors/green_door.png" id="2_uvdjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
-size = Vector2(32, 96)
+size = Vector2(48.749996, 97.499985)
 
 [node name="Door" type="Node2D" unique_id=1795148932]
 script = ExtResource("1_hpvv5")
@@ -13,14 +13,14 @@ script = ExtResource("1_hpvv5")
 z_index = -1
 
 [node name="DoorSprite" type="Sprite2D" parent="DoorBody" unique_id=708355935]
-position = Vector2(0.50000113, -48.5)
-scale = Vector2(0.042, 0.05)
+position = Vector2(-1, -54.000004)
+scale = Vector2(0.063535914, 0.05865562)
 texture = ExtResource("2_uvdjg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DoorBody" unique_id=540178389]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBody/StaticBody2D" unique_id=1531494333]
-position = Vector2(0, -48)
+position = Vector2(-0.5000007, -54.000004)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_m13ap")
 
