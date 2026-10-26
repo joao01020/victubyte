@@ -400,6 +400,7 @@ scale = Vector2(0.13, 0.13)
 
 [node name="SecurityTV" type="Node2D" parent="." unique_id=1277165496]
 scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
 
 [node name="ScreenBackground" type="ColorRect" parent="SecurityTV" unique_id=76964004]
 material = SubResource("ShaderMaterial_kek77")
@@ -471,6 +472,7 @@ texture = ExtResource("44_gngh3")
 texture_scale = 1.02
 script = ExtResource("45_0n3wm")
 test_mode = true
+metadata/_edit_lock_ = true
 
 [node name="CeilingLight01" type="PointLight2D" parent="SceneLighting/CeilingLight01/CeilingLight01/CeilingLight01" unique_id=1965142233]
 position = Vector2(770, -4)
@@ -480,6 +482,7 @@ texture = ExtResource("44_gngh3")
 texture_scale = 1.02
 script = ExtResource("45_0n3wm")
 test_mode = true
+metadata/_edit_lock_ = true
 
 [node name="CeilingLight02" type="PointLight2D" parent="SceneLighting/CeilingLight01/CeilingLight01/CeilingLight01" unique_id=1794747520]
 position = Vector2(136, 51)
@@ -500,6 +503,7 @@ texture = ExtResource("44_gngh3")
 texture_scale = 1.02
 script = ExtResource("45_0n3wm")
 test_mode = true
+metadata/_edit_lock_ = true
 
 [node name="SmokeEffects" type="Node" parent="." unique_id=2113903022]
 
@@ -547,8 +551,10 @@ metadata/_edit_lock_ = true
 
 [node name="LaboratoryProps" type="Node2D" parent="." unique_id=2025772116]
 z_index = -3
+metadata/_edit_lock_ = true
 
 [node name="Rubble" type="Node2D" parent="LaboratoryProps" unique_id=45778927]
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="LaboratoryProps/Rubble" unique_id=803369922]
 modulate = Color(0.94055086, 0.99138206, 0.9278431, 1)
@@ -566,8 +572,10 @@ texture = ExtResource("48_34ol3")
 metadata/_edit_lock_ = true
 
 [node name="PipeSystem" type="Node2D" parent="LaboratoryProps" unique_id=2093620695]
+metadata/_edit_lock_ = true
 
 [node name="BrokenPipes" type="Node2D" parent="LaboratoryProps/PipeSystem" unique_id=1161795921]
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="LaboratoryProps" unique_id=1053791925]
 position = Vector2(1223, 159)
@@ -579,6 +587,7 @@ metadata/_edit_lock_ = true
 position = Vector2(288.00003, 28)
 scale = Vector2(0.051890105, 0.051890105)
 texture = ExtResource("47_6iyjs")
+metadata/_edit_lock_ = true
 
 [node name="WallScratches2" type="Sprite2D" parent="LaboratoryProps/WallScratches2" unique_id=408313612]
 position = Vector2(5800.7207, 2871.4531)
@@ -589,6 +598,7 @@ texture = ExtResource("47_6iyjs")
 position = Vector2(-96, 157.00002)
 scale = Vector2(0.04201556, 0.04201556)
 texture = ExtResource("47_6iyjs")
+metadata/_edit_lock_ = true
 
 [node name="CoolantLeak" type="Sprite2D" parent="LaboratoryProps" unique_id=65152452]
 position = Vector2(351.00003, 147)
@@ -665,6 +675,7 @@ metadata/_edit_lock_ = true
 position = Vector2(891, 40.000004)
 scale = Vector2(0.1380676, 0.1380676)
 texture = ExtResource("47_0cbny")
+metadata/_edit_lock_ = true
 
 [node name="CableBundleVertical" type="Sprite2D" parent="LaboratoryProps/CableBundleVertical" unique_id=23507154]
 position = Vector2(-3708.3281, -65.185486)
@@ -758,6 +769,7 @@ metadata/_edit_lock_ = true
 position = Vector2(140.24164, 191.81065)
 scale = Vector2(0.0101054665, 0.010105471)
 texture = ExtResource("55_vke2r")
+metadata/_edit_lock_ = true
 
 [node name="ByteNotice" type="Sprite2D" parent="LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=1770190119]
 position = Vector2(36, 143)
@@ -915,6 +927,7 @@ metadata/_edit_lock_ = true
 
 [node name="LabEquipment" type="Node2D" parent="LaboratoryProps/LabDamage" unique_id=299609596]
 position = Vector2(49, 12)
+metadata/_edit_lock_ = true
 
 [node name="ElectricalDamage" type="Node2D" parent="LaboratoryProps/LabDamage" unique_id=2134511479]
 metadata/_edit_lock_ = true
