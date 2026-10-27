@@ -1,5 +1,9 @@
 extends Node2D
 
+# ============================================================
+# VICTUBYTE - SPARK SYSTEM
+# ============================================================
+
 @export_group("Spark Timing")
 @export var min_interval: float = 2.0
 @export var max_interval: float = 6.0
@@ -10,11 +14,17 @@ extends Node2D
 
 @export_group("Testing")
 @export var test_mode: bool = true
+@export var enable_debug: bool = false
 
 @onready var sparks: CPUParticles2D = $Sparks
 
 var burst_timer: Timer
+var has_logged_sparks: bool = false
 
+
+# ============================================================
+# INITIALIZATION
+# ============================================================
 
 func _ready() -> void:
 	sparks.visible = true
@@ -24,10 +34,8 @@ func _ready() -> void:
 	sparks.explosiveness = 1.0
 	sparks.emitting = false
 
-	# Preserve the texture configured in the editor.
 	sparks.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 
-	# Keep the effect visible during testing.
 	sparks.z_index = 3 if test_mode else -2
 
 	burst_timer = Timer.new()
@@ -39,8 +47,13 @@ func _ready() -> void:
 	if enabled_sparks:
 		_schedule_next_burst()
 
-	print("Sistema de faíscas inicializado.")
+	if enable_debug:
+		print("SPARK SYSTEM: Initialized.")
 
+
+# ============================================================
+# SPARK SCHEDULING
+# ============================================================
 
 func _schedule_next_burst() -> void:
 	var minimum: float = maxf(
@@ -61,6 +74,10 @@ func _schedule_next_burst() -> void:
 	burst_timer.start(delay)
 
 
+# ============================================================
+# SPARK EMISSION
+# ============================================================
+
 func _emit_sparks() -> void:
 	if not enabled_sparks:
 		return
@@ -68,7 +85,13 @@ func _emit_sparks() -> void:
 	sparks.restart()
 	sparks.emitting = true
 
-	if test_mode:
-		print("Faíscas emitidas: ", global_position)
+	# Print only once per instance.
+	if enable_debug and not has_logged_sparks:
+		has_logged_sparks = true
+
+		print(
+			"SPARK SYSTEM: Sparks emitted at ",
+			global_position
+		)
 
 	_schedule_next_burst()
