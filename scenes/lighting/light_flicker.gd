@@ -12,6 +12,9 @@ extends PointLight2D
 @export_group("Testing")
 @export var test_mode: bool = false
 
+@export_group("Debug")
+@export var enable_debug: bool = false
+
 var slow_noise: FastNoiseLite = FastNoiseLite.new()
 var fast_noise: FastNoiseLite = FastNoiseLite.new()
 
@@ -21,6 +24,7 @@ var time_until_toggle: float = 0.0
 
 var flashes_remaining: int = 0
 var is_failing: bool = false
+var has_logged_failure: bool = false
 
 
 func _ready() -> void:
@@ -90,7 +94,10 @@ func start_failure() -> void:
 	else:
 		time_until_toggle = randf_range(0.07, 0.17)
 
-	print("Falha elétrica na luminária: ", name)
+	# Log only the first failure of each light instance.
+	if enable_debug and not has_logged_failure:
+		has_logged_failure = true
+		print("LIGHT SYSTEM: Electrical failure in ", name)
 
 
 func schedule_next_failure() -> void:
@@ -99,11 +106,12 @@ func schedule_next_failure() -> void:
 		time_until_failure = randf_range(0.5, 1.5)
 	else:
 		# Irregular intervals during gameplay.
-		var minimum := minf(
+		var minimum: float = minf(
 			min_failure_interval,
 			max_failure_interval
 		)
-		var maximum := maxf(
+
+		var maximum: float = maxf(
 			min_failure_interval,
 			max_failure_interval
 		)
