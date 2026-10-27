@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cdg4vqf7rqfhq"
-path="res://.godot/imported/VICTUBYTE_security_alarm(1).wav-1a5d3f5e3dcd965459bc23fde9a69ad9.sample"
+path="res://.godot/imported/alarm.wav-f67c718797ed3a35519b7d42c6049d86.sample"
 
 [deps]
 
-source_file="res://VICTUBYTE_security_alarm(1).wav"
-dest_files=["res://.godot/imported/VICTUBYTE_security_alarm(1).wav-1a5d3f5e3dcd965459bc23fde9a69ad9.sample"]
+source_file="res://alarm.wav"
+dest_files=["res://.godot/imported/alarm.wav-f67c718797ed3a35519b7d42c6049d86.sample"]
 
 [params]
 
