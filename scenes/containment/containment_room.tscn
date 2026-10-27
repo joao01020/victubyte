@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bejsm2s7wut1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6es1g"]
+size = Vector2(24, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq84k"]
+size = Vector2(24, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
+size = Vector2(547, 17.99999)
+
+[node name="ContainmentRoom" type="Node2D" unique_id=1206110662]
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=2051766916]
+position = Vector2(0, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1464250071]
+position = Vector2(58, 9)
+shape = SubResource("RectangleShape2D_6es1g")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1236102004]
+position = Vector2(640, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1513138799]
+position = Vector2(-58, -42)
+shape = SubResource("RectangleShape2D_pq84k")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1707915783]
+position = Vector2(320, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=161924639]
+shape = SubResource("RectangleShape2D_m13ap")
