@@ -1,17 +1,46 @@
 extends Area2D
 
+# ============================================================
+# VICTUBYTE - SECURITY TERMINAL
+# ============================================================
+
 signal access_granted
 signal laptop_ready
+signal checkpoint_activated(checkpoint_position: Vector2)
+
+
+# ============================================================
+# CONFIGURATION
+# ============================================================
+
+@export_category("Checkpoint")
+@export var enable_checkpoint: bool = true
+
+
+# ============================================================
+# NODE REFERENCES
+# ============================================================
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_label: Label = $InteractionLabel
+@onready var respawn_point: Marker2D = $RespawnPoint
+
+
+# ============================================================
+# STATE
+# ============================================================
 
 var player_near: bool = false
 var unlocked: bool = false
 var busy: bool = false
+var checkpoint_registered: bool = false
 
 var current_player: CharacterBody2D = null
 
+
+# ============================================================
+# INITIALIZATION
+# ============================================================
 
 func _ready() -> void:
 	interaction_label.hide()
@@ -20,11 +49,18 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
-	print("Terminal de segurança: inicializado com sucesso.")
+	print("SECURITY TERMINAL: Initialized.")
 
+
+# ============================================================
+# PLAYER INPUT
+# ============================================================
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not player_near or busy or unlocked:
+	if not player_near:
+		return
+
+	if busy or unlocked:
 		return
 
 	if event.is_action_pressed("interact") and not event.is_echo():
@@ -32,27 +68,31 @@ func _unhandled_input(event: InputEvent) -> void:
 		start_access()
 
 
+# ============================================================
+# ACCESS START
+# ============================================================
+
 func start_access() -> void:
 	if busy or unlocked:
 		return
 
 	if not is_instance_valid(current_player):
-		print("Terminal de segurança: nenhum jogador disponível.")
+		print("SECURITY TERMINAL: Player unavailable.")
 		return
 
 	if not current_player.has_method("start_laptop_equip"):
 		push_warning(
-			"Terminal de segurança: o jogador não possui a função start_laptop_equip()."
+			"SECURITY TERMINAL: Player does not support laptop equip."
 		)
 		return
 
 	busy = true
 	interaction_label.hide()
 
-	print("Terminal de segurança: interação iniciada.")
-	print("Terminal de segurança: aguardando o jogador retirar o notebook.")
+	print("SECURITY TERMINAL: Interaction started.")
+	print("SECURITY TERMINAL: Waiting for laptop equip.")
 
-	# Wait until the player finishes equipping the laptop.
+	# Wait for the player to equip the laptop.
 	await current_player.start_laptop_equip()
 
 	if not busy or unlocked:
@@ -62,32 +102,39 @@ func start_access() -> void:
 		cancel_access()
 		return
 
-	print("Terminal de segurança: notebook equipado.")
+	print("SECURITY TERMINAL: Laptop equipped.")
 
-	# Start the terminal's interaction animation.
+	# Start interaction animation.
 	sprite.play("interacting")
 
-	# Notify the laptop desktop that it can open.
-	print("Terminal de segurança: solicitando abertura do VICTU OS.")
+	# Request VICTU OS interface.
+	print("SECURITY TERMINAL: Opening VICTU OS.")
+
 	laptop_ready.emit()
-	print("Terminal de segurança: sinal de abertura enviado.")
 
-	# Keep the terminal busy while the laptop interface is in use.
+	print("SECURITY TERMINAL: Laptop interface requested.")
 
+	# Terminal remains busy until access is completed or cancelled.
+
+
+# ============================================================
+# ACCESS COMPLETION
+# ============================================================
 
 func complete_access() -> void:
 	if not busy or unlocked:
 		return
 
-	print("Terminal de segurança: processando solicitação de acesso.")
+	print("SECURITY TERMINAL: Processing access.")
 
-	# Processing and unlocked animations must not loop.
+	# Processing animation must not loop.
 	sprite.play("processing")
 	await sprite.animation_finished
 
 	if not busy or unlocked:
 		return
 
+	# Unlock animation must not loop.
 	sprite.play("unlocked")
 	await sprite.animation_finished
 
@@ -96,19 +143,72 @@ func complete_access() -> void:
 
 	unlocked = true
 	busy = false
+
 	interaction_label.hide()
 
-	print("Terminal de segurança: acesso autorizado.")
-	print("Terminal de segurança: enviando sinal para liberar a porta.")
+	print("SECURITY TERMINAL: Access granted.")
+
+	# Register checkpoint only after successful access.
+	if enable_checkpoint:
+		register_checkpoint()
+
+	# Preserve existing door-unlock behavior.
+	print("SECURITY TERMINAL: Sending access signal.")
 
 	access_granted.emit()
 
+
+# ============================================================
+# CHECKPOINT SYSTEM
+# ============================================================
+
+func register_checkpoint() -> void:
+	if checkpoint_registered:
+		return
+
+	if not is_instance_valid(respawn_point):
+		push_warning(
+			"SECURITY TERMINAL: RespawnPoint is missing."
+		)
+		return
+
+	# Verify that the global checkpoint manager exists.
+	if not has_node("/root/CheckpointManager"):
+		push_warning(
+			"SECURITY TERMINAL: CheckpointManager not found."
+		)
+		return
+
+	var checkpoint_manager: Node = get_node(
+		"/root/CheckpointManager"
+	)
+
+	var checkpoint_position: Vector2 = respawn_point.global_position
+
+	checkpoint_manager.activate_checkpoint(
+		checkpoint_position
+	)
+
+	checkpoint_registered = true
+
+	checkpoint_activated.emit(checkpoint_position)
+
+	print(
+		"SECURITY TERMINAL: Checkpoint registered at ",
+		checkpoint_position
+	)
+
+
+# ============================================================
+# ACCESS CANCELLATION
+# ============================================================
 
 func cancel_access() -> void:
 	if unlocked:
 		return
 
 	busy = false
+
 	sprite.play("idle")
 
 	if player_near and is_instance_valid(current_player):
@@ -116,24 +216,36 @@ func cancel_access() -> void:
 	else:
 		interaction_label.hide()
 
-	print("Terminal de segurança: interação cancelada.")
+	print("SECURITY TERMINAL: Interaction cancelled.")
 
+
+# ============================================================
+# PLAYER DETECTION
+# ============================================================
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and body.name == "Player":
-		current_player = body
-		player_near = true
+	if not body is CharacterBody2D:
+		return
 
-		print("Terminal de segurança: jogador entrou na área de interação.")
+	if not body.is_in_group("player"):
+		return
 
-		if not unlocked and not busy:
-			interaction_label.show()
+	current_player = body
+	player_near = true
+
+	print("SECURITY TERMINAL: Player entered interaction area.")
+
+	if not unlocked and not busy:
+		interaction_label.show()
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if body == current_player:
-		player_near = false
-		current_player = null
-		interaction_label.hide()
+	if body != current_player:
+		return
 
-		print("Terminal de segurança: jogador saiu da área de interação.")
+	player_near = false
+	current_player = null
+
+	interaction_label.hide()
+
+	print("SECURITY TERMINAL: Player left interaction area.")

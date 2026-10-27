@@ -85,6 +85,7 @@
 [ext_resource type="Script" uid="uid://cqwexpqu2npti" path="res://scenes/security/security_system.gd" id="82_4obbf"]
 [ext_resource type="AudioStream" uid="uid://c53xdhqclppfl" path="res://assets/audio/alarms/alarm.wav" id="83_ppx11"]
 [ext_resource type="PackedScene" uid="uid://dy5g6ng1y1tbl" path="res://scenes/characters/byte_agent.tscn" id="85_1yv1y"]
+[ext_resource type="Script" uid="uid://bkbl05tukfmej" path="res://scripts/characters/systems/checkpoint.gd" id="86_5yh34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(2000, 24)
@@ -394,10 +395,19 @@ size = Vector2(12.5, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f8h"]
 size = Vector2(30, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yh34"]
+size = Vector2(40, 80)
+
+[sub_resource type="SystemFont" id="SystemFont_6es1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m13ap"]
+font = SubResource("SystemFont_6es1g")
+font_size = 36
+
 [node name="Main" type="Node2D" unique_id=1323503699]
 script = ExtResource("1_ig7tw")
 
-[node name="Player" parent="." unique_id=2135112223 instance=ExtResource("2_0xm2m")]
+[node name="Player" parent="." unique_id=2135112223 groups=["player"] instance=ExtResource("2_0xm2m")]
 visible = true
 z_index = 10
 position = Vector2(-14, 177)
@@ -1048,7 +1058,7 @@ script = ExtResource("82_4obbf")
 [node name="ByteSpawnPoint" type="Marker2D" parent="." unique_id=2120181286]
 
 [node name="Spawn01" type="Marker2D" parent="ByteSpawnPoint" unique_id=240527720]
-position = Vector2(-49, 180)
+position = Vector2(199, 176)
 
 [node name="Spawn02" type="Marker2D" parent="ByteSpawnPoint" unique_id=2106539077]
 position = Vector2(105, 177)
@@ -1078,11 +1088,50 @@ disabled = true
 [node name="WallRayCast" parent="ByteAgent" index="2" unique_id=400862924]
 position = Vector2(299, 187)
 
-[node name="CaptureArea" type="Area2D" parent="." unique_id=1456767915]
+[node name="CaptureArea" type="Area2D" parent="ByteAgent" unique_id=1456767915]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureArea" unique_id=1184435311]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ByteAgent/CaptureArea" unique_id=1184435311]
 shape = SubResource("RectangleShape2D_y2f8h")
+
+[node name="CaptureAnchor" type="Marker2D" parent="ByteAgent" unique_id=181462225]
+
+[node name="Checkpoint" type="Area2D" parent="." unique_id=463201663]
+collision_layer = 0
+script = ExtResource("86_5yh34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=48800742]
+position = Vector2(602, 161)
+shape = SubResource("RectangleShape2D_5yh34")
+
+[node name="RespawnPoint" type="Marker2D" parent="Checkpoint" unique_id=800085594]
+
+[node name="CaptureScreen" type="CanvasLayer" parent="." unique_id=328596513]
+
+[node name="BlackOverlay" type="ColorRect" parent="CaptureScreen" unique_id=20656568]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CaptureLabel" type="Label" parent="CaptureScreen" unique_id=475991955]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -136.0
+offset_right = 241.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CAPTURADO"
+label_settings = SubResource("LabelSettings_m13ap")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="Player"]
 [editable path="SecurityCamera01"]

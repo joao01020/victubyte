@@ -157,3 +157,6 @@ offset_top = -95.0
 offset_right = 69.0
 offset_bottom = -72.0
 text = "[E] Usar terminal"
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=1228438790]
+position = Vector2(-118, 54)
