@@ -257,4 +257,4 @@ polygon = PackedVector2Array(-8, -14, 8, -14, 8, 14, -8, 14)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=439018693]
 scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_4w2fo")
-animation = &"esp32_run"
+animation = &"jump"
