@@ -24,6 +24,7 @@ const ATTEMPTS = [
 const SUCCESS_PASSWORD := "40591627"
 
 var terminal_ref: Node = null
+var opened_from_inventory: bool = false
 var desktop_root: Control
 var canvas: Control
 var network_details: Control
@@ -58,25 +59,55 @@ func _connect_to_terminal() -> void:
 	print("VICTU OS: conectado ao terminal de segurança.")
 
 
+# Original terminal entry point. Keep this for SecurityTerminal.laptop_ready.
 func open_desktop() -> void:
-	print("VICTU OS: abrindo área de trabalho.")
+	_open_interface(false)
+
+
+# Inventory entry point: opens the same interface without interacting with the terminal.
+func open_from_inventory() -> void:
+	_open_interface(true)
+
+
+func _open_interface(from_inventory: bool) -> void:
+	if visible:
+		return
+
+	opened_from_inventory = from_inventory
 	_reset_state()
 	_fit_canvas()
 	show()
 	get_tree().paused = true
 
+	if opened_from_inventory:
+		print("VICTU OS: notebook aberto pelo inventário.")
+		_log("Modo portátil: terminal de segurança desconectado.")
+	else:
+		print("VICTU OS: notebook conectado ao terminal.")
+
 
 func close_desktop() -> void:
+	if not visible:
+		return
+
+	var was_terminal_session: bool = not opened_from_inventory
+
 	if attack_timer != null:
 		attack_timer.stop()
 	attacking = false
 	hide()
 	get_tree().paused = false
+
 	var player := get_parent().get_node_or_null("Player")
 	if player != null and player.has_method("finish_laptop_interaction"):
 		player.call("finish_laptop_interaction")
-	if is_instance_valid(terminal_ref) and terminal_ref.has_method("cancel_access"):
-		terminal_ref.call("cancel_access")
+
+	# Only the terminal session can cancel an active terminal interaction.
+	if was_terminal_session and is_instance_valid(terminal_ref):
+		if terminal_ref.has_method("cancel_access"):
+			terminal_ref.call("cancel_access")
+
+	opened_from_inventory = false
 	desktop_closed.emit()
 	print("VICTU OS: área de trabalho fechada.")
 
@@ -342,13 +373,22 @@ func _on_attempt_tick() -> void:
 	_log("Senha encontrada: %s" % SUCCESS_PASSWORD)
 	_log("Conectando a LAB_SYS...")
 	_log("Conexao estabelecida com sucesso.")
-	wifi_connected.emit()
-	unlock_door_button.show()
-	_log("")
-	_log("Dispositivo encontrado: SEC-TERM-01")
-	_log("Controle de acesso disponível.")
-	_log("Clique em Desbloquear porta para continuar.")
-	print("VICTU OS: conexão Wi-Fi simulada concluída. Porta disponível para desbloqueio.")
+	if opened_from_inventory:
+		# A portable laptop can use the Wi-Fi simulation but cannot access
+		# the security terminal or unlock doors from anywhere in the map.
+		unlock_door_button.hide()
+		_log("")
+		_log("Modo portátil: rede conectada.")
+		_log("Conecte o notebook ao terminal para controlar a porta.")
+		print("VICTU OS: Wi-Fi conectado em modo portátil, sem acesso à porta.")
+	else:
+		wifi_connected.emit()
+		unlock_door_button.show()
+		_log("")
+		_log("Dispositivo encontrado: SEC-TERM-01")
+		_log("Controle de acesso disponível.")
+		_log("Clique em Desbloquear porta para continuar.")
+		print("VICTU OS: conexão Wi-Fi simulada concluída. Porta disponível para desbloqueio.")
 
 
 func _on_wifi_app_pressed() -> void:
@@ -368,6 +408,11 @@ func _on_files_app_pressed() -> void:
 
 
 func _on_unlock_door_pressed() -> void:
+	# Double guard: no access even if the button is triggered programmatically.
+	if opened_from_inventory:
+		_log("Acesso negado: notebook não conectado ao terminal.")
+		return
+
 	if not connected or attacking or unlock_door_button.disabled:
 		return
 
@@ -389,4 +434,5 @@ func _on_unlock_door_pressed() -> void:
 
 	# Do not call cancel_access(): the terminal must finish its unlock sequence.
 	terminal_ref.call("complete_access")
+	opened_from_inventory = false
 	desktop_closed.emit()

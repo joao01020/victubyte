@@ -92,6 +92,8 @@
 [ext_resource type="Texture2D" uid="uid://bmt30en6eruyi" path="res://assets/environment/laboratory/props/fire_safety/fire_cabinet_red.png" id="90_h6isl"]
 [ext_resource type="Texture2D" uid="uid://ckf58fdjuggpx" path="res://assets/environment/laboratory/props/fire_safety/fire_axe_cabinet.png" id="91_53bls"]
 [ext_resource type="Texture2D" uid="uid://bepanutv5l0g2" path="res://assets/environment/laboratory/props/speakers/speaker_wall_tower.png" id="92_lwnsi"]
+[ext_resource type="Script" uid="uid://bdq562afv8f5p" path="res://scenes/ui/equipment_wheel_draw.gd" id="93_53bls"]
+[ext_resource type="Script" uid="uid://dvdf52140f4fn" path="res://scenes/ui/equipment_wheel.gd" id="93_lwnsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(2000, 24)
@@ -409,6 +411,13 @@ size = Vector2(40, 80)
 [sub_resource type="LabelSettings" id="LabelSettings_m13ap"]
 font = SubResource("SystemFont_6es1g")
 font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2f8h"]
+bg_color = Color(0.08065585, 0.1103074, 0.13995896, 0.6745098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Main" type="Node2D" unique_id=1323503699]
 script = ExtResource("1_ig7tw")
@@ -1245,6 +1254,54 @@ position = Vector2(3362, 97.00001)
 rotation = -1.5707964
 scale = Vector2(0.13657798, 0.13657798)
 texture = ExtResource("92_lwnsi")
+
+[node name="EquipmentUI" type="CanvasLayer" parent="." unique_id=1824799953]
+
+[node name="EquipmentWheel" type="Control" parent="EquipmentUI" unique_id=169227704]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("93_lwnsi")
+
+[node name="WheelPanel" type="Control" parent="EquipmentUI/EquipmentWheel" unique_id=768254302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wheel" type="Control" parent="EquipmentUI/EquipmentWheel/WheelPanel" unique_id=1887772983]
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 250.0
+script = ExtResource("93_53bls")
+
+[node name="BackpackIndicator" type="PanelContainer" parent="EquipmentUI/EquipmentWheel" unique_id=1771435630]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 52.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y2f8h")
+
+[node name="BackpackLabel" type="Label" parent="EquipmentUI/EquipmentWheel/BackpackIndicator" unique_id=589437217]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.21960784, 0.7137255, 1, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackpackIcon" type="TextureRect" parent="EquipmentUI/EquipmentWheel/BackpackIndicator" unique_id=867912979]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
 
 [editable path="Player"]
 [editable path="SecurityCamera01"]
