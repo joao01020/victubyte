@@ -3,14 +3,13 @@ extends Node2D
 # ============================================================
 # VICTUBYTE — MAIN GAME SYSTEM
 # ============================================================
+@onready var player: CharacterBody2D = $Characters/Player
+@onready var byte_agent: CharacterBody2D = $Characters/ByteAgent
+@onready var checkpoint: Area2D = $GameSystems/Checkpoint
 
-@onready var player: CharacterBody2D = $Player
-@onready var byte_agent: CharacterBody2D = $ByteAgent
-@onready var checkpoint: Area2D = $Checkpoint
-
-@onready var capture_screen: CanvasLayer = $CaptureScreen
-@onready var black_overlay: ColorRect = $CaptureScreen/BlackOverlay
-@onready var capture_label: Label = $CaptureScreen/CaptureLabel
+@onready var capture_screen: CanvasLayer = $GameSystems/CaptureScreen
+@onready var black_overlay: ColorRect = $GameSystems/CaptureScreen/BlackOverlay
+@onready var capture_label: Label = $GameSystems/CaptureScreen/CaptureLabel
 
 var capture_in_progress: bool = false
 var last_checkpoint_position: Vector2 = Vector2.ZERO
@@ -40,11 +39,9 @@ func _ready() -> void:
 # ============================================================
 
 func setup_security_terminal() -> void:
-	var security_terminal: Node = get_node_or_null(
-		"SecurityTerminal"
-	)
+	var security_terminal: Node = get_node_or_null("SecuritySystems/SecurityTerminal")
 
-	var door: Node = get_node_or_null("Door")
+	var door: Node = get_node_or_null("SecuritySystems/Door")
 
 	if security_terminal == null:
 		push_warning(

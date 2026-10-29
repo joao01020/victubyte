@@ -48,16 +48,25 @@ func _ready() -> void:
 	hide()
 	call_deferred("_connect_to_terminal")
 
-
 func _connect_to_terminal() -> void:
-	terminal_ref = get_parent().get_node_or_null("SecurityTerminal")
-	if terminal_ref == null or not terminal_ref.has_signal("laptop_ready"):
-		push_warning("VICTU OS: terminal de segurança não encontrado em Main.")
-		return
-	if not terminal_ref.is_connected("laptop_ready", Callable(self, "open_desktop")):
-		terminal_ref.connect("laptop_ready", Callable(self, "open_desktop"))
-	print("VICTU OS: conectado ao terminal de segurança.")
+	terminal_ref = get_tree().current_scene.get_node_or_null(
+		"SecuritySystems/SecurityTerminal"
+	)
 
+	if terminal_ref == null or not terminal_ref.has_signal("laptop_ready"):
+		push_warning("VICTU OS: terminal de segurança não encontrado.")
+		return
+
+	if not terminal_ref.is_connected(
+		"laptop_ready",
+		Callable(self, "open_desktop")
+	):
+		terminal_ref.connect(
+			"laptop_ready",
+			Callable(self, "open_desktop")
+		)
+
+	print("VICTU OS: conectado ao terminal de segurança.")
 
 # Original terminal entry point. Keep this for SecurityTerminal.laptop_ready.
 func open_desktop() -> void:
