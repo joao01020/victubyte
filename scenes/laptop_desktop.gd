@@ -956,12 +956,12 @@ func _build_nvr_login(parent: Control) -> void:
 	username_input.call_deferred("grab_focus")
 
 
-func _nvr_input(parent: Control, position_value: Vector2, size_value: Vector2, hidden: bool) -> LineEdit:
+func _nvr_input(parent: Control, position_value: Vector2, size_value: Vector2, is_hidden: bool) -> LineEdit:
 	var input: LineEdit = LineEdit.new()
 	parent.add_child(input)
 	input.position = position_value
 	input.size = size_value
-	input.secret = hidden
+	input.secret = is_hidden
 	input.max_length = 80
 	input.add_theme_color_override("font_color", TEXT_COLOR)
 	input.add_theme_color_override("caret_color", GREEN)
