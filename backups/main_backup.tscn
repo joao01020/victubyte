@@ -1,0 +1,2175 @@
+[gd_scene format=4 uid="uid://bb633hh1mo4ra"]
+
+[ext_resource type="Script" uid="uid://d0nfqoigi20wy" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://2xfton16hdv5" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://vhlltl8b3lw2" path="res://scenes/equipment/esp32_controller.gd" id="3_34ol3"]
+[ext_resource type="Texture2D" uid="uid://c2s03707idaa3" path="res://assets/tilesets/industrial_floor.png" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dqq8e0jtgy8t6" path="res://scenes/door.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://y5oxlwpcofp0" path="res://scenes/equipment/esp32_light_anchor.gd" id="4_wy5fy"]
+[ext_resource type="PackedScene" uid="uid://dgeo2s1nvxncc" path="res://scenes/security_terminal.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cdhluipqbjowe" path="res://scenes/security_camera.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" path="res://scenes/laptop_desktop.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://duejssheipr8t" path="res://scenes/characters/female_protagonist.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://dq6moah7ix6us" path="res://assets/props/security_tv/tv.png" id="9_kek77"]
+[ext_resource type="Shader" uid="uid://cvofqqyngwib8" path="res://assets/props/security_tv/security_static.gdshader" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://2v1k4jajn8uy" path="res://assets/environment/industrial/walls/wall_00.png" id="11_074og"]
+[ext_resource type="Texture2D" uid="uid://hac7ou7t6q5r" path="res://assets/environment/industrial/walls/wall_01.png" id="12_cegan"]
+[ext_resource type="Texture2D" uid="uid://c51eha6qwdgp" path="res://assets/environment/industrial/walls/wall_02.png" id="13_82xsv"]
+[ext_resource type="Texture2D" uid="uid://dpmjrev4oi3m1" path="res://assets/environment/industrial/walls/wall_03.png" id="14_getpj"]
+[ext_resource type="Texture2D" uid="uid://ooan52d3tbgh" path="res://assets/environment/industrial/walls/wall_04.png" id="15_ryguw"]
+[ext_resource type="Texture2D" uid="uid://bu418kx77t0" path="res://assets/environment/industrial/walls/wall_05.png" id="16_d13ii"]
+[ext_resource type="Texture2D" uid="uid://c6j7wfqwie2e" path="res://assets/environment/industrial/walls/wall_06.png" id="17_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://5nch5yxttsuf" path="res://assets/environment/industrial/walls/wall_07.png" id="18_0odxb"]
+[ext_resource type="Texture2D" uid="uid://dyxqbb7l4rk8g" path="res://assets/environment/industrial/wall_props/cable_bundle.png" id="19_0cp0l"]
+[ext_resource type="Texture2D" uid="uid://yeuod6jb4kyx" path="res://assets/environment/industrial/wall_props/cable_horizontal.png" id="20_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://crblamvp1x6wy" path="res://assets/environment/industrial/wall_props/pipe_corner_top_left.png" id="21_gngh3"]
+[ext_resource type="Texture2D" uid="uid://cdta5kfmbo3ki" path="res://assets/environment/industrial/wall_props/pipe_corner_top_right.png" id="22_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://cf6untfsa0uur" path="res://assets/environment/industrial/wall_props/pipe_cross.png" id="23_qnost"]
+[ext_resource type="Texture2D" uid="uid://c8pja6b15wxc3" path="res://assets/environment/industrial/wall_props/pipe_horizontal.png" id="24_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://b6nbod1wrayfc" path="res://assets/environment/industrial/wall_props/pipe_horizontal_double.png" id="25_f6a44"]
+[ext_resource type="Texture2D" uid="uid://dhxs3p6u183t7" path="res://assets/environment/industrial/wall_props/pipe_horizontal_joint.png" id="26_0cbny"]
+[ext_resource type="Texture2D" uid="uid://beywu4mnv11lt" path="res://assets/environment/industrial/wall_props/pipe_horizontal_rusted.png" id="27_hrvbo"]
+[ext_resource type="Texture2D" uid="uid://b17731jgodtdu" path="res://assets/environment/industrial/wall_props/pipe_t_down.png" id="28_uypp3"]
+[ext_resource type="Texture2D" uid="uid://bghac7lss8llx" path="res://assets/environment/industrial/wall_props/pipe_valve.png" id="29_blkrb"]
+[ext_resource type="Texture2D" uid="uid://dc4a4ol6d053f" path="res://assets/environment/industrial/wall_props/pipe_vertical.png" id="30_abqjc"]
+[ext_resource type="Texture2D" uid="uid://bpbx0g0oc2p8f" path="res://assets/environment/industrial/wall_props/cable_loop_dark.png" id="31_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://2vvymnd5faln" path="res://assets/environment/industrial/wall_props/pipe_vertical_double.png" id="32_4w656"]
+[ext_resource type="Texture2D" uid="uid://8yvlwsbgpesh" path="res://assets/environment/industrial/wall_props/pipe_vertical_joint.png" id="33_e71vb"]
+[ext_resource type="Texture2D" uid="uid://d1aq0wkj5rafi" path="res://assets/environment/industrial/wall_props/pipe_vertical_rusted.png" id="34_rnkwl"]
+[ext_resource type="Texture2D" uid="uid://c8yamk2ca1o1e" path="res://assets/environment/industrial/wall_props/wall_vent.png" id="35_vke2r"]
+[ext_resource type="Texture2D" uid="uid://bjxu7du4quwyw" path="res://assets/environment/industrial/wall_props/cable_loop_orange.png" id="36_uit24"]
+[ext_resource type="Texture2D" uid="uid://bv42ovi86jl4u" path="res://assets/environment/industrial/wall_props/cable_vertical.png" id="37_ruth0"]
+[ext_resource type="Texture2D" uid="uid://bctpyahc1t5yt" path="res://assets/environment/industrial/wall_props/electric_junction_box.png" id="38_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://d04eic2137k26" path="res://assets/environment/industrial/wall_props/electric_warning_box.png" id="39_pjyto"]
+[ext_resource type="Texture2D" uid="uid://de6if7e4mqgnj" path="res://assets/environment/industrial/wall_props/fluorescent_light_cyan.png" id="40_sm6fg"]
+[ext_resource type="Texture2D" uid="uid://c1e4l6jg7uu0y" path="res://assets/environment/industrial/wall_props/pipe_corner_bottom_left.png" id="41_b17eg"]
+[ext_resource type="Texture2D" uid="uid://crpojwuvq41rl" path="res://assets/environment/industrial/wall_props/pipe_corner_bottom_right.png" id="42_ntx8l"]
+[ext_resource type="Texture2D" uid="uid://dsy2ma6t46cqy" path="res://assets/environment/industrial/lights/light_soft_radial.png" id="43_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://cnkx85qmosull" path="res://assets/environment/industrial/lights/light_fluorescent.png" id="44_gngh3"]
+[ext_resource type="Script" uid="uid://c4q7r5rnm2q1n" path="res://scenes/lighting/light_flicker.gd" id="45_0n3wm"]
+[ext_resource type="Script" uid="uid://ctbwo70w461pd" path="res://scenes/effects/electric_sparks.gd" id="46_qnost"]
+[ext_resource type="Texture2D" uid="uid://7jomm7qofbrb" path="res://assets/environment/industrial/laboratory/cable_bundle_vertical.png" id="47_0cbny"]
+[ext_resource type="Texture2D" uid="uid://bmm1l7s6b03ce" path="res://assets/environment/industrial/laboratory/decals/wall_scratches.png" id="47_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://liauknlbfv87" path="res://assets/environment/industrial/laboratory/security_door.png" id="47_f6a44"]
+[ext_resource type="Texture2D" uid="uid://b5xg5fg7v3rpy" path="res://assets/environment/industrial/laboratory/lab_warning_sign.png" id="47_hrvbo"]
+[ext_resource type="Texture2D" uid="uid://brhv1he32j8jd" path="res://assets/environment/industrial/laboratory/pipes_and_debris/rubble/rubble_small_13.png" id="47_kkkcx"]
+[ext_resource type="Texture2D" uid="uid://capqba00hyr04" path="res://assets/environment/industrial/laboratory/server_rack_double.png" id="47_sm6fg"]
+[ext_resource type="Texture2D" uid="uid://bvapls011ptlc" path="res://assets/environment/industrial/laboratory/coolant_leak_pipe.png" id="47_uypp3"]
+[ext_resource type="Texture2D" uid="uid://dylk28hdq3cmf" path="res://assets/environment/industrial/laboratory/observation_window.png" id="48_0cbny"]
+[ext_resource type="Texture2D" uid="uid://b4luyrm3o73d6" path="res://assets/environment/industrial/laboratory/pipes_and_debris/rubble/rubble_large_06.png" id="48_34ol3"]
+[ext_resource type="Texture2D" uid="uid://ds3lyirjc8iw0" path="res://assets/environment/industrial/laboratory/maintenance_cart.png" id="52_blkrb"]
+[ext_resource type="Texture2D" uid="uid://mg1oxmojm02x" path="res://assets/environment/industrial/laboratory/floor/small_puddle.png" id="54_4w656"]
+[ext_resource type="Texture2D" uid="uid://bp7cd0v48vpbh" path="res://assets/environment/industrial/laboratory/documents/sprites/loose_papers/crumpled_byte_note.png" id="55_vke2r"]
+[ext_resource type="Texture2D" uid="uid://cc1b5y25ai328" path="res://assets/environment/industrial/laboratory/documents/sprites/legacy_papers/handwritten_voss_note.png" id="56_b17eg"]
+[ext_resource type="Texture2D" uid="uid://bng6446ifx53r" path="res://assets/environment/industrial/laboratory/documents/sprites/small_documents/byte_notice.png" id="57_ruth0"]
+[ext_resource type="Texture2D" uid="uid://c322nvgli3a68" path="res://assets/environment/industrial/laboratory/documents/sprites/warning_signs/biohazard_sign.png" id="58_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://cxyvga6xny6eo" path="res://assets/environment/industrial/laboratory/documents/sprites/legacy_papers/specimen_id_tag.png" id="59_ruth0"]
+[ext_resource type="Texture2D" uid="uid://cg65mcuc5mexe" path="res://assets/environment/industrial/laboratory/documents/sprites/badges/security_access_card.png" id="60_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://tlorysg65fsl" path="res://assets/environment/industrial/laboratory/documents/sprites/folders_and_files/byte_research_folder.png" id="61_rm4vd"]
+[ext_resource type="Texture2D" uid="uid://bkseljs2yq74k" path="res://assets/environment/industrial/laboratory/equipment_crate.png" id="63_uatky"]
+[ext_resource type="Texture2D" uid="uid://belokfohqr5m5" path="res://assets/environment/industrial/laboratory/damage/floor_damage/floor_cracks_02.png" id="64_1vm84"]
+[ext_resource type="Texture2D" uid="uid://dnwk5vi0uvx3x" path="res://assets/environment/industrial/laboratory/damage/lab_equipment/chemical_bottles_01.png" id="64_cyx1q"]
+[ext_resource type="Texture2D" uid="uid://xcyj27m610pf" path="res://assets/environment/industrial/laboratory/damage/broken_glass/glass_shards_small_01.png" id="64_rqtf5"]
+[ext_resource type="Texture2D" uid="uid://qag32ewd542y" path="res://assets/environment/industrial/laboratory/damage/wall_damage/wall_split_plate_04.png" id="65_0dhbp"]
+[ext_resource type="Texture2D" uid="uid://7bj6gdfognqh" path="res://assets/environment/industrial/laboratory/damage/electrical_panels/electric_panel_warning_02.png" id="65_1vm84"]
+[ext_resource type="Texture2D" uid="uid://cnxohqaisb8a" path="res://assets/environment/industrial/laboratory/damage/furniture/chairs/chair_industrial_03.png" id="66_1vm84"]
+[ext_resource type="Texture2D" uid="uid://dvj0gyg7trlpx" path="res://assets/environment/industrial/laboratory/damage/exposed_wires/wire_double_hanging_06.png" id="66_wu3dr"]
+[ext_resource type="Texture2D" uid="uid://b4hrf6yjqw1om" path="res://assets/environment/industrial/laboratory/damage/broken_glass/glass_spiderweb_crack_01.png" id="67_0dhbp"]
+[ext_resource type="Script" uid="uid://b0swql5p37k3f" path="res://scenes/equipment/esp32_hud.gd" id="75_c2n8d"]
+[ext_resource type="Texture2D" uid="uid://drv47nec4e3b0" path="res://assets/alarms/wall_alarm/wall_alarm_00_off.png" id="77_f1p13"]
+[ext_resource type="Script" uid="uid://dx6uqyior1vu4" path="res://scenes/security/wall_alarm.gd" id="77_ovcoh"]
+[ext_resource type="Texture2D" uid="uid://bvbnjet82ss4v" path="res://assets/alarms/wall_alarm/wall_alarm_01_dim.png" id="78_4obbf"]
+[ext_resource type="Texture2D" uid="uid://do0sgc636pios" path="res://assets/environment/laboratory/props/plants/plant_dying_pot.png" id="79_41lik"]
+[ext_resource type="Texture2D" uid="uid://dhk5hixanbpyg" path="res://assets/environment/laboratory/props/workstations/office_chair.png" id="79_dij0e"]
+[ext_resource type="Texture2D" uid="uid://3cvqnjnug5pn" path="res://assets/environment/laboratory/props/servers/server_intact_dual.png" id="79_l0gw7"]
+[ext_resource type="Texture2D" uid="uid://bmmvwllhvthet" path="res://assets/alarms/wall_alarm/wall_alarm_02_active.png" id="79_ovcoh"]
+[ext_resource type="Texture2D" uid="uid://46sm4vkuwl03" path="res://assets/environment/laboratory/props/servers/server_open_cables.png" id="80_inymm"]
+[ext_resource type="Texture2D" uid="uid://duuu3i1xwwnih" path="res://assets/alarms/wall_alarm/wall_alarm_03_bright.png" id="80_ppx11"]
+[ext_resource type="Texture2D" uid="uid://vf1duq1w1618" path="res://assets/alarms/wall_alarm/wall_alarm_04_cooldown.png" id="81_1yv1y"]
+[ext_resource type="Texture2D" uid="uid://cbawwvrerj2ji" path="res://assets/environment/laboratory/props/servers/server_cable_panel.png" id="81_jcxqu"]
+[ext_resource type="Script" uid="uid://cqwexpqu2npti" path="res://scenes/security/security_system.gd" id="82_4obbf"]
+[ext_resource type="Texture2D" uid="uid://cfpsxecvqqxpo" path="res://assets/environment/laboratory/props/servers/server_fallen_damaged.png" id="82_jcxqu"]
+[ext_resource type="Texture2D" uid="uid://bnqp5qkjdt6kc" path="res://assets/environment/laboratory/props/plants/plant_tall_01.png" id="83_0arob"]
+[ext_resource type="AudioStream" uid="uid://c53xdhqclppfl" path="res://assets/audio/alarms/alarm.wav" id="83_ppx11"]
+[ext_resource type="Texture2D" uid="uid://dftascs4kq07d" path="res://assets/environment/laboratory/props/workstations/storage_cabinet.png" id="84_dij0e"]
+[ext_resource type="Texture2D" uid="uid://dimnq20rvrsp4" path="res://assets/environment/laboratory/props/workstations/locker_set.png" id="85_0arob"]
+[ext_resource type="PackedScene" uid="uid://dy5g6ng1y1tbl" path="res://scenes/characters/byte_agent.tscn" id="85_1yv1y"]
+[ext_resource type="Texture2D" uid="uid://cg308tvph1fcg" path="res://assets/environment/laboratory/props/workstations/water_dispenser.png" id="85_k1udn"]
+[ext_resource type="Script" uid="uid://bkbl05tukfmej" path="res://scripts/characters/systems/checkpoint.gd" id="86_5yh34"]
+[ext_resource type="Texture2D" uid="uid://oi6373iy7u2b" path="res://assets/environment/laboratory/windows/06_power_reactor.png" id="87_swlj1"]
+[ext_resource type="Texture2D" uid="uid://bq5wsh57b2mc7" path="res://assets/environment/laboratory/windows/15_damaged_lab.png" id="88_yysqy"]
+[ext_resource type="Texture2D" uid="uid://6nw21qqvqbqw" path="res://assets/environment/laboratory/props/servers/server_destroyed_rubble.png" id="89_k1udn"]
+[ext_resource type="Texture2D" uid="uid://cqcim4opoa1xu" path="res://assets/environment/laboratory/windows/09_server_room.png" id="89_n5t1e"]
+[ext_resource type="Texture2D" uid="uid://bmt30en6eruyi" path="res://assets/environment/laboratory/props/fire_safety/fire_cabinet_red.png" id="90_h6isl"]
+[ext_resource type="Texture2D" uid="uid://f61ocf7nuu8k" path="res://assets/environment/laboratory/props/cables/cabo 6.png" id="90_u81y6"]
+[ext_resource type="Texture2D" uid="uid://ckf58fdjuggpx" path="res://assets/environment/laboratory/props/fire_safety/fire_axe_cabinet.png" id="91_53bls"]
+[ext_resource type="Texture2D" uid="uid://bl4xagy4gdbki" path="res://assets/environment/laboratory/props/cables/cabo 4.png" id="91_rt5wr"]
+[ext_resource type="Texture2D" uid="uid://bepanutv5l0g2" path="res://assets/environment/laboratory/props/speakers/speaker_wall_tower.png" id="92_lwnsi"]
+[ext_resource type="Texture2D" uid="uid://dln0quuhw6kpm" path="res://assets/environment/laboratory/props/cables/cabo 2.png" id="92_mnw77"]
+[ext_resource type="Script" uid="uid://bdq562afv8f5p" path="res://scenes/ui/equipment_wheel_draw.gd" id="93_53bls"]
+[ext_resource type="Script" uid="uid://dvdf52140f4fn" path="res://scenes/ui/equipment_wheel.gd" id="93_lwnsi"]
+[ext_resource type="Texture2D" uid="uid://byilxwrfnclkd" path="res://assets/animals/rat/run/rat_run_01.png" id="93_vjgyh"]
+[ext_resource type="Texture2D" uid="uid://beeqnhwaiiqln" path="res://assets/animals/rat/run/rat_run_02.png" id="94_d5iia"]
+[ext_resource type="Texture2D" uid="uid://bdf2he8ouk87f" path="res://assets/animals/rat/run/rat_run_03.png" id="95_asu84"]
+[ext_resource type="Texture2D" uid="uid://cgf75m4brd266" path="res://assets/animals/rat/run/rat_run_04.png" id="96_qwt6e"]
+[ext_resource type="Texture2D" uid="uid://d1mgtstmmd08e" path="res://assets/animals/rat/run/rat_run_05.png" id="97_off2o"]
+[ext_resource type="Texture2D" uid="uid://ci70cjm68cvoj" path="res://assets/animals/rat/run/rat_run_06.png" id="98_tttfs"]
+[ext_resource type="Texture2D" uid="uid://dbc34eybumw65" path="res://assets/animals/rat/run/rat_run_07.png" id="99_1iygd"]
+[ext_resource type="Texture2D" uid="uid://ruj1nqrjlk5a" path="res://assets/animals/rat/run/rat_run_08.png" id="100_g5xqc"]
+[ext_resource type="Script" uid="uid://dk8mly6jc55cj" path="res://scripts/animals/laboratory_rat.gd" id="101_s4o1y"]
+[ext_resource type="Texture2D" uid="uid://ctc7e6wspeh2m" path="res://assets/environment/laboratory/props/laboratory_waste/overturned_trash_bin.png" id="102_d5iia"]
+[ext_resource type="Texture2D" uid="uid://f6wbeofn6kjj" path="res://assets/environment/laboratory/props/laboratory_waste/scientific_documents.png" id="103_asu84"]
+[ext_resource type="Texture2D" uid="uid://mdv3y7amlqw1" path="res://assets/environment/laboratory/props/laboratory_waste/industrial_scrap_pile.png" id="104_qwt6e"]
+[ext_resource type="Texture2D" uid="uid://dbuvkifq7tai3" path="res://assets/environment/laboratory/props/laboratory_waste/industrial_cleaning_bucket.png" id="105_off2o"]
+[ext_resource type="Texture2D" uid="uid://0xiexj8bgxny" path="res://assets/environment/laboratory/props/laboratory_waste/ biohazard_waste_bag.png" id="108_86lig"]
+[ext_resource type="Script" uid="uid://yaykmrf4uggd" path="res://scripts/animals/laboratory_cockroach.gd" id="108_qe8ju"]
+[ext_resource type="Texture2D" uid="uid://gahfyn76fvb3" path="res://assets/animals/cockroach/idle/idle_00.png" id="109_bnk2o"]
+[ext_resource type="Texture2D" uid="uid://cktqosuiudqpx" path="res://assets/animals/cockroach/idle/idle_01.png" id="110_oosfy"]
+[ext_resource type="Texture2D" uid="uid://nkppe7wgnj4p" path="res://assets/animals/cockroach/run/run_00.png" id="114_pw0td"]
+[ext_resource type="Texture2D" uid="uid://bh15d4wanpyu8" path="res://assets/animals/cockroach/run/run_01.png" id="115_37eu1"]
+[ext_resource type="Texture2D" uid="uid://bekm2bq8h6rpe" path="res://assets/animals/cockroach/run/run_02.png" id="116_0wkqm"]
+[ext_resource type="Texture2D" uid="uid://b80asfkwk3pvf" path="res://assets/animals/cockroach/run/run_03.png" id="117_ve5sr"]
+[ext_resource type="Texture2D" uid="uid://2gtfscehnonp" path="res://assets/animals/cockroach/run/run_04.png" id="118_5s44m"]
+[ext_resource type="Texture2D" uid="uid://dnu6mwdqjw3gd" path="res://assets/animals/cockroach/run/run_05.png" id="119_ibca3"]
+[ext_resource type="Texture2D" uid="uid://b8b56p24lp0xv" path="res://assets/animals/cockroach/run/run_06.png" id="120_g3y5b"]
+[ext_resource type="Texture2D" uid="uid://drvcabuuhkks0" path="res://assets/animals/cockroach/run/run_07.png" id="121_1slqb"]
+[ext_resource type="Texture2D" uid="uid://bcemmh3uhvdfc" path="res://assets/environment/laboratory/obstacles/servers/obstaculo1.png" id="122_asu84"]
+[ext_resource type="Texture2D" uid="uid://l1jongu7og5t" path="res://assets/environment/laboratory/props/plants/plant_hanging_01.png" id="123_qwt6e"]
+[ext_resource type="Texture2D" uid="uid://1b6s1jefaey3" path="res://assets/environment/laboratory/props/security/fan_double.png" id="136_ldnlw"]
+[ext_resource type="Texture2D" uid="uid://7sw30htdyshb" path="res://assets/environment/industrial/industrial_pack/ducts/duct_vertical.png" id="137_oosfy"]
+[ext_resource type="Texture2D" uid="uid://dy3q7hpptvph2" path="res://assets/environment/industrial/industrial_pack/ducts/duct_curve_90.png" id="138_nf4f2"]
+[ext_resource type="Texture2D" uid="uid://dssxktjcm0trl" path="res://assets/environment/industrial/industrial_pack/ducts/duct_hanging.png" id="139_xkvoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w2fo"]
+size = Vector2(25.23178, 71.96275)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8no2l"]
+size = Vector2(53.125, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8v42"]
+size = Vector2(58.32962, 45.367493)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5a86"]
+size = Vector2(165, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0wk"]
+size = Vector2(47, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_723x0"]
+size = Vector2(195, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kmrx"]
+size = Vector2(91.25, 19.25)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4w2fo"]
+a = Vector2(7.392334, 11.196289)
+b = Vector2(0.83032227, 8.562256)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_y2f8h"]
+a = Vector2(11.124512, 8.732178)
+b = Vector2(1.6962891, 9.062256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08nhr"]
+size = Vector2(28, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wk1"]
+size = Vector2(182, 28.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_m13ap"]
+a = Vector2(21.418701, 8.901978)
+b = Vector2(-0.8039551, 13.392334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw8vq"]
+size = Vector2(27, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yv1y"]
+size = Vector2(12.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f8h"]
+size = Vector2(30, 36)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2f8h"]
+bg_color = Color(0.08065585, 0.1103074, 0.13995896, 0.6745098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yh34"]
+size = Vector2(40, 80)
+
+[sub_resource type="SystemFont" id="SystemFont_6es1g"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_m13ap"]
+font = SubResource("SystemFont_6es1g")
+font_size = 36
+
+[sub_resource type="Gradient" id="Gradient_wnkbs"]
+offsets = PackedFloat32Array(0.055555556, 0.5123457, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.5123457, 0.5123457, 0.5123457, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_0n3wm"]
+offsets = PackedFloat32Array(0, 0.35185185, 0.5308642, 0.6728395, 0.7962963)
+colors = PackedColorArray(0, 0, 0, 1, 0.40602916, 0.40602916, 0.40602916, 1, 0.48156947, 0.48156947, 0.48156947, 1, 0.93103445, 0.93103445, 0.93103445, 1, 1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = ExtResource("10_4c57u")
+shader_parameter/background_color = Color(0.015, 0.05, 0.045, 1)
+shader_parameter/noise_intensity = 0.65
+shader_parameter/animation_speed = 18.0
+shader_parameter/block_scale_x = 110.0
+shader_parameter/block_scale_y = 60.0
+shader_parameter/fine_noise_scale_x = 260.0
+shader_parameter/fine_noise_scale_y = 180.0
+shader_parameter/glitch_strength = 0.28
+shader_parameter/scanline_strength = 0.24
+shader_parameter/flicker_strength = 0.05
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wy5fy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("77_f1p13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_4obbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_ovcoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_ppx11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_1yv1y")
+}],
+"loop": 1,
+"name": &"alert",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("77_f1p13")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
+size = Vector2(2000, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+texture = ExtResource("3_h2yge")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_m13ap"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_1bvp3")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lswn8"]
+texture = ExtResource("11_074og")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a6jrf"]
+texture = ExtResource("12_cegan")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xuqvo"]
+texture = ExtResource("13_82xsv")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsp4k"]
+texture = ExtResource("14_getpj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq58d"]
+texture = ExtResource("15_ryguw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_seu75"]
+texture = ExtResource("16_d13ii")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htxhm"]
+texture = ExtResource("17_1u8w0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq2sk"]
+texture = ExtResource("18_0odxb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_y2f8h"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_lswn8")
+sources/1 = SubResource("TileSetAtlasSource_a6jrf")
+sources/2 = SubResource("TileSetAtlasSource_xuqvo")
+sources/3 = SubResource("TileSetAtlasSource_qsp4k")
+sources/4 = SubResource("TileSetAtlasSource_kq58d")
+sources/5 = SubResource("TileSetAtlasSource_seu75")
+sources/6 = SubResource("TileSetAtlasSource_htxhm")
+sources/7 = SubResource("TileSetAtlasSource_jq2sk")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uatky"]
+texture = ExtResource("19_0cp0l")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqtf5"]
+texture = ExtResource("20_d2t1y")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1vm84"]
+texture = ExtResource("21_gngh3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu3dr"]
+texture = ExtResource("22_0n3wm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cyx1q"]
+texture = ExtResource("23_qnost")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dhbp"]
+texture = ExtResource("24_wnkbs")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jx0wj"]
+texture = ExtResource("25_f6a44")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkkcx"]
+texture = ExtResource("26_0cbny")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34ol3"]
+texture = ExtResource("27_hrvbo")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2n8d"]
+texture = ExtResource("28_uypp3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wy5fy"]
+texture = ExtResource("29_blkrb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gx4rg"]
+texture = ExtResource("30_abqjc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5dllo"]
+texture = ExtResource("31_6iyjs")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phcyf"]
+texture = ExtResource("32_4w656")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_birbe"]
+texture = ExtResource("33_e71vb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1p13"]
+texture = ExtResource("34_rnkwl")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4obbf"]
+texture = ExtResource("35_vke2r")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovcoh"]
+texture = ExtResource("36_uit24")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppx11"]
+texture = ExtResource("37_ruth0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yv1y"]
+texture = ExtResource("38_rm4vd")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yh34"]
+texture = ExtResource("39_pjyto")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjuso"]
+texture = ExtResource("40_sm6fg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23xmf"]
+texture = ExtResource("41_b17eg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_swlj1"]
+texture = ExtResource("42_ntx8l")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4w2fo"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_uatky")
+sources/1 = SubResource("TileSetAtlasSource_rqtf5")
+sources/2 = SubResource("TileSetAtlasSource_5dllo")
+sources/3 = SubResource("TileSetAtlasSource_ovcoh")
+sources/4 = SubResource("TileSetAtlasSource_ppx11")
+sources/5 = SubResource("TileSetAtlasSource_1yv1y")
+sources/6 = SubResource("TileSetAtlasSource_5yh34")
+sources/7 = SubResource("TileSetAtlasSource_pjuso")
+sources/8 = SubResource("TileSetAtlasSource_23xmf")
+sources/9 = SubResource("TileSetAtlasSource_swlj1")
+sources/10 = SubResource("TileSetAtlasSource_1vm84")
+sources/11 = SubResource("TileSetAtlasSource_wu3dr")
+sources/12 = SubResource("TileSetAtlasSource_cyx1q")
+sources/13 = SubResource("TileSetAtlasSource_0dhbp")
+sources/14 = SubResource("TileSetAtlasSource_jx0wj")
+sources/15 = SubResource("TileSetAtlasSource_kkkcx")
+sources/16 = SubResource("TileSetAtlasSource_34ol3")
+sources/17 = SubResource("TileSetAtlasSource_c2n8d")
+sources/18 = SubResource("TileSetAtlasSource_wy5fy")
+sources/19 = SubResource("TileSetAtlasSource_gx4rg")
+sources/20 = SubResource("TileSetAtlasSource_phcyf")
+sources/21 = SubResource("TileSetAtlasSource_birbe")
+sources/22 = SubResource("TileSetAtlasSource_f1p13")
+sources/23 = SubResource("TileSetAtlasSource_4obbf")
+
+[sub_resource type="Gradient" id="Gradient_6iyjs"]
+offsets = PackedFloat32Array(0, 0.024691358, 0.09876543, 0.4814815)
+colors = PackedColorArray(0, 0, 0, 1, 0.14814815, 0.14814815, 0.14814815, 1, 0.551051, 0.551051, 0.551051, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_y2f8h"]
+offsets = PackedFloat32Array(0, 0.018518519, 0.28395063)
+colors = PackedColorArray(0, 0, 0, 1, 0.043209877, 0.043209877, 0.043209877, 1, 1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m13ap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_vjgyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_d5iia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_asu84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_qwt6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_off2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_tttfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_1iygd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_g5xqc")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2f8h"]
+animations = [{
+"frames": [{
+"duration": 9.0,
+"texture": ExtResource("109_bnk2o")
+}, {
+"duration": 9.0,
+"texture": ExtResource("110_oosfy")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("114_pw0td")
+}, {
+"duration": 2.0,
+"texture": ExtResource("115_37eu1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("116_0wkqm")
+}, {
+"duration": 2.0,
+"texture": ExtResource("117_ve5sr")
+}, {
+"duration": 2.0,
+"texture": ExtResource("118_5s44m")
+}, {
+"duration": 2.0,
+"texture": ExtResource("119_ibca3")
+}, {
+"duration": 2.0,
+"texture": ExtResource("120_g3y5b")
+}, {
+"duration": 2.0,
+"texture": ExtResource("121_1slqb")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 7.0
+}]
+
+[node name="Main" type="Node2D" unique_id=1323503699]
+script = ExtResource("1_ig7tw")
+metadata/_edit_horizontal_guides_ = [7.0]
+
+[node name="Level" type="Node2D" parent="." unique_id=360430324]
+
+[node name="Obstacles" type="Node2D" parent="Level" unique_id=10091685]
+metadata/_edit_lock_ = true
+
+[node name="ServerObstacle01" type="StaticBody2D" parent="Level/Obstacles" unique_id=535383403]
+metadata/_edit_lock_ = true
+
+[node name="Obstacle" type="Sprite2D" parent="Level/Obstacles/ServerObstacle01" unique_id=1613331599]
+position = Vector2(1512, 184)
+scale = Vector2(0.049746323, 0.049746323)
+texture = ExtResource("122_asu84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Obstacles/ServerObstacle01" unique_id=1910493099]
+position = Vector2(1508, 192.00002)
+rotation = 1.7523105
+shape = SubResource("RectangleShape2D_4w2fo")
+
+[node name="ServerObstacle02" type="StaticBody2D" parent="Level/Obstacles" unique_id=426730780]
+metadata/_edit_lock_ = true
+
+[node name="Obstacle" type="Sprite2D" parent="Level/Obstacles/ServerObstacle02" unique_id=624419386]
+position = Vector2(2158, 183.99995)
+rotation = -0.18151425
+scale = Vector2(0.049746323, 0.049746323)
+texture = ExtResource("122_asu84")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Obstacles/ServerObstacle02" unique_id=2085649761]
+position = Vector2(2156.9812, 191.32126)
+rotation = 1.5428711
+shape = SubResource("RectangleShape2D_4w2fo")
+metadata/_edit_lock_ = true
+
+[node name="Obstacle2" type="Sprite2D" parent="Level/Obstacles/ServerObstacle02" unique_id=1880301263]
+position = Vector2(2222, 199)
+rotation = -3.1415927
+scale = Vector2(0.049746323, 0.049746323)
+texture = ExtResource("122_asu84")
+metadata/_edit_lock_ = true
+
+[node name="Obstacle3" type="Sprite2D" parent="Level/Obstacles/ServerObstacle02" unique_id=647989325]
+position = Vector2(2293, 179)
+rotation = -0.4860018
+scale = Vector2(0.049746323, 0.049746323)
+texture = ExtResource("122_asu84")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Obstacles/ServerObstacle02" unique_id=1303574277]
+position = Vector2(2228, 191.61589)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_4w2fo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level/Obstacles/ServerObstacle02" unique_id=1115068413]
+position = Vector2(2297.9998, 182.00006)
+rotation = 1.3089969
+shape = SubResource("RectangleShape2D_4w2fo")
+metadata/_edit_lock_ = true
+
+[node name="Obstacle4" type="Sprite2D" parent="Level/Obstacles/ServerObstacle02" unique_id=1684259520]
+position = Vector2(2321.0002, 176.99994)
+rotation = -1.0602155
+scale = Vector2(0.049746323, 0.049746323)
+texture = ExtResource("122_asu84")
+metadata/_edit_lock_ = true
+
+[node name="Obstacle5" type="Sprite2D" parent="Level/Obstacles/ServerObstacle02" unique_id=719799184]
+position = Vector2(2366, 185.99997)
+rotation = -1.8325958
+scale = Vector2(0.049746323, 0.049746323)
+texture = ExtResource("122_asu84")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level/Obstacles/ServerObstacle02" unique_id=1433405675]
+position = Vector2(2330, 174.00006)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_4w2fo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level/Obstacles/ServerObstacle02" unique_id=660029169]
+position = Vector2(2371.0002, 182.99997)
+rotation = -0.019198623
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_4w2fo")
+metadata/_edit_lock_ = true
+
+[node name="ElevatedPaths" type="Node2D" parent="Level" unique_id=1052425214]
+metadata/_edit_lock_ = true
+
+[node name="IndustrialExhaustFan" type="StaticBody2D" parent="Level/ElevatedPaths" unique_id=579316612]
+metadata/_edit_lock_ = true
+
+[node name="IndustrialExhaustFan" type="Sprite2D" parent="Level/ElevatedPaths/IndustrialExhaustFan" unique_id=1191747183]
+position = Vector2(3006, 96.00001)
+scale = Vector2(0.62640053, 0.6264006)
+texture = ExtResource("136_ldnlw")
+
+[node name="LeftFanCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/IndustrialExhaustFan" unique_id=1737303491]
+position = Vector2(2979.875, 92)
+shape = SubResource("RectangleShape2D_8no2l")
+metadata/_edit_lock_ = true
+
+[node name="RightFanCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/IndustrialExhaustFan" unique_id=1876906066]
+position = Vector2(3040.4375, 93.5)
+shape = SubResource("RectangleShape2D_8no2l")
+metadata/_edit_lock_ = true
+
+[node name="WallVentPlatform" type="StaticBody2D" parent="Level/ElevatedPaths" unique_id=768493658]
+position = Vector2(2426, 124.00001)
+scale = Vector2(0.308591, 0.308591)
+
+[node name="Plant" type="Sprite2D" parent="Level/ElevatedPaths/WallVentPlatform" unique_id=73150452]
+position = Vector2(-3.2407227, -6.481079)
+texture = ExtResource("123_qwt6e")
+metadata/_edit_lock_ = true
+
+[node name="WallVentCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/WallVentPlatform" unique_id=813147916]
+position = Vector2(3.2407227, 3.240509)
+shape = SubResource("RectangleShape2D_i8v42")
+
+[node name="ContainmentChamber" type="StaticBody2D" parent="Level/ElevatedPaths" unique_id=133987185]
+metadata/_edit_lock_ = true
+
+[node name="ContainmentChamberCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/ContainmentChamber" unique_id=1405628773]
+position = Vector2(2562.5, 107.5)
+shape = SubResource("RectangleShape2D_r5a86")
+
+[node name="ServerRackCollision" type="StaticBody2D" parent="Level/ElevatedPaths" unique_id=751235735]
+metadata/_edit_lock_ = true
+
+[node name="WallVentCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/ServerRackCollision" unique_id=1672572994]
+position = Vector2(2720.5, 93.5)
+shape = SubResource("RectangleShape2D_cm0wk")
+
+[node name="ServerRackPlatform" type="StaticBody2D" parent="Level/ElevatedPaths" unique_id=1554323508]
+metadata/_edit_lock_ = true
+
+[node name="ServerRackCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/ServerRackPlatform" unique_id=2144836082]
+position = Vector2(2832.5, 113.5)
+shape = SubResource("RectangleShape2D_723x0")
+
+[node name="DuctPlatform" type="StaticBody2D" parent="Level/ElevatedPaths" unique_id=638814080]
+metadata/_edit_lock_ = true
+
+[node name="CeilingCollision2" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=752743550]
+z_index = 2
+position = Vector2(3348.75, -29.75)
+shape = SubResource("RectangleShape2D_4kmrx")
+
+[node name="CeilingCollision3" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1425180706]
+z_index = 2
+position = Vector2(3447.625, -30.375)
+shape = SubResource("RectangleShape2D_4kmrx")
+
+[node name="CeilingCollision4" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=869250891]
+z_index = 2
+position = Vector2(3548, -28)
+shape = SubResource("RectangleShape2D_4kmrx")
+
+[node name="CeilingCollision5" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1826097569]
+z_index = 2
+position = Vector2(3648, -28)
+shape = SubResource("RectangleShape2D_4kmrx")
+
+[node name="CeilingCollision6" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1782598324]
+z_index = 2
+position = Vector2(3753, -28)
+shape = SubResource("RectangleShape2D_4kmrx")
+
+[node name="CeilingCollision7" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1246502713]
+z_index = 2
+position = Vector2(3859, -29)
+shape = SubResource("RectangleShape2D_4kmrx")
+
+[node name="DuctCollision4" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=371486007]
+z_index = 2
+position = Vector2(3089.9998, 14)
+rotation = -0.5235988
+shape = SubResource("SegmentShape2D_4w2fo")
+
+[node name="DuctCollision5" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=544035411]
+z_index = 2
+position = Vector2(3081.9998, 19)
+rotation = -0.5235988
+shape = SubResource("SegmentShape2D_y2f8h")
+
+[node name="Duct" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1512184229]
+z_index = -5
+position = Vector2(3088, 166)
+scale = Vector2(0.45714286, 0.45714286)
+texture = ExtResource("137_oosfy")
+
+[node name="Duct2" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=887151276]
+z_index = -5
+position = Vector2(3088, 102)
+scale = Vector2(0.45714286, 0.45714286)
+texture = ExtResource("137_oosfy")
+
+[node name="Duct3" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1351442738]
+z_index = -5
+position = Vector2(3156, 33.999996)
+rotation = 1.5707964
+scale = Vector2(0.45714286, 0.45714286)
+texture = ExtResource("137_oosfy")
+
+[node name="Duct4" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1475251149]
+z_index = -5
+position = Vector2(3219, 34)
+rotation = 1.5707964
+scale = Vector2(0.45714286, 0.45714286)
+texture = ExtResource("137_oosfy")
+
+[node name="DuctCurve" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1121731831]
+position = Vector2(3099, 44)
+rotation = -1.5707964
+scale = Vector2(0.3660093, 0.37154886)
+texture = ExtResource("138_nf4f2")
+
+[node name="DuctCurve2" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1223044264]
+position = Vector2(3274, 23.000002)
+rotation = 1.5707964
+scale = Vector2(0.3660093, 0.37154886)
+texture = ExtResource("138_nf4f2")
+
+[node name="CeilingCollision" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=2145650459]
+position = Vector2(3351.0002, -36)
+scale = Vector2(0.34713373, 0.34713376)
+texture = ExtResource("139_xkvoa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1455709657]
+position = Vector2(3447.0002, -38)
+scale = Vector2(0.34713373, 0.34713376)
+texture = ExtResource("139_xkvoa")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1424403948]
+position = Vector2(3546.9998, -35)
+scale = Vector2(0.34713373, 0.34713376)
+texture = ExtResource("139_xkvoa")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=422918359]
+position = Vector2(3646.9998, -35)
+scale = Vector2(0.34713373, 0.34713376)
+texture = ExtResource("139_xkvoa")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=168917737]
+position = Vector2(3754, -36)
+scale = Vector2(0.34713373, 0.34713376)
+texture = ExtResource("139_xkvoa")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1292672042]
+position = Vector2(3859, -36)
+scale = Vector2(0.34713373, 0.34713376)
+texture = ExtResource("139_xkvoa")
+
+[node name="DuctCollision2" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=377360461]
+position = Vector2(3087, 68)
+shape = SubResource("RectangleShape2D_08nhr")
+
+[node name="DuctCollision" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1441424229]
+position = Vector2(3193, 32.75)
+shape = SubResource("RectangleShape2D_j5wk1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1061710564]
+position = Vector2(3067, 28)
+rotation = -0.5235988
+shape = SubResource("SegmentShape2D_m13ap")
+
+[node name="DuctCollision3" type="CollisionShape2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=1140316857]
+position = Vector2(3286.5, 14.75)
+shape = SubResource("RectangleShape2D_yw8vq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Level/ElevatedPaths/DuctPlatform" unique_id=190713602]
+
+[node name="Characters" type="Node2D" parent="." unique_id=859205747]
+
+[node name="Player" parent="Characters" unique_id=2135112223 groups=["player"] instance=ExtResource("2_0xm2m")]
+visible = true
+z_index = 10
+position = Vector2(-14, 177)
+metadata/_edit_lock_ = true
+
+[node name="ESP32Controller" type="Node2D" parent="Characters/Player" unique_id=1059401734]
+script = ExtResource("3_34ol3")
+
+[node name="ESP32LightAnchor" type="Marker2D" parent="Characters/Player" unique_id=1787065541 node_paths=PackedStringArray("player_sprite")]
+script = ExtResource("4_wy5fy")
+player_sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ESP32Light" type="PointLight2D" parent="Characters/Player/ESP32LightAnchor" unique_id=489923868]
+scale = Vector2(0.035693362, 0.035693362)
+skew = 0.31066862
+color = Color(2.2651708, 2.4093745, 2.5495398, 1)
+energy = 1.16
+texture = ExtResource("43_d2t1y")
+
+[node name="ByteAgent" parent="Characters" unique_id=632882219 node_paths=PackedStringArray("activation_camera", "player", "spawn_points") instance=ExtResource("85_1yv1y")]
+visible = true
+collision_layer = 3
+activation_camera = NodePath("../../SecuritySystems/SecurityCamera2")
+player = NodePath("../Player")
+spawn_points = [NodePath("../../GameSystems/ByteSpawnPoint/Spawn01"), NodePath("../../GameSystems/ByteSpawnPoint/Spawn02"), NodePath("../../GameSystems/ByteSpawnPoint/Spawn03"), NodePath("../../GameSystems/ByteSpawnPoint/Spawn04")]
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" parent="Characters/ByteAgent" index="0" unique_id=1832235089]
+position = Vector2(-5, -6.0000005)
+frame_progress = 0.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="Characters/ByteAgent" index="1" unique_id=1628922667]
+visible = true
+shape = SubResource("RectangleShape2D_1yv1y")
+disabled = true
+metadata/_edit_lock_ = true
+
+[node name="WallRayCast" parent="Characters/ByteAgent" index="2" unique_id=400862924]
+position = Vector2(299, 187)
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D" parent="Characters/ByteAgent" index="3" unique_id=1603187468]
+metadata/_edit_lock_ = true
+
+[node name="CaptureArea" type="Area2D" parent="Characters/ByteAgent" unique_id=1456767915]
+collision_layer = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/ByteAgent/CaptureArea" unique_id=1184435311]
+shape = SubResource("RectangleShape2D_y2f8h")
+metadata/_edit_lock_ = true
+
+[node name="CaptureAnchor" type="Marker2D" parent="Characters/ByteAgent" unique_id=181462225]
+metadata/_edit_lock_ = true
+
+[node name="FemaleProtagonist" parent="Characters" unique_id=1173313793 instance=ExtResource("8_5vw27")]
+visible = false
+position = Vector2(49, 200)
+scale = Vector2(0.13, 0.13)
+
+[node name="UI" type="Node2D" parent="." unique_id=399940867]
+
+[node name="ESP32HUD" type="CanvasLayer" parent="UI" unique_id=1544678539]
+script = ExtResource("75_c2n8d")
+
+[node name="EquipmentUI" type="CanvasLayer" parent="UI" unique_id=1824799953]
+
+[node name="EquipmentWheel" type="Control" parent="UI/EquipmentUI" unique_id=169227704]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("93_lwnsi")
+player_path = NodePath("../../../Characters/Player")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="WheelPanel" type="Control" parent="UI/EquipmentUI/EquipmentWheel" unique_id=768254302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Wheel" type="Control" parent="UI/EquipmentUI/EquipmentWheel/WheelPanel" unique_id=1887772983]
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 250.0
+script = ExtResource("93_53bls")
+metadata/_edit_lock_ = true
+
+[node name="BackpackIndicator" type="PanelContainer" parent="UI/EquipmentUI/EquipmentWheel" unique_id=1771435630]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 52.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y2f8h")
+metadata/_edit_lock_ = true
+
+[node name="BackpackLabel" type="Label" parent="UI/EquipmentUI/EquipmentWheel/BackpackIndicator" unique_id=589437217]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.21960784, 0.7137255, 1, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BackpackIcon" type="TextureRect" parent="UI/EquipmentUI/EquipmentWheel/BackpackIndicator" unique_id=867912979]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LaptopDesktop" parent="UI" unique_id=1164033447 instance=ExtResource("7_272bh")]
+
+[node name="GameSystems" type="Node2D" parent="." unique_id=1435129142]
+
+[node name="Checkpoint" type="Area2D" parent="GameSystems" unique_id=463201663]
+collision_layer = 0
+script = ExtResource("86_5yh34")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPoint" type="CollisionShape2D" parent="GameSystems/Checkpoint" unique_id=48800742]
+position = Vector2(602, 161)
+shape = SubResource("RectangleShape2D_5yh34")
+metadata/_edit_lock_ = true
+
+[node name="RespawnPoint" type="Marker2D" parent="GameSystems/Checkpoint" unique_id=800085594]
+metadata/_edit_lock_ = true
+
+[node name="ByteSpawnPoint" type="Marker2D" parent="GameSystems" unique_id=2120181286]
+metadata/_edit_lock_ = true
+
+[node name="Spawn01" type="Marker2D" parent="GameSystems/ByteSpawnPoint" unique_id=240527720]
+position = Vector2(1039, 173)
+metadata/_edit_lock_ = true
+
+[node name="Spawn02" type="Marker2D" parent="GameSystems/ByteSpawnPoint" unique_id=2106539077]
+position = Vector2(824, 171)
+metadata/_edit_lock_ = true
+
+[node name="Spawn03" type="Marker2D" parent="GameSystems/ByteSpawnPoint" unique_id=899666184]
+position = Vector2(531, 165)
+metadata/_edit_lock_ = true
+
+[node name="Spawn04" type="Marker2D" parent="GameSystems/ByteSpawnPoint" unique_id=1804533337]
+position = Vector2(737, 166)
+metadata/_edit_lock_ = true
+
+[node name="CaptureScreen" type="CanvasLayer" parent="GameSystems" unique_id=328596513]
+visible = false
+
+[node name="BlackOverlay" type="ColorRect" parent="GameSystems/CaptureScreen" unique_id=20656568]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CaptureLabel" type="Label" parent="GameSystems/CaptureScreen" unique_id=475991955]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -136.0
+offset_right = 241.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CAPTURADO"
+label_settings = SubResource("LabelSettings_m13ap")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="SoundBox" type="Node2D" parent="GameSystems" unique_id=451592204]
+metadata/_edit_lock_ = true
+
+[node name="SoundBox3" type="Sprite2D" parent="GameSystems/SoundBox" unique_id=607940382]
+position = Vector2(2401, 97.99999)
+rotation = -1.5707964
+scale = Vector2(0.13901906, 0.13901909)
+texture = ExtResource("92_lwnsi")
+metadata/_edit_lock_ = true
+
+[node name="SoundBox4" type="Sprite2D" parent="GameSystems/SoundBox" unique_id=1236209270]
+position = Vector2(4064.0002, 96.00001)
+rotation = -1.5707964
+scale = Vector2(0.13436915, 0.13436918)
+texture = ExtResource("92_lwnsi")
+
+[node name="SoundBox5" type="Sprite2D" parent="GameSystems/SoundBox" unique_id=421605049]
+position = Vector2(4769.0005, 96)
+rotation = -1.5707964
+scale = Vector2(0.13436915, 0.13436918)
+texture = ExtResource("92_lwnsi")
+
+[node name="SoundBox6" type="Sprite2D" parent="GameSystems/SoundBox" unique_id=527592777]
+position = Vector2(5281.0005, 96)
+rotation = -1.5707964
+scale = Vector2(0.13436915, 0.13436918)
+texture = ExtResource("92_lwnsi")
+
+[node name="SoundBox2" type="Sprite2D" parent="GameSystems/SoundBox" unique_id=1668340248]
+position = Vector2(2082, 98.00001)
+rotation = -1.5707964
+scale = Vector2(0.14130433, 0.14130433)
+texture = ExtResource("92_lwnsi")
+metadata/_edit_lock_ = true
+
+[node name="SoundBox" type="Sprite2D" parent="GameSystems/SoundBox" unique_id=1856974056]
+position = Vector2(3362, 97.00001)
+rotation = -1.5707964
+scale = Vector2(0.13657798, 0.13657798)
+texture = ExtResource("92_lwnsi")
+metadata/_edit_lock_ = true
+
+[node name="LightingAndEffects" type="Node2D" parent="." unique_id=372788843]
+
+[node name="ElectricSparks01" type="Node2D" parent="LightingAndEffects" unique_id=496400133]
+script = ExtResource("46_qnost")
+min_interval = 1.5
+max_interval = 5.0
+spark_count = 14
+metadata/_edit_lock_ = true
+
+[node name="Sparks" type="CPUParticles2D" parent="LightingAndEffects/ElectricSparks01" unique_id=697862126]
+z_index = 2
+position = Vector2(-20, 94)
+amount = 14
+lifetime = 0.3
+explosiveness = 1.0
+direction = Vector2(1, -1)
+gravity = Vector2(0, 130)
+initial_velocity_min = 25.0
+initial_velocity_max = 65.0
+color = Color(0, 1.4369954, 1.4369954, 1)
+color_ramp = SubResource("Gradient_wnkbs")
+
+[node name="SmokeEffects" type="Node" parent="LightingAndEffects" unique_id=2113903022]
+
+[node name="VentSmoke01" type="CPUParticles2D" parent="LightingAndEffects/SmokeEffects" unique_id=1696123141]
+z_index = -3
+position = Vector2(545, 98)
+amount = 12
+lifetime = 5.5
+preprocess = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, -5)
+initial_velocity_min = 1.5
+initial_velocity_max = 4.0
+damping_min = 2.0
+damping_max = 4.0
+scale_amount_min = 0.8
+scale_amount_max = 1.4
+color = Color(0.50980395, 0.5764706, 0.6039216, 1)
+color_ramp = SubResource("Gradient_0n3wm")
+metadata/_edit_lock_ = true
+
+[node name="SceneLighting" type="Node2D" parent="LightingAndEffects" unique_id=1572796854]
+metadata/_edit_lock_ = true
+
+[node name="TVGlow" type="PointLight2D" parent="LightingAndEffects/SceneLighting" unique_id=494730091]
+position = Vector2(134, 126)
+color = Color(0.27058825, 0.9019608, 0.7411765, 1)
+energy = 2.46
+texture = ExtResource("43_d2t1y")
+texture_scale = 0.35
+metadata/_edit_lock_ = true
+
+[node name="CeilingLights" type="PointLight2D" parent="LightingAndEffects/SceneLighting" unique_id=401882861]
+position = Vector2(-22, 34)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+metadata/_edit_lock_ = true
+
+[node name="FlickeringCeilingLight4" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights" unique_id=1743477582]
+position = Vector2(2038.12, -6.4400024)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="CeilingLight01" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights/FlickeringCeilingLight4" unique_id=889599432]
+position = Vector2(501, 6)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+metadata/_edit_lock_ = true
+
+[node name="CeilingLight01" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights/FlickeringCeilingLight4/CeilingLight01" unique_id=1925802098]
+position = Vector2(251, 6)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+metadata/_edit_lock_ = true
+
+[node name="CeilingLight01" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights/FlickeringCeilingLight4/CeilingLight01/CeilingLight01" unique_id=68057949]
+position = Vector2(770, -4)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 6.73
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+metadata/_edit_lock_ = true
+
+[node name="CeilingLight02" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights/FlickeringCeilingLight4/CeilingLight01/CeilingLight01" unique_id=474893295]
+position = Vector2(136, 51)
+scale = Vector2(0.69148284, 0.69148284)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 1.4
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+metadata/_edit_lock_ = true
+
+[node name="FlickeringCeilingLight5" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights" unique_id=1794747520]
+position = Vector2(888, 63)
+scale = Vector2(0.69148284, 0.69148284)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 1.4
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="FlickeringCeilingLight3" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights" unique_id=1965142233]
+position = Vector2(1522, 8)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 6.73
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="FlickeringCeilingLight2" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights" unique_id=1837664747]
+position = Vector2(752, 12)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="CeilingLight01" type="PointLight2D" parent="LightingAndEffects/SceneLighting/CeilingLights" unique_id=1844530420]
+position = Vector2(501, 6)
+color = Color(0.5882353, 0.9647059, 0.9098039, 1)
+energy = 2.3
+texture = ExtResource("44_gngh3")
+texture_scale = 1.02
+script = ExtResource("45_0n3wm")
+test_mode = true
+
+[node name="AmbientLighting" type="CanvasModulate" parent="LightingAndEffects" unique_id=247310257]
+color = Color(0.4091606, 0.4485743, 0.48801643, 1)
+metadata/_edit_lock_ = true
+
+[node name="SecuritySystems" type="Node2D" parent="." unique_id=232357557]
+
+[node name="SecurityTerminal" parent="SecuritySystems" unique_id=890956503 instance=ExtResource("5_lquwl")]
+position = Vector2(654, 175)
+scale = Vector2(0.45, 0.45)
+
+[node name="SecurityCamera01" parent="SecuritySystems" unique_id=43128996 groups=["security_cameras"] instance=ExtResource("6_7mycd")]
+position = Vector2(201, 106)
+
+[node name="CollisionShape2D" parent="SecuritySystems/SecurityCamera01/DetectionArea" parent_id_path=PackedInt32Array(43128996, 1129456261) index="0" unique_id=1160548947]
+position = Vector2(64, 55)
+scale = Vector2(0.3, 0.32)
+
+[node name="CameraSprite" parent="SecuritySystems/SecurityCamera01/CameraPivot" parent_id_path=PackedInt32Array(43128996, 833092106) index="0" unique_id=65151989]
+position = Vector2(-3.7587671, 1.3680793)
+rotation = 0.5235988
+scale = Vector2(0.041269764, 0.04059283)
+
+[node name="CameraMount" parent="SecuritySystems/SecurityCamera01" index="2" unique_id=483373215]
+position = Vector2(-3.0000005, 1.9999998)
+rotation = 1.5707964
+
+[node name="SecurityCamera2" parent="SecuritySystems" unique_id=2093430885 groups=["security_cameras"] instance=ExtResource("6_7mycd")]
+position = Vector2(1041, 106)
+camera_id = "CAM_002"
+
+[node name="DetectionArea" parent="SecuritySystems/SecurityCamera2" index="0" unique_id=1129456261]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="SecuritySystems/SecurityCamera2/DetectionArea" index="0" unique_id=1160548947]
+position = Vector2(64, 55)
+scale = Vector2(0.3, 0.32)
+metadata/_edit_lock_ = true
+
+[node name="CameraPivot" parent="SecuritySystems/SecurityCamera2" index="1" unique_id=833092106]
+metadata/_edit_lock_ = true
+
+[node name="CameraSprite" parent="SecuritySystems/SecurityCamera2/CameraPivot" index="0" unique_id=65151989]
+position = Vector2(-3.7587671, 1.3680793)
+rotation = 0.5235988
+scale = Vector2(0.041269764, 0.04059283)
+metadata/_edit_lock_ = true
+
+[node name="CameraMount" parent="SecuritySystems/SecurityCamera2" index="2" unique_id=483373215]
+position = Vector2(-3.0000005, 1.9999998)
+rotation = 1.5707964
+metadata/_edit_lock_ = true
+
+[node name="SecurityTV" type="Node2D" parent="SecuritySystems" unique_id=1277165496]
+scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
+
+[node name="ScreenBackground" type="ColorRect" parent="SecuritySystems/SecurityTV" unique_id=76964004]
+material = SubResource("ShaderMaterial_kek77")
+offset_left = 53.0
+offset_top = 55.0
+offset_right = 83.0
+offset_bottom = 69.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="TVFrame" type="Sprite2D" parent="SecuritySystems/SecurityTV" unique_id=432146360]
+position = Vector2(68.6, 62.4)
+scale = Vector2(0.026171874, 0.026171874)
+texture = ExtResource("9_kek77")
+metadata/_edit_lock_ = true
+
+[node name="WallAlarm" type="Node2D" parent="SecuritySystems" unique_id=1296481863]
+script = ExtResource("77_ovcoh")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecuritySystems/WallAlarm" unique_id=1379770353]
+position = Vector2(238, 95)
+scale = Vector2(0.068033785, 0.06803379)
+sprite_frames = SubResource("SpriteFrames_wy5fy")
+animation = &"alert"
+
+[node name="PointLight2D" type="PointLight2D" parent="SecuritySystems/WallAlarm" unique_id=1684998135]
+position = Vector2(239.00002, 86)
+scale = Vector2(0.18554688, 0.18554688)
+color = Color(2.296754, 0, 0, 1)
+energy = 1.3
+texture = ExtResource("44_gngh3")
+texture_scale = 2.0
+metadata/_edit_lock_ = true
+
+[node name="AlarmSound" type="AudioStreamPlayer2D" parent="SecuritySystems/WallAlarm" unique_id=2097161918]
+stream = ExtResource("83_ppx11")
+max_distance = 1500.0
+metadata/_edit_lock_ = true
+
+[node name="SecuritySystem" type="Node" parent="SecuritySystems" unique_id=1697034950]
+script = ExtResource("82_4obbf")
+
+[node name="Door" parent="SecuritySystems" unique_id=1795148932 instance=ExtResource("4_1bvp3")]
+position = Vector2(768, 216)
+metadata/_edit_lock_ = true
+
+[node name="Environment" type="Node2D" parent="." unique_id=907927112]
+
+[node name="Ground" type="StaticBody2D" parent="Environment" unique_id=657128163]
+position = Vector2(240, 240)
+metadata/_edit_lock_ = true
+
+[node name="GroumdCollision" type="CollisionShape2D" parent="Environment/Ground" unique_id=1219628722]
+shape = SubResource("RectangleShape2D_m13ap")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/Ground" unique_id=1770356272]
+visible = false
+color = Color(0.14509805, 0.21568628, 0.3137255, 1)
+polygon = PackedVector2Array(-240, -12, 240, -12, 240, 12, -240, 12)
+metadata/_edit_lock_ = true
+
+[node name="IndustrialFloor" type="TileMapLayer" parent="Environment" unique_id=1386542433]
+tile_map_data = PackedByteArray("AAAAAAMAAQABAAAAAAABAAMAAQABAAAAAAACAAMAAQACAAAAAAADAAMAAQAEAAAAAAAEAAMAAQABAAAAAAAFAAMAAQAFAAAAAAAGAAMAAQAGAAAAAAAHAAMAAQAEAAAAAAAAAAQAAQAAAAEAAAABAAQAAQAAAAEAAAACAAQAAQAAAAEAAAADAAQAAQABAAEAAAAEAAQAAQAAAAEAAAAFAAQAAQAAAAEAAAAGAAQAAQAAAAEAAAAHAAQAAQABAAEAAAAIAAQAAQAAAAEAAAAJAAQAAQAAAAEAAAAKAAQAAQAAAAEAAAAIAAMAAQABAAAAAAAJAAMAAQABAAAAAAD//wQAAQABAAEAAAD+/wQAAQAAAAEAAAD9/wQAAQAAAAEAAAD//wMAAQAEAAAAAAD+/wMAAQABAAAAAAD9/wMAAQABAAAAAAAKAAMAAQABAAAAAAALAAMAAQAHAAAAAAAMAAMAAQAAAAAAAAALAAQAAQABAAEAAAAMAAQAAQAAAAEAAAANAAQAAQAAAAEAAAAOAAQAAQAAAAEAAAAPAAQAAQABAAEAAAD8/wQAAQAAAAEAAAD8/wMAAQABAAAAAAANAAMAAQABAAAAAAAOAAMAAQABAAAAAAAPAAMAAQAEAAAAAAAQAAQAAQAAAAEAAAATAAQAAQABAAEAAAARAAQAAQAAAAEAAAASAAQAAQAAAAEAAAAUAAQAAQAAAAEAAAAVAAQAAQAAAAEAAAAWAAQAAQAAAAEAAAAQAAMAAQABAAAAAAARAAMAAQABAAAAAAASAAMAAQABAAAAAAATAAMAAQAEAAAAAAAUAAMAAQABAAAAAAAVAAMAAQABAAAAAAAWAAMAAQABAAAAAAAXAAQAAQABAAEAAAAYAAQAAQAAAAEAAAAZAAQAAQAAAAEAAAAaAAQAAQAAAAEAAAAbAAQAAQABAAEAAAAXAAMAAQAEAAAAAAAYAAMAAQABAAAAAAAZAAMAAQABAAAAAAAaAAMAAQABAAAAAAAbAAMAAQAEAAAAAAAcAAMAAQABAAAAAAAdAAMAAQABAAAAAAAeAAMAAQABAAAAAAAgAAMAAQABAAAAAAAhAAMAAQABAAAAAAAjAAMAAQABAAAAAAAiAAMAAQABAAAAAAAlAAMAAQABAAAAAAAmAAMAAQABAAAAAAAnAAMAAQABAAAAAAAoAAMAAQABAAAAAAAqAAMAAQABAAAAAAArAAMAAQABAAAAAAAsAAMAAQABAAAAAAAtAAMAAQABAAAAAAAvAAMAAQABAAAAAAAwAAMAAQABAAAAAAAxAAMAAQABAAAAAAAyAAMAAQABAAAAAAA0AAMAAQAAAAAAAAA2AAMAAQABAAAAAAA1AAMAAQABAAAAAAA3AAMAAQAFAAAAAAAfAAMAAQAEAAAAAAAkAAMAAQAEAAAAAAApAAMAAQAHAAAAAAAuAAMAAQAEAAAAAAAzAAMAAQAHAAAAAAA4AAMAAQAEAAAAAAA5AAMAAQABAAAAAAA6AAMAAQAFAAAAAAA7AAMAAQABAAAAAAA8AAMAAQAFAAAAAAA9AAMAAQAAAAAAAAA+AAMAAQAFAAAAAAA/AAMAAQABAAAAAABAAAMAAQAFAAAAAABBAAMAAQABAAAAAABDAAMAAQABAAAAAABEAAMAAQAFAAAAAABFAAMAAQABAAAAAABGAAMAAQAFAAAAAABIAAMAAQABAAAAAABJAAMAAQABAAAAAABKAAMAAQABAAAAAABLAAMAAQABAAAAAABNAAMAAQABAAAAAABOAAMAAQABAAAAAABPAAMAAQABAAAAAABQAAMAAQABAAAAAABSAAMAAQABAAAAAABTAAMAAQABAAAAAABUAAMAAQABAAAAAABVAAMAAQABAAAAAABXAAMAAQABAAAAAABYAAMAAQABAAAAAABZAAMAAQABAAAAAABaAAMAAQABAAAAAABcAAMAAQABAAAAAABdAAMAAQABAAAAAABeAAMAAQABAAAAAABfAAMAAQABAAAAAABhAAMAAQABAAAAAABiAAMAAQABAAAAAABjAAMAAQABAAAAAABkAAMAAQABAAAAAABmAAMAAQABAAAAAABnAAMAAQABAAAAAABoAAMAAQABAAAAAABpAAMAAQABAAAAAABrAAMAAQABAAAAAABsAAMAAQABAAAAAABtAAMAAQABAAAAAABuAAMAAQABAAAAAAAcAAQAAQAAAAEAAAAdAAQAAQAAAAEAAAAeAAQAAQAAAAEAAAAfAAQAAQABAAEAAAAgAAQAAQAAAAEAAAAhAAQAAQAAAAEAAAAiAAQAAQAAAAEAAAAjAAQAAQABAAEAAAAnAAQAAQABAAEAAAArAAQAAQABAAEAAAAvAAQAAQABAAEAAAAzAAQAAQABAAEAAAA3AAQAAQAEAAEAAAAkAAQAAQAAAAEAAAAlAAQAAQAAAAEAAAAmAAQAAQAAAAEAAAAoAAQAAQAAAAEAAAAqAAQAAQAAAAEAAAApAAQAAQAAAAEAAAAsAAQAAQAAAAEAAAAtAAQAAQAAAAEAAAAuAAQAAQAAAAEAAAAwAAQAAQAAAAEAAAAxAAQAAQAAAAEAAAAyAAQAAQAAAAEAAAA0AAQAAQAAAAEAAAA1AAQAAQAEAAEAAAA2AAQAAQAAAAEAAAA4AAQAAQAAAAEAAABCAAMAAQAFAAAAAABHAAMAAQAFAAAAAAA5AAQAAQAEAAEAAAA7AAQAAQAEAAEAAAA9AAQAAQAEAAEAAAA/AAQAAQAEAAEAAABBAAQAAQAEAAEAAABDAAQAAQAEAAEAAABFAAQAAQAEAAEAAABHAAQAAQAEAAEAAABJAAQAAQAEAAEAAABLAAQAAQAEAAEAAABNAAQAAQAEAAEAAABPAAQAAQAEAAEAAABRAAQAAQAEAAEAAABTAAQAAQAEAAEAAABVAAQAAQAEAAEAAABXAAQAAQAEAAEAAABZAAQAAQAEAAEAAABbAAQAAQAEAAEAAABdAAQAAQAEAAEAAABfAAQAAQAEAAEAAABhAAQAAQAEAAEAAABjAAQAAQAEAAEAAABlAAQAAQAEAAEAAABnAAQAAQAEAAEAAABpAAQAAQAEAAEAAABrAAQAAQAEAAEAAABtAAQAAQAEAAEAAABvAAQAAQAEAAEAAABvAAMAAQABAAAAAABgAAMAAQAEAAAAAABlAAMAAQAEAAAAAABqAAMAAQAEAAAAAABbAAMAAQAEAAAAAABWAAMAAQAEAAAAAABRAAMAAQAEAAAAAABMAAMAAQAEAAAAAAA6AAQAAQADAAEAAAA8AAQAAQADAAEAAAA+AAQAAQADAAEAAABAAAQAAQADAAEAAABCAAQAAQADAAEAAABEAAQAAQADAAEAAABGAAQAAQADAAEAAABIAAQAAQADAAEAAABKAAQAAQADAAEAAABMAAQAAQADAAEAAABOAAQAAQADAAEAAABQAAQAAQADAAEAAABSAAQAAQADAAEAAABUAAQAAQADAAEAAABWAAQAAQADAAEAAABYAAQAAQADAAEAAABaAAQAAQADAAEAAABcAAQAAQADAAEAAABeAAQAAQADAAEAAABgAAQAAQADAAEAAABiAAQAAQADAAEAAABkAAQAAQADAAEAAABmAAQAAQADAAEAAABoAAQAAQADAAEAAABqAAQAAQADAAEAAABsAAQAAQADAAEAAABuAAQAAQADAAEAAAA=")
+tile_set = SubResource("TileSet_m13ap")
+metadata/_edit_lock_ = true
+
+[node name="IndustrialWall" type="TileMapLayer" parent="Environment" unique_id=485256724]
+z_index = -5
+tile_map_data = PackedByteArray("AAAAAAIABQAAAAAAAAAAAAEABQAAAAAAAAACAAIABgAAAAAAAAACAAEABgAAAAAAAAABAAEAAwAAAAAAAAABAAIAAQAAAAAAAAD//wIAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAQAAAAAAAAADAAEABAAAAAAAAAAAAAAABQAAAAAAAAAEAAIABQAAAAAAAAAEAAEABQAAAAAAAAABAAAAAQAAAAAAAAACAAAABAAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAADAAIAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAABQAAAAAAAAAAAAUAAQAAAAAAAAD//wUAAQAAAAAAAAD+/wUAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAwAAAAAAAAAHAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAALAAEAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAANAAIAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAQAAAAAAAAAOAAIAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAAMAP//AQAAAAAAAAANAP//AQAAAAAAAAAOAP//AQAAAAAAAAAPAAIAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAAAAQAAAAAAAAAPAP//AQAAAAAAAAAQAAIAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAAAAQAAAAAAAAAQAP//AQAAAAAAAAARAAAAAQAAAAAAAAARAAEAAwAAAAAAAAARAAIAAQAAAAAAAAASAAIAAQAAAAAAAAARAP//AQAAAAAAAAASAP//AQAAAAAAAAASAAAAAQAAAAAAAAASAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAAEAAQAAAAAAAAATAAAAAQAAAAAAAAATAP//AQAAAAAAAAAUAP//AQAAAAAAAAAUAAEAAQAAAAAAAAAUAAAAAQAAAAAAAAAUAAIAAQAAAAAAAAAVAAIAAQAAAAAAAAAVAAEAAQAAAAAAAAAVAAAAAQAAAAAAAAAWAAAAAQAAAAAAAAAWAAEAAwAAAAAAAAAWAAIAAQAAAAAAAAAXAAIAAQAAAAAAAAAXAAEAAQAAAAAAAAAXAAAAAQAAAAAAAAAYAAEAAQAAAAAAAAAYAAIAAQAAAAAAAAAYAAAAAQAAAAAAAAAZAAIAAQAAAAAAAAAZAAEAAQAAAAAAAAAZAAAAAQAAAAAAAAAaAAAAAQAAAAAAAAAaAAEAAQAAAAAAAAAaAAIAAQAAAAAAAAAbAAIAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD8////AAAAAAAAAAAIAAUAAQAAAAAAAAAJAAUAAQAAAAAAAAAKAAUAAQAAAAAAAAD9/wUAAQAAAAAAAAD8/wUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAXAAUAAQAAAAAAAAAYAAUAAQAAAAAAAAAZAAUAAQAAAAAAAAAaAAUAAQAAAAAAAAAbAAUAAQAAAAAAAAAVAP//AQAAAAAAAAAWAP//AQAAAAAAAAAXAP//AQAAAAAAAAAYAP//AQAAAAAAAAAZAP//AQAAAAAAAAAaAP//AQAAAAAAAAAbAP//AQAAAAAAAAAcAAIAAAAAAAAAAAAcAAEAAwAAAAAAAAAcAAAAAAAAAAAAAAAcAP//AAAAAAAAAAAdAP//AAAAAAAAAAAdAAAAAAAAAAAAAAAdAAEAAAAAAAAAAAAdAAIAAAAAAAAAAAAeAAIAAAAAAAAAAAAfAAIAAAAAAAAAAAAiAAIAAAAAAAAAAAAjAAIAAAAAAAAAAAAkAAIAAAAAAAAAAAAlAAIAAAAAAAAAAAAmAAIAAAAAAAAAAAAnAAIAAAAAAAAAAAAoAAIAAAAAAAAAAAApAAIAAAAAAAAAAAAqAAIAAAAAAAAAAAArAAIAAAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAgAAEAAwAAAAAAAAAfAAEAAAAAAAAAAAAeAAEAAAAAAAAAAAAhAAEAAAAAAAAAAAAiAAEAAAAAAAAAAAAjAAEAAAAAAAAAAAAkAAEAAAAAAAAAAAAlAAEAAwAAAAAAAAAjAP//AAAAAAAAAAAiAP//AAAAAAAAAAAhAP//AAAAAAAAAAAgAP//AAAAAAAAAAAkAP//AAAAAAAAAAAlAP//AAAAAAAAAAAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAAoAAEAAAAAAAAAAAAnAAEAAAAAAAAAAAAmAAEAAAAAAAAAAAAnAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAmAAAAAAAAAAAAAAAlAAAAAAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAArAP//AAAAAAAAAAArAAAAAAAAAAAAAAArAAEAAAAAAAAAAAAqAAEAAwAAAAAAAAApAAEAAAAAAAAAAAApAAAAAAAAAAAAAAAqAAAAAAAAAAAAAAAsAAIAAAAAAAAAAAAuAAIAAAAAAAAAAAAvAAIAAAAAAAAAAAAwAAIAAAAAAAAAAAAxAAIAAAAAAAAAAAAyAAIAAAAAAAAAAAAzAAIAAAAAAAAAAAA0AAIAAAAAAAAAAAA1AAIAAAAAAAAAAAAtAAIAAAAAAAAAAAAsAAEAAAAAAAAAAAAsAAAAAAAAAAAAAAAsAP//AAAAAAAAAAAtAP//AAAAAAAAAAAuAP//AAAAAAAAAAAvAP//AAAAAAAAAAAwAP//AAAAAAAAAAAxAP//AAAAAAAAAAAxAAAAAAAAAAAAAAAyAAAAAAAAAAAAAAAzAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA1AAAAAAAAAAAAAAA1AP//AAAAAAAAAAA0AP//AAAAAAAAAAAzAP//AAAAAAAAAAAyAP//AAAAAAAAAAAvAAAAAAAAAAAAAAAuAAAAAAAAAAAAAAAtAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAvAAEAAwAAAAAAAAAuAAEAAAAAAAAAAAAtAAEAAAAAAAAAAAAwAAEAAAAAAAAAAAAxAAEAAAAAAAAAAAAyAAEAAAAAAAAAAAAzAAEAAAAAAAAAAAA0AAEAAwAAAAAAAAA1AAEAAAAAAAAAAAAcAAUAAAAAAAAAAAArAAUAAAAAAAAAAAAsAAUAAAAAAAAAAAAqAAUAAAAAAAAAAAApAAUAAAAAAAAAAAAoAAUAAAAAAAAAAAAnAAUAAAAAAAAAAAAmAAUAAAAAAAAAAAAlAAUAAAAAAAAAAAAkAAUAAAAAAAAAAAAjAAUAAAAAAAAAAAAiAAUAAAAAAAAAAAAhAAUAAAAAAAAAAAAgAAUAAAAAAAAAAAAfAAUAAAAAAAAAAAAeAAUAAAAAAAAAAAAdAAUAAAAAAAAAAAAtAAUAAAAAAAAAAAAuAAUAAAAAAAAAAAAvAAUAAAAAAAAAAAAwAAUAAAAAAAAAAAAxAAUAAAAAAAAAAAAyAAUAAAAAAAAAAAAzAAUAAAAAAAAAAAA0AAUAAAAAAAAAAAA1AAUAAAAAAAAAAAAhAAIAAAAAAAAAAAAgAAIAAAAAAAAAAAA2AAEAAQAAAAAAAAA2AAIAAQAAAAAAAAA2AAAAAQAAAAAAAAA2AP//AQAAAAAAAAA3AAAAAQAAAAAAAAA3AP//AQAAAAAAAAA4AAAAAQAAAAAAAAA4AAEAAQAAAAAAAAA3AAEAAQAAAAAAAAA4AAIAAQAAAAAAAAA3AAIAAQAAAAAAAAA4AP//AQAAAAAAAAA5AAIAAQAAAAAAAAA5AAEAAQAAAAAAAAA5AAAAAQAAAAAAAAA5AP//AQAAAAAAAAA6AP//AQAAAAAAAAA6AAAAAQAAAAAAAAA6AAEAAQAAAAAAAAA6AAIAAQAAAAAAAAA7AAIAAQAAAAAAAAA7AAEAAQAAAAAAAAA7AAAAAQAAAAAAAAA7AP//AQAAAAAAAAA8AAIAAQAAAAAAAAA8AAEAAQAAAAAAAAA8AAAAAQAAAAAAAAA8AP//AQAAAAAAAAA9AAIAAQAAAAAAAAA9AAEAAQAAAAAAAAA9AAAAAQAAAAAAAAA9AP//AQAAAAAAAAA+AAIAAQAAAAAAAAA+AAAAAQAAAAAAAAA+AP//AQAAAAAAAAA+AAEAAQAAAAAAAAA/AAIAAQAAAAAAAABAAAIAAQAAAAAAAABBAAIAAQAAAAAAAABCAAIAAQAAAAAAAABDAAIAAQAAAAAAAABEAAIAAQAAAAAAAABFAAIAAQAAAAAAAABGAAIAAQAAAAAAAABHAAIAAQAAAAAAAABIAAIAAQAAAAAAAABJAAIAAQAAAAAAAABKAAIAAQAAAAAAAABLAAIAAQAAAAAAAAA/AAEAAQAAAAAAAAA/AAAAAQAAAAAAAAA/AP//AQAAAAAAAABAAP//AQAAAAAAAABBAP//AQAAAAAAAABCAP//AQAAAAAAAABDAP//AQAAAAAAAABEAP//AQAAAAAAAABFAP//AQAAAAAAAABGAP//AQAAAAAAAABHAP//AQAAAAAAAABIAP//AQAAAAAAAABJAP//AQAAAAAAAABKAP//AQAAAAAAAABLAP//AQAAAAAAAABLAAAAAQAAAAAAAABLAAEAAQAAAAAAAABKAAEAAQAAAAAAAABJAAEAAQAAAAAAAABIAAEAAQAAAAAAAABHAAEAAQAAAAAAAABGAAEAAQAAAAAAAABFAAEAAQAAAAAAAABEAAEAAQAAAAAAAABDAAEAAQAAAAAAAABCAAEAAQAAAAAAAABBAAEAAQAAAAAAAABAAAEAAQAAAAAAAABAAAAAAQAAAAAAAABBAAAAAQAAAAAAAABCAAAAAQAAAAAAAABDAAAAAQAAAAAAAABEAAAAAQAAAAAAAABFAAAAAQAAAAAAAABGAAAAAQAAAAAAAABHAAAAAQAAAAAAAABIAAAAAQAAAAAAAABJAAAAAQAAAAAAAABKAAAAAQAAAAAAAAA2AAUAAQAAAAAAAABLAAUAAQAAAAAAAABKAAUAAQAAAAAAAABJAAUAAQAAAAAAAABIAAUAAQAAAAAAAABHAAUAAQAAAAAAAABGAAUAAQAAAAAAAABFAAUAAQAAAAAAAABEAAUAAQAAAAAAAABDAAUAAQAAAAAAAABCAAUAAQAAAAAAAABBAAUAAQAAAAAAAABAAAUAAQAAAAAAAAA/AAUAAQAAAAAAAAA+AAUAAQAAAAAAAAA9AAUAAQAAAAAAAAA8AAUAAQAAAAAAAAA7AAUAAQAAAAAAAAA6AAUAAQAAAAAAAAA5AAUAAQAAAAAAAAA4AAUAAQAAAAAAAAA3AAUAAQAAAAAAAABvAAUAAQAAAAAAAABuAAUAAQAAAAAAAABtAAUAAQAAAAAAAABsAAUAAQAAAAAAAABrAAUAAQAAAAAAAABqAAUAAQAAAAAAAABpAAUAAQAAAAAAAABoAAUAAQAAAAAAAABnAAUAAQAAAAAAAABmAAUAAQAAAAAAAABlAAUAAQAAAAAAAABkAAUAAQAAAAAAAABjAAUAAQAAAAAAAABiAAUAAQAAAAAAAABhAAUAAQAAAAAAAABgAAUAAQAAAAAAAABfAAUAAQAAAAAAAABeAAUAAQAAAAAAAABdAAUAAQAAAAAAAABcAAUAAQAAAAAAAABbAAUAAQAAAAAAAABaAAUAAQAAAAAAAABZAAUAAQAAAAAAAABYAAUAAQAAAAAAAABXAAUAAQAAAAAAAABWAAUAAQAAAAAAAABVAAUAAQAAAAAAAABUAAUAAQAAAAAAAABTAAUAAQAAAAAAAABSAAUAAQAAAAAAAABRAAUAAQAAAAAAAABQAAUAAQAAAAAAAABPAAUAAQAAAAAAAABOAAUAAQAAAAAAAABNAAUAAQAAAAAAAABMAAUAAQAAAAAAAABMAP//AQAAAAAAAABMAAAAAQAAAAAAAABNAP//AQAAAAAAAABOAP//AQAAAAAAAABPAP//AQAAAAAAAABQAP//AQAAAAAAAABRAP//AQAAAAAAAABSAP//AQAAAAAAAABTAP//AQAAAAAAAABUAP//AQAAAAAAAABVAP//AQAAAAAAAABWAAAAAQAAAAAAAABXAAAAAQAAAAAAAABVAAAAAQAAAAAAAABUAAAAAQAAAAAAAABTAAAAAQAAAAAAAABSAAAAAQAAAAAAAABRAAAAAQAAAAAAAABQAAAAAQAAAAAAAABPAAAAAQAAAAAAAABOAAAAAQAAAAAAAABNAAAAAQAAAAAAAABMAAEAAQAAAAAAAABMAAIAAQAAAAAAAABNAAIAAQAAAAAAAABOAAIAAQAAAAAAAABPAAIAAQAAAAAAAABQAAIAAQAAAAAAAABRAAIAAQAAAAAAAABSAAIAAQAAAAAAAABTAAIAAQAAAAAAAABUAAIAAQAAAAAAAABVAAIAAQAAAAAAAABWAAIAAQAAAAAAAABXAAIAAQAAAAAAAABXAAEAAQAAAAAAAABWAP//AQAAAAAAAABNAAEAAQAAAAAAAABOAAEAAQAAAAAAAABPAAEAAQAAAAAAAABWAAEAAQAAAAAAAABVAAEAAQAAAAAAAABUAAEAAQAAAAAAAABTAAEAAQAAAAAAAABSAAEAAQAAAAAAAABRAAEAAQAAAAAAAABQAAEAAQAAAAAAAABXAP//AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_y2f8h")
+metadata/_edit_lock_ = true
+
+[node name="WallDetails" type="TileMapLayer" parent="Environment" unique_id=532166190]
+z_index = -4
+tile_map_data = PackedByteArray("AAACAAAABAAAAAAAAAACAP//DwAAAAAAAAACAAIABAAAAAAAAAACAAEABAAAAAAAAAD//wEABgAAAAAAAAD//wAABwAAAAAAAAADAAAABwAAAAAAAAAHAAAABwAAAAAAAAALAAAABwAAAAAAAAAPAAAABwAAAAAAAAATAAAABwAAAAAAAAAXAAAABwAAAAAAAAAbAAAABwAAAAAAAAD8////DwAAAAAAAAD9////DwAAAAAAAAD+////DwAAAAAAAAD/////DwAAAAAAAAAAAP//DwAAAAAAAAABAP//DwAAAAAAAAADAP//DwAAAAAAAAAEAP//DwAAAAAAAAAFAP//DwAAAAAAAAAGAP//DwAAAAAAAAAHAP//DwAAAAAAAAAIAP//CwAAAAAAAAAIAAAAEwAAAAAAAAAIAAIAEwAAAAAAAAANAAIAFAAAAAAAAAANAAEAFAAAAAAAAAANAAAAFAAAAAAAAAANAP//FAAAAAAAAAD//wIAAgAAAAAAAAAPAAEABgAAAAAAAAAPAAIAAgAAAAAAAAAXAAIAAgAAAAAAAAAKAAIABAAAAAAAAAAKAAEABAAAAAAAAAAKAAAABAAAAAAAAAAKAP//BAAAAAAAAAAXAAEABgAAAAAAAAAfAAAABwAAAAAAAAAnAAAABwAAAAAAAAArAAAABwAAAAAAAAAjAAAABwAAAAAAAAAvAAAABwAAAAAAAAAzAAAABwAAAAAAAAA=")
+tile_set = SubResource("TileSet_4w2fo")
+metadata/_edit_lock_ = true
+
+[node name="LaboratoryProps" type="Node2D" parent="Environment" unique_id=2025772116]
+z_index = -3
+metadata/_edit_lock_ = true
+
+[node name="FireExtinguisher" type="Node2D" parent="Environment/LaboratoryProps" unique_id=1931256729]
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=331782715]
+z_index = -2
+position = Vector2(1373, 157)
+scale = Vector2(0.09855754, 0.09855755)
+texture = ExtResource("90_h6isl")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher2" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=1269588474]
+position = Vector2(1374.0001, 95)
+scale = Vector2(0.110029384, 0.11002935)
+texture = ExtResource("91_53bls")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher3" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=549345778]
+position = Vector2(3232.5, 157.74687)
+scale = Vector2(0.09855754, 0.09855755)
+texture = ExtResource("90_h6isl")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher4" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=2013324184]
+position = Vector2(3233.5, 95.74687)
+scale = Vector2(0.110029384, 0.11002935)
+texture = ExtResource("91_53bls")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher5" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=178306531]
+position = Vector2(4382.5, 157.74687)
+scale = Vector2(0.09855754, 0.09855755)
+texture = ExtResource("90_h6isl")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher6" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=2140704831]
+position = Vector2(4383.5, 95.74687)
+scale = Vector2(0.110029384, 0.11002935)
+texture = ExtResource("91_53bls")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher7" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=816797816]
+position = Vector2(5470.5, 157.74687)
+scale = Vector2(0.09855754, 0.09855755)
+texture = ExtResource("90_h6isl")
+metadata/_edit_lock_ = true
+
+[node name="Extinguisher8" type="Sprite2D" parent="Environment/LaboratoryProps/FireExtinguisher" unique_id=1944008569]
+position = Vector2(5471.5, 95.74687)
+scale = Vector2(0.110029384, 0.11002935)
+texture = ExtResource("91_53bls")
+metadata/_edit_lock_ = true
+
+[node name="Servers" type="Node2D" parent="Environment/LaboratoryProps" unique_id=594289391]
+metadata/_edit_lock_ = true
+
+[node name="Server" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1170650616]
+position = Vector2(2186.9998, 159)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("79_l0gw7")
+metadata/_edit_lock_ = true
+
+[node name="Server2" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1949441452]
+position = Vector2(2249, 159)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("79_l0gw7")
+metadata/_edit_lock_ = true
+
+[node name="Server3" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=2054789144]
+position = Vector2(2311, 159)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("79_l0gw7")
+metadata/_edit_lock_ = true
+
+[node name="Server4" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1052143099]
+position = Vector2(2898, 156)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("79_l0gw7")
+metadata/_edit_lock_ = true
+
+[node name="Server5" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=137913795]
+position = Vector2(2132, 158)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("80_inymm")
+metadata/_edit_lock_ = true
+
+[node name="Server6" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1718560613]
+position = Vector2(2364, 158)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("80_inymm")
+metadata/_edit_lock_ = true
+
+[node name="Server7" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1743754487]
+position = Vector2(2843, 156)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("80_inymm")
+metadata/_edit_lock_ = true
+
+[node name="Server8" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=145181113]
+position = Vector2(2753, 155)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("80_inymm")
+metadata/_edit_lock_ = true
+
+[node name="Server9" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1341360476]
+position = Vector2(2797, 155)
+scale = Vector2(0.38554248, 0.38554245)
+texture = ExtResource("80_inymm")
+metadata/_edit_lock_ = true
+
+[node name="ServerCables" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=361347697]
+position = Vector2(1174, 177.00002)
+scale = Vector2(0.17109172, 0.1710916)
+texture = ExtResource("81_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="ServerCables2" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=360997425]
+position = Vector2(1174, 151)
+scale = Vector2(0.17109172, 0.1710916)
+texture = ExtResource("81_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="ServerCables3" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=878399760]
+position = Vector2(2083, 158)
+scale = Vector2(0.3852027, 0.38520268)
+texture = ExtResource("81_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="ServerCables4" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=362297250]
+position = Vector2(2410, 159)
+rotation = -3.1415927
+scale = Vector2(0.3852027, 0.38520268)
+texture = ExtResource("81_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="ServerCables5" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1349775188]
+position = Vector2(2711, 158)
+scale = Vector2(0.3852027, 0.38520268)
+texture = ExtResource("81_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="ServerCables6" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1024859167]
+position = Vector2(2950.9998, 158)
+rotation = -3.1415927
+scale = Vector2(0.3852027, 0.38520268)
+texture = ExtResource("81_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="LargeServer" type="Sprite2D" parent="Environment/LaboratoryProps/Servers" unique_id=1053791925]
+position = Vector2(1223, 159)
+scale = Vector2(0.16657652, 0.1665765)
+texture = ExtResource("47_sm6fg")
+metadata/_edit_lock_ = true
+
+[node name="Plants" type="Node2D" parent="Environment/LaboratoryProps" unique_id=1746647769]
+metadata/_edit_lock_ = true
+
+[node name="DriedPlant" type="Sprite2D" parent="Environment/LaboratoryProps/Plants" unique_id=1852561123]
+position = Vector2(508, 183)
+scale = Vector2(0.30095863, 0.30095854)
+texture = ExtResource("79_41lik")
+metadata/_edit_lock_ = true
+
+[node name="DriedPlant2" type="Sprite2D" parent="Environment/LaboratoryProps/Plants" unique_id=1838710935]
+position = Vector2(926.6419, 182.3125)
+scale = Vector2(0.2991574, 0.29915738)
+texture = ExtResource("79_41lik")
+metadata/_edit_lock_ = true
+
+[node name="FernPot" type="Sprite2D" parent="Environment/LaboratoryProps/Plants" unique_id=1199972151]
+position = Vector2(2453.7476, 163.56252)
+scale = Vector2(0.44376528, 0.44376546)
+texture = ExtResource("83_0arob")
+metadata/_edit_lock_ = true
+
+[node name="FernPot2" type="Sprite2D" parent="Environment/LaboratoryProps/Plants" unique_id=1392262272]
+position = Vector2(2670.7478, 163.5625)
+scale = Vector2(0.44376528, 0.44376546)
+texture = ExtResource("83_0arob")
+metadata/_edit_lock_ = true
+
+[node name="Furniture" type="Node2D" parent="Environment/LaboratoryProps" unique_id=524438851]
+metadata/_edit_lock_ = true
+
+[node name="TrashCan" type="Sprite2D" parent="Environment/LaboratoryProps/Furniture" unique_id=1790708144]
+position = Vector2(1957, 186)
+scale = Vector2(0.3, 0.29999998)
+texture = ExtResource("79_dij0e")
+metadata/_edit_lock_ = true
+
+[node name="CabinetWithaPottedPlant" type="Sprite2D" parent="Environment/LaboratoryProps/Furniture" unique_id=289929229]
+position = Vector2(3061, 173.00002)
+scale = Vector2(0.33233535, 0.33233532)
+texture = ExtResource("85_0arob")
+metadata/_edit_lock_ = true
+
+[node name="Shelf" type="Sprite2D" parent="Environment/LaboratoryProps/Furniture" unique_id=1339007568]
+z_index = 1
+position = Vector2(1933, 164)
+scale = Vector2(0.32434934, 0.32434928)
+texture = ExtResource("84_dij0e")
+metadata/_edit_lock_ = true
+
+[node name="Shelf2" type="Sprite2D" parent="Environment/LaboratoryProps/Furniture" unique_id=554314796]
+z_index = 1
+position = Vector2(1878, 164)
+scale = Vector2(0.32434934, 0.32434928)
+texture = ExtResource("84_dij0e")
+metadata/_edit_lock_ = true
+
+[node name="WaterDispenser" type="Sprite2D" parent="Environment/LaboratoryProps/Furniture" unique_id=252819310]
+position = Vector2(1905.777, 162.37262)
+scale = Vector2(0.40050802, 0.40050778)
+texture = ExtResource("85_k1udn")
+metadata/_edit_lock_ = true
+
+[node name="Destruction" type="Node2D" parent="Environment/LaboratoryProps" unique_id=376232725]
+metadata/_edit_lock_ = true
+
+[node name="ServerDestroyed2" type="Sprite2D" parent="Environment/LaboratoryProps/Destruction" unique_id=948258270]
+position = Vector2(3019, 167)
+scale = Vector2(0.3097826, 0.3097826)
+texture = ExtResource("82_jcxqu")
+metadata/_edit_lock_ = true
+
+[node name="ServerDestroyed" type="Sprite2D" parent="Environment/LaboratoryProps/Destruction" unique_id=2033300056]
+position = Vector2(2985, 177)
+scale = Vector2(0.24725299, 0.24725299)
+texture = ExtResource("89_k1udn")
+
+[node name="Rubble" type="Node2D" parent="Environment/LaboratoryProps" unique_id=45778927]
+metadata/_edit_lock_ = true
+
+[node name="ConcreteRemnants" type="Sprite2D" parent="Environment/LaboratoryProps/Rubble" unique_id=803369922]
+modulate = Color(0.94055086, 0.99138206, 0.9278431, 1)
+position = Vector2(159, 190)
+scale = Vector2(0.13677335, 0.13677335)
+texture = ExtResource("47_kkkcx")
+metadata/_edit_lock_ = true
+
+[node name="MixedRubble01" type="Sprite2D" parent="Environment/LaboratoryProps/Rubble" unique_id=2054959311]
+modulate = Color(0.92941177, 1, 1, 1)
+z_index = 2
+position = Vector2(860.0001, 183)
+scale = Vector2(0.18995102, 0.18995102)
+skew = 0.7452556
+texture = ExtResource("48_34ol3")
+metadata/_edit_lock_ = true
+
+[node name="PipeSystem" type="Node2D" parent="Environment/LaboratoryProps" unique_id=2093620695]
+metadata/_edit_lock_ = true
+
+[node name="BrokenPipes" type="Node2D" parent="Environment/LaboratoryProps/PipeSystem" unique_id=1161795921]
+metadata/_edit_lock_ = true
+
+[node name="WallScratches2" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=1202064788]
+position = Vector2(288.00003, 28)
+scale = Vector2(0.051890105, 0.051890105)
+texture = ExtResource("47_6iyjs")
+metadata/_edit_lock_ = true
+
+[node name="WallScratches2" type="Sprite2D" parent="Environment/LaboratoryProps/WallScratches2" unique_id=408313612]
+position = Vector2(5819.992, 2832.9102)
+scale = Vector2(0.4744414, 0.4744414)
+texture = ExtResource("47_6iyjs")
+metadata/_edit_lock_ = true
+
+[node name="WallScratches" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=649670975]
+position = Vector2(-96, 157.00002)
+scale = Vector2(0.04201556, 0.04201556)
+texture = ExtResource("47_6iyjs")
+metadata/_edit_lock_ = true
+
+[node name="CoolantLeak" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=65152452]
+position = Vector2(351.00003, 147)
+scale = Vector2(0.18578789, 0.18578787)
+texture = ExtResource("47_uypp3")
+metadata/_edit_lock_ = true
+
+[node name="LeakDrops" type="CPUParticles2D" parent="Environment/LaboratoryProps/CoolantLeak" unique_id=958051936]
+position = Vector2(-64.58995, 183.0044)
+lifetime = 0.15000000000000002
+randomness = 0.35
+emission_shape = 3
+emission_rect_extents = Vector2(5, 2)
+particle_flag_align_y = true
+direction = Vector2(0, 1)
+spread = 8.0
+gravity = Vector2(0, 850)
+initial_velocity_min = 35.0
+initial_velocity_max = 55.0
+damping_min = 0.05
+damping_max = 0.15
+scale_amount_min = 1.8
+scale_amount_max = 2.8
+color = Color(0, 0.8729727, 0.4863546, 1)
+color_ramp = SubResource("Gradient_6iyjs")
+metadata/_edit_lock_ = true
+
+[node name="FloorSplash" type="CPUParticles2D" parent="Environment/LaboratoryProps/CoolantLeak" unique_id=1387429859]
+position = Vector2(-64.58994, 242.21173)
+amount = 14
+lifetime = 0.13
+explosiveness = 1.0
+randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(6, 1)
+direction = Vector2(0, -1)
+spread = 70.0
+gravity = Vector2(0, 420)
+initial_velocity_min = 35.0
+initial_velocity_max = 75.0
+damping_min = 0.2
+damping_max = 0.45
+scale_amount_min = 1.4
+scale_amount_max = 2.2
+color = Color(2.5027991e-06, 0.8997101, 0.6109088, 1)
+metadata/_edit_lock_ = true
+
+[node name="FloorSpread" type="CPUParticles2D" parent="Environment/LaboratoryProps/CoolantLeak" unique_id=762668506]
+position = Vector2(-64.58995, 236.82927)
+amount = 10
+lifetime = 0.79
+speed_scale = 2.55
+randomness = 0.59
+emission_shape = 3
+emission_rect_extents = Vector2(50, 5)
+spread = 180.0
+gravity = Vector2(0, 60)
+initial_velocity_min = 8.0
+initial_velocity_max = 22.0
+damping_min = 0.25
+damping_max = 0.5
+scale_amount_min = 0.65
+scale_amount_max = 0.65
+color = Color(0.2627451, 0.9019608, 0.54509807, 1)
+color_ramp = SubResource("Gradient_y2f8h")
+metadata/_edit_lock_ = true
+
+[node name="WarningSign" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=911734786]
+position = Vector2(282, 93)
+scale = Vector2(0.04461941, 0.044619408)
+texture = ExtResource("47_hrvbo")
+metadata/_edit_lock_ = true
+
+[node name="CableBundleVertical" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=1886438703]
+position = Vector2(891, 40.000004)
+scale = Vector2(0.1380676, 0.1380676)
+texture = ExtResource("47_0cbny")
+metadata/_edit_lock_ = true
+
+[node name="CableBundleVertical" type="Sprite2D" parent="Environment/LaboratoryProps/CableBundleVertical" unique_id=23507154]
+position = Vector2(-3708.3281, -65.185486)
+scale = Vector2(0.5626815, 0.5626815)
+texture = ExtResource("47_0cbny")
+metadata/_edit_lock_ = true
+
+[node name="ContainmentChamber" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=443242428]
+position = Vector2(865, 139)
+scale = Vector2(0.083685815, 0.08368581)
+texture = ExtResource("47_f6a44")
+metadata/_edit_lock_ = true
+
+[node name="MaintenanceCart" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=128331373]
+position = Vector2(21.93365, 178.35547)
+scale = Vector2(0.11804162, 0.11804162)
+texture = ExtResource("52_blkrb")
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="Sprite2D" parent="Environment/LaboratoryProps" unique_id=798859748]
+position = Vector2(58, 196.00002)
+scale = Vector2(0.034417987, 0.040828574)
+texture = ExtResource("54_4w656")
+metadata/_edit_lock_ = true
+
+[node name="WaterLeaks" type="Node2D" parent="Environment/LaboratoryProps/Floor" unique_id=765644639]
+metadata/_edit_lock_ = true
+
+[node name="CeilingWaterDrip01" type="Node2D" parent="Environment/LaboratoryProps/Floor/WaterLeaks" unique_id=1589294193]
+position = Vector2(-1685.1654, -4800.5596)
+scale = Vector2(29.054575, 24.49265)
+metadata/_edit_lock_ = true
+
+[node name="WaterDrops" type="CPUParticles2D" parent="Environment/LaboratoryProps/Floor/WaterLeaks/CeilingWaterDrip01" unique_id=1953172371]
+position = Vector2(33, -22.000017)
+amount = 5
+lifetime = 1.51
+gravity = Vector2(0, 180)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+color = Color(0.3294601, 0.9149556, 1.0430326, 1)
+metadata/_edit_lock_ = true
+
+[node name="FloorSplash" type="CPUParticles2D" parent="Environment/LaboratoryProps/Floor/WaterLeaks/CeilingWaterDrip01" unique_id=289441170]
+position = Vector2(58, 194)
+amount = 2
+lifetime = 5.069999999999999
+emission_shape = 3
+emission_rect_extents = Vector2(5, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(-10, 600)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+color = Color(0.5527526, 0.81023294, 0.9564385, 1)
+metadata/_edit_lock_ = true
+
+[node name="WaterPuddle01" type="CPUParticles2D" parent="Environment/LaboratoryProps/Floor/WaterLeaks/CeilingWaterDrip01/FloorSplash" unique_id=1128709939]
+position = Vector2(3, 1.9999998)
+rotation = 0.7853982
+amount = 4
+lifetime = 2.75
+lifetime_randomness = 0.38
+emission_shape = 3
+emission_rect_extents = Vector2(5, 1)
+gravity = Vector2(0, 100)
+color = Color(0.73008466, 0.86460847, 0.98761386, 1)
+metadata/_edit_lock_ = true
+
+[node name="DocumentsDecor" type="Node2D" parent="Environment/LaboratoryProps" unique_id=583029093]
+metadata/_edit_lock_ = true
+
+[node name="FloorDocuments" type="Node2D" parent="Environment/LaboratoryProps/DocumentsDecor" unique_id=242426890]
+metadata/_edit_lock_ = true
+
+[node name="WallDocuments" type="Node2D" parent="Environment/LaboratoryProps/DocumentsDecor" unique_id=1278287292]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=1645821806]
+position = Vector2(117, 190)
+scale = Vector2(0.01381231, 0.013229754)
+skew = -0.7696902
+texture = ExtResource("56_b17eg")
+metadata/_edit_lock_ = true
+
+[node name="CrumpledByteNote" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=22604062]
+position = Vector2(140.24164, 191.81065)
+scale = Vector2(0.0101054665, 0.010105471)
+texture = ExtResource("55_vke2r")
+metadata/_edit_lock_ = true
+
+[node name="ByteNotice" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=1770190119]
+position = Vector2(36, 143)
+scale = Vector2(0.029407894, 0.029407898)
+texture = ExtResource("57_ruth0")
+metadata/_edit_lock_ = true
+
+[node name="Biohazard" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=449307541]
+position = Vector2(608, 152)
+scale = Vector2(0.054232854, 0.05423285)
+texture = ExtResource("58_rm4vd")
+metadata/_edit_lock_ = true
+
+[node name="SpecimenIdTag" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=714722511]
+position = Vector2(576.00006, 190)
+rotation = 0.5235988
+scale = Vector2(0.011881674, 0.011881677)
+texture = ExtResource("59_ruth0")
+metadata/_edit_lock_ = true
+
+[node name="ByteResearchClipboard" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=1724892310]
+position = Vector2(1120, 154.00002)
+scale = Vector2(0.042150237, 0.042150214)
+texture = ExtResource("60_rm4vd")
+metadata/_edit_lock_ = true
+
+[node name="ByteResearchFolder" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/WallDocuments" unique_id=867814545]
+position = Vector2(401.77115, 194.48485)
+scale = Vector2(0.022940708, 0.022940703)
+skew = 1.150172
+texture = ExtResource("61_rm4vd")
+metadata/_edit_lock_ = true
+
+[node name="EquipmentDocuments" type="Node2D" parent="Environment/LaboratoryProps/DocumentsDecor" unique_id=1350167665]
+metadata/_edit_lock_ = true
+
+[node name="box" type="Sprite2D" parent="Environment/LaboratoryProps/DocumentsDecor/EquipmentDocuments" unique_id=264275489]
+position = Vector2(-14.000001, 187)
+scale = Vector2(0.09300946, 0.09300944)
+texture = ExtResource("63_uatky")
+metadata/_edit_lock_ = true
+
+[node name="LabDamage" type="Node2D" parent="Environment/LaboratoryProps" unique_id=172266728]
+metadata/_edit_lock_ = true
+
+[node name="WallDamage" type="Node2D" parent="Environment/LaboratoryProps/LabDamage" unique_id=273579942]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/WallDamage" unique_id=957203955]
+modulate = Color(0.8135681, 0.9261582, 0.98842126, 1)
+position = Vector2(43, 193)
+scale = Vector2(0.0913064, 0.09130639)
+texture = ExtResource("64_cyx1q")
+metadata/_edit_lock_ = true
+
+[node name="Debris" type="Node2D" parent="Environment/LaboratoryProps/LabDamage" unique_id=991113343]
+metadata/_edit_lock_ = true
+
+[node name="EntranceDoorDebris01" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/Debris" unique_id=1876023515]
+modulate = Color(0.79410076, 0.9371439, 0.96391624, 1)
+position = Vector2(874.00006, 168.99998)
+rotation = 1.3089969
+scale = Vector2(0.3486827, 0.3486827)
+skew = -0.5375614
+texture = ExtResource("65_0dhbp")
+metadata/_edit_lock_ = true
+
+[node name="BrokenWallSection01" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/Debris" unique_id=725709423]
+modulate = Color(0.5261211, 0.79263616, 0.8171237, 1)
+texture_filter = 2
+position = Vector2(25.899279, 95.028656)
+rotation = -1.5707964
+scale = Vector2(0.47595057, 0.49499977)
+texture = ExtResource("64_1vm84")
+metadata/_edit_lock_ = true
+
+[node name="BrokenGlass" type="Node2D" parent="Environment/LaboratoryProps/LabDamage" unique_id=1261603043]
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall01" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass" unique_id=1712911993]
+position = Vector2(408, 196.00002)
+scale = Vector2(0.03562535, 0.03562535)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall02" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/GlassShardsSmall01" unique_id=275475543]
+position = Vector2(56.140182, -28.070543)
+rotation = 2.6179938
+scale = Vector2(0.75982934, 0.75982934)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall03" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/GlassShardsSmall01/GlassShardsSmall02" unique_id=497193046]
+position = Vector2(18.47099, -31.993319)
+rotation = 2.6179938
+scale = Vector2(0.75982934, 0.75982934)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall03" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/GlassShardsSmall01/GlassShardsSmall02/GlassShardsSmall03" unique_id=2032725331]
+position = Vector2(-42.105946, 24.309393)
+rotation = 2.8797934
+scale = Vector2(0.75982934, 0.75982934)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall04" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/GlassShardsSmall01/GlassShardsSmall02/GlassShardsSmall03/GlassShardsSmall03" unique_id=1811121266]
+position = Vector2(-0.00024223328, 0.00046348572)
+rotation = 3.403392
+scale = Vector2(1.462434, 1.462434)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall05" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/GlassShardsSmall01/GlassShardsSmall02/GlassShardsSmall03/GlassShardsSmall03/GlassShardsSmall04" unique_id=134787393]
+position = Vector2(-43.753754, -75.784164)
+rotation = 3.403392
+scale = Vector2(0.79359895, 0.79359895)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="GlassShardsSmall06" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/GlassShardsSmall01/GlassShardsSmall02/GlassShardsSmall03/GlassShardsSmall03/GlassShardsSmall04/GlassShardsSmall05" unique_id=192641721]
+position = Vector2(-43.753754, -75.784164)
+rotation = 3.403392
+scale = Vector2(0.79359895, 0.79359895)
+texture = ExtResource("64_rqtf5")
+metadata/_edit_lock_ = true
+
+[node name="ObservationWindow" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass" unique_id=60649178]
+modulate = Color(0.8022552, 0.95105344, 0.93877596, 1)
+position = Vector2(388, 150)
+rotation = -1.5707964
+scale = Vector2(0.21120703, 0.21120708)
+texture = ExtResource("67_0dhbp")
+metadata/_edit_lock_ = true
+
+[node name="ObservationWindow2" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/BrokenGlass/ObservationWindow" unique_id=2101055303]
+modulate = Color(0.7537565, 0.968545, 0.9328759, 1)
+position = Vector2(132.57132, 440.32617)
+rotation = -2.0943952
+scale = Vector2(0.85531557, 0.727016)
+texture = ExtResource("67_0dhbp")
+metadata/_edit_lock_ = true
+
+[node name="Furniture" type="Node2D" parent="Environment/LaboratoryProps/LabDamage" unique_id=282905283]
+metadata/_edit_lock_ = true
+
+[node name="OverturnedOfficeChair01" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/Furniture" unique_id=620294111]
+modulate = Color(0.85882354, 0.8784314, 0.9647059, 1)
+position = Vector2(1279.0001, 187.00002)
+rotation = 2.0943952
+scale = Vector2(0.3505303, 0.35053036)
+skew = -0.3735006
+texture = ExtResource("66_1vm84")
+metadata/_edit_lock_ = true
+
+[node name="LabEquipment" type="Node2D" parent="Environment/LaboratoryProps/LabDamage" unique_id=299609596]
+position = Vector2(49, 12)
+metadata/_edit_lock_ = true
+
+[node name="ElectricalDamage" type="Node2D" parent="Environment/LaboratoryProps/LabDamage" unique_id=2134511479]
+metadata/_edit_lock_ = true
+
+[node name="ExposedJunctionBox01" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/ElectricalDamage" unique_id=797790235]
+position = Vector2(-27.304878, 106.93342)
+scale = Vector2(0.45594373, 0.45594344)
+texture = ExtResource("65_1vm84")
+metadata/_edit_lock_ = true
+
+[node name="ExposedCeilingWires01" type="Sprite2D" parent="Environment/LaboratoryProps/LabDamage/ElectricalDamage" unique_id=698424653]
+position = Vector2(667.99994, -5.000001)
+scale = Vector2(0.5347221, 0.80499256)
+texture = ExtResource("66_wu3dr")
+metadata/_edit_lock_ = true
+
+[node name="LaboratoryWindows" type="Node2D" parent="Environment/LaboratoryProps" unique_id=1071757875]
+metadata/_edit_lock_ = true
+
+[node name="ObservationWindow1" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows" unique_id=1285148663]
+position = Vector2(424, 144)
+scale = Vector2(0.12143908, 0.12143907)
+texture = ExtResource("48_0cbny")
+metadata/_edit_lock_ = true
+
+[node name="ObservationWindow4" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows" unique_id=48248379]
+position = Vector2(3483, 152)
+scale = Vector2(0.39216855, 0.39216852)
+texture = ExtResource("87_swlj1")
+metadata/_edit_lock_ = true
+
+[node name="ObservationWindow2" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows" unique_id=1387694428]
+position = Vector2(1655.0001, 150)
+scale = Vector2(0.47938833, 0.47938827)
+texture = ExtResource("88_yysqy")
+metadata/_edit_lock_ = true
+
+[node name="ObservationWindow3" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows" unique_id=1594962404]
+position = Vector2(2562.7478, 148.5625)
+scale = Vector2(0.38919222, 0.38919216)
+texture = ExtResource("89_n5t1e")
+metadata/_edit_lock_ = true
+
+[node name="PieceOfCable" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows/ObservationWindow3" unique_id=468938639]
+position = Vector2(-3550.2961, 114.17886)
+rotation = 0.26179942
+scale = Vector2(0.016440773, 0.016440775)
+texture = ExtResource("92_mnw77")
+metadata/_edit_lock_ = true
+
+[node name="PieceOfCable2" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows/ObservationWindow3" unique_id=1309204534]
+position = Vector2(-3277.937, 121.887115)
+rotation = -0.26179942
+scale = Vector2(0.016440773, 0.016440777)
+skew = 0.50614536
+texture = ExtResource("92_mnw77")
+metadata/_edit_lock_ = true
+
+[node name="PieceOfCable3" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows/ObservationWindow3" unique_id=1224161131]
+position = Vector2(-3303.6316, 127.02597)
+rotation = 1.5707964
+scale = Vector2(0.016440775, 0.016440773)
+texture = ExtResource("92_mnw77")
+metadata/_edit_lock_ = true
+
+[node name="PieceOfCable4" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows/ObservationWindow3" unique_id=590395295]
+position = Vector2(-3216.271, 114.178894)
+rotation = -0.26179942
+scale = Vector2(0.016440773, 0.016440775)
+texture = ExtResource("92_mnw77")
+metadata/_edit_lock_ = true
+
+[node name="PieceOfCable5" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWindows/ObservationWindow3" unique_id=1563551278]
+position = Vector2(-3568.282, 116.7482)
+rotation = -2.0943952
+scale = Vector2(0.011953036, 0.011953034)
+texture = ExtResource("92_mnw77")
+metadata/_edit_lock_ = true
+
+[node name="DestroyedCables" type="Node2D" parent="Environment/LaboratoryProps" unique_id=1565307676]
+metadata/_edit_lock_ = true
+
+[node name="CutCables" type="Sprite2D" parent="Environment/LaboratoryProps/DestroyedCables" unique_id=118987190]
+position = Vector2(1266.0001, 194)
+scale = Vector2(0.0134819, 0.0134819)
+texture = ExtResource("90_u81y6")
+metadata/_edit_lock_ = true
+
+[node name="CutCables2" type="Sprite2D" parent="Environment/LaboratoryProps/DestroyedCables" unique_id=892811891]
+position = Vector2(1297, 194.99997)
+rotation = 0.2617994
+scale = Vector2(0.013456923, 0.013456923)
+texture = ExtResource("91_rt5wr")
+metadata/_edit_lock_ = true
+
+[node name="LaboratoryRat" type="Node2D" parent="Environment/LaboratoryProps" unique_id=795921965]
+z_index = -2
+script = ExtResource("101_s4o1y")
+metadata/_edit_lock_ = true
+
+[node name="EndPoint" type="Marker2D" parent="Environment/LaboratoryProps/LaboratoryRat" unique_id=562939387]
+position = Vector2(1483, 190)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Environment/LaboratoryProps/LaboratoryRat" unique_id=423426223]
+position = Vector2(0, 14)
+scale = Vector2(0.08593749, 0.08593749)
+sprite_frames = SubResource("SpriteFrames_m13ap")
+animation = &"run"
+frame = 4
+frame_progress = 0.9410215
+
+[node name="StartPoint" type="Marker2D" parent="Environment/LaboratoryProps/LaboratoryRat" unique_id=743091048]
+position = Vector2(1088, 192)
+
+[node name="LaboratoryWaste" type="Node2D" parent="Environment/LaboratoryProps" unique_id=862731930]
+metadata/_edit_lock_ = true
+
+[node name="OverturnedTrashBin" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=1054433682]
+position = Vector2(1091.0001, 189)
+scale = Vector2(0.025867097, 0.025867097)
+texture = ExtResource("102_d5iia")
+metadata/_edit_lock_ = true
+
+[node name="ScientificDocuments" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=630768323]
+position = Vector2(1114, 199)
+scale = Vector2(0.025667915, 0.025667915)
+skew = -0.5864306
+texture = ExtResource("103_asu84")
+metadata/_edit_lock_ = true
+
+[node name="ElectronicWaste" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=293091121]
+position = Vector2(1363.0001, 184)
+scale = Vector2(0.053827815, 0.053827815)
+texture = ExtResource("104_qwt6e")
+metadata/_edit_lock_ = true
+
+[node name="IndustrialCleaningBucket" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=671903814]
+position = Vector2(285.00003, 184.00002)
+scale = Vector2(0.028010346, 0.028010346)
+texture = ExtResource("105_off2o")
+metadata/_edit_lock_ = true
+
+[node name="TrashBag4" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=360688654]
+z_index = 2
+position = Vector2(234.99998, 192)
+scale = Vector2(0.015400727, 0.015400727)
+skew = 0.41887903
+texture = ExtResource("108_86lig")
+
+[node name="TrashBag" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=167870331]
+position = Vector2(154, 190)
+scale = Vector2(0.015400727, 0.015400727)
+texture = ExtResource("108_86lig")
+
+[node name="TrashBag2" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=780058429]
+position = Vector2(163, 192)
+scale = Vector2(0.015400727, 0.015400727)
+skew = 0.6684611
+texture = ExtResource("108_86lig")
+
+[node name="TrashBag3" type="Sprite2D" parent="Environment/LaboratoryProps/LaboratoryWaste" unique_id=1088183580]
+z_index = -1
+position = Vector2(164.00003, 187.00002)
+rotation = 0.2617994
+scale = Vector2(0.011410738, 0.011410738)
+skew = 0.5061455
+texture = ExtResource("108_86lig")
+
+[node name="LaboratoryCockroach" type="Node2D" parent="Environment/LaboratoryProps" unique_id=677103373]
+z_index = -2
+script = ExtResource("108_qe8ju")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Environment/LaboratoryProps/LaboratoryCockroach" unique_id=1199332721]
+position = Vector2(4.9600015, 15.25)
+scale = Vector2(0.014999995, 0.014999998)
+sprite_frames = SubResource("SpriteFrames_y2f8h")
+animation = &"idle"
+frame_progress = 0.6193856
+
+[node name="StartPoint" type="Marker2D" parent="Environment/LaboratoryProps/LaboratoryCockroach" unique_id=1414032226]
+position = Vector2(161, 196)
+
+[node name="EndPoint" type="Marker2D" parent="Environment/LaboratoryProps/LaboratoryCockroach" unique_id=179527825]
+position = Vector2(234, 196)
+
+[editable path="Characters/Player"]
+[editable path="Characters/ByteAgent"]
+[editable path="SecuritySystems/SecurityCamera01"]
+[editable path="SecuritySystems/SecurityCamera2"]
