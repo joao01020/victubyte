@@ -6,12 +6,11 @@
 
 <p align="center">
   <img
-    src="branding/scientist-character.png"
+    src="branding/scientist-profile.png"
     alt="VICTUBYTE - Scientist Character"
     width="70%"
   />
 </p>
-
 
 # VICTUBYTE
 
