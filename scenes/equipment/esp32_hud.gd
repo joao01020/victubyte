@@ -58,14 +58,17 @@ func connect_controller() -> void:
 	var main_scene: Node = get_tree().current_scene
 
 	if main_scene == null:
+		controller = null
 		return
 
 	controller = main_scene.get_node_or_null(
-		"Player/ESP32Controller"
+		"Characters/Player/ESP32Controller"
 	) as Node2D
 
 	if controller != null:
 		print("ESP32HUD: controlador conectado")
+	else:
+		push_warning("ESP32HUD: ESP32Controller não encontrado.")
 
 
 # ============================================================
