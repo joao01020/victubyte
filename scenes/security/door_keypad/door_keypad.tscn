@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dsr8mn4upilgo"]
+
+[ext_resource type="Script" uid="uid://cf6mrhrqyjnl3" path="res://scenes/security/door_keypad/door_keypad.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c83dww4nbyced" path="res://assets/security/door_keypad/denied.png" id="2_ipivy"]
+[ext_resource type="Texture2D" uid="uid://dmty8ntdimh7s" path="res://assets/security/door_keypad/idle.png" id="3_2jenx"]
+[ext_resource type="Texture2D" uid="uid://c2u8mdsts8i8i" path="res://assets/security/door_keypad/typing.png" id="4_384n1"]
+[ext_resource type="Texture2D" uid="uid://bkpmxwl46x4dk" path="res://assets/security/door_keypad/unlocked.png" id="5_71viq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rf76f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ipivy")
+}],
+"loop": 0,
+"name": &"denied",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2jenx")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ipivy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_384n1")
+}],
+"loop": 0,
+"name": &"typing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_71viq")
+}],
+"loop": 0,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interaction"]
+size = Vector2(115, 150)
+
+[node name="DoorKeypad" type="Area2D" unique_id=73860176]
+collision_layer = 0
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1672625789]
+position = Vector2(0, -1.0000002)
+scale = Vector2(0.12499999, 0.12500001)
+sprite_frames = SubResource("SpriteFrames_rf76f")
+animation = &"denied"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=939641407]
+shape = SubResource("RectangleShape2D_interaction")
+
+[node name="InteractionLabel" type="Label" parent="." unique_id=501033402]
+offset_left = -65.0
+offset_top = -98.0
+offset_right = 65.0
+offset_bottom = -70.0
+text = "[E] "
+horizontal_alignment = 1
