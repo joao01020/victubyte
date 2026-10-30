@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="branding/cover.png" alt="VICTUBYTE Game Cover" width="100%">
+</p>
+
 # VICTUBYTE
 
 > **E se aprender programação fosse passar de fase?**
