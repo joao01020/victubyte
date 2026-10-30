@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://5nch5yxttsuf" path="res://assets/environment/industrial/walls/wall_07.png" id="18_0odxb"]
 [ext_resource type="Script" uid="uid://bc6m687k5256p" path="res://scenes/victu_os/laptop_desktop.gd" id="18_1slqb"]
 [ext_resource type="Texture2D" uid="uid://dyxqbb7l4rk8g" path="res://assets/environment/industrial/wall_props/cable_bundle.png" id="19_0cp0l"]
+[ext_resource type="Script" uid="uid://u56msw7cbqpk" path="res://scenes/victu_os/ui/notifications/message_notification.gd" id="19_uo83y"]
 [ext_resource type="Texture2D" uid="uid://yeuod6jb4kyx" path="res://assets/environment/industrial/wall_props/cable_horizontal.png" id="20_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://crblamvp1x6wy" path="res://assets/environment/industrial/wall_props/pipe_corner_top_left.png" id="21_gngh3"]
 [ext_resource type="Texture2D" uid="uid://cdta5kfmbo3ki" path="res://assets/environment/industrial/wall_props/pipe_corner_top_right.png" id="22_0n3wm"]
@@ -1038,6 +1039,9 @@ metadata/_edit_lock_ = true
 [node name="LaptopDesktop" parent="UI" unique_id=1164033447 instance=ExtResource("7_272bh")]
 script = ExtResource("18_1slqb")
 
+[node name="MessageNotification" type="CanvasLayer" parent="UI" unique_id=1579053428]
+script = ExtResource("19_uo83y")
+
 [node name="GameSystems" type="Node2D" parent="." unique_id=1435129142]
 metadata/_edit_lock_ = true
 
@@ -1362,7 +1366,7 @@ rotation = 1.5707964
 metadata/_edit_lock_ = true
 
 [node name="SecurityCamera2" parent="SecuritySystems" unique_id=2093430885 groups=["security_cameras"] instance=ExtResource("6_7mycd")]
-position = Vector2(1041, 106)
+position = Vector2(2678, 110)
 camera_id = "CAM_002"
 
 [node name="DetectionArea" parent="SecuritySystems/SecurityCamera2" index="0" unique_id=1129456261]
@@ -1371,7 +1375,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" parent="SecuritySystems/SecurityCamera2/DetectionArea" index="0" unique_id=1160548947]
 position = Vector2(64, 55)
 scale = Vector2(0.3, 0.32)
-metadata/_edit_lock_ = true
 
 [node name="CameraPivot" parent="SecuritySystems/SecurityCamera2" index="1" unique_id=833092106]
 metadata/_edit_lock_ = true
@@ -1380,7 +1383,6 @@ metadata/_edit_lock_ = true
 position = Vector2(-3.7587671, 1.3680793)
 rotation = 0.5235988
 scale = Vector2(0.041269764, 0.04059283)
-metadata/_edit_lock_ = true
 
 [node name="CameraMount" parent="SecuritySystems/SecurityCamera2" index="2" unique_id=483373215]
 position = Vector2(-3.0000005, 1.9999998)
@@ -2498,6 +2500,7 @@ metadata/_edit_lock_ = true
 
 [editable path="Characters/Player"]
 [editable path="Characters/ByteAgent"]
+[editable path="SecuritySystems/SecurityTerminal"]
 [editable path="SecuritySystems/SecurityCamera01"]
 [editable path="SecuritySystems/SecurityCamera2"]
 [editable path="SecuritySystems/Door"]

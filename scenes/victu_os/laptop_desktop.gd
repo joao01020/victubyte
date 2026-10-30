@@ -10,6 +10,7 @@ const NetworkScript := preload("res://scenes/victu_os/core/network_manager.gd")
 const NVRScript := preload("res://scenes/victu_os/core/nvr_manager.gd")
 const SettingsScript := preload("res://scenes/victu_os/core/settings_manager.gd")
 const WindowManagerScript := preload("res://scenes/victu_os/ui/window_manager.gd")
+const MessagesManagerScript := preload("res://scenes/victu_os/core/messages_manager.gd")
 const SHORTCUT_SCENE := preload("res://scenes/victu_os/ui/desktop_shortcut.tscn")
 
 const BASE_SIZE := Vector2(1280.0, 720.0)
@@ -30,7 +31,8 @@ const APPS := [
 	{"id": "network", "title": "Network", "icon": "icon_wifi.svg", "fallback": "W"},
 	{"id": "hardware", "title": "Hardware", "icon": "icon_cpu.svg", "fallback": "H"},
 	{"id": "cameras", "title": "Cameras", "icon": "icon_camera.svg", "fallback": "C"},
-	{"id": "settings", "title": "Settings", "icon": "icon_settings.svg", "fallback": "S"}
+	{"id": "settings", "title": "Settings", "icon": "icon_settings.svg", "fallback": "S"},
+	{"id": "messages", "title": "Mensagens", "icon": "icon_messages.svg", "fallback": "✉"}
 ]
 
 var os_state
@@ -40,8 +42,9 @@ var network_manager
 var nvr_manager
 var settings_manager
 var window_manager
+var messages_manager: Node
+var messages_badge: Label = null
 
-var terminal_ref: Node = null
 var player_ref: Node = null
 var opened_from_inventory: bool = false
 var previous_pause_state: bool = false
@@ -75,11 +78,13 @@ func _ready() -> void:
 	window_manager = WindowManagerScript.new()
 	add_child(window_manager)
 	window_manager.setup(self)
+	messages_manager = MessagesManagerScript.new()
+	add_child(messages_manager)
+	messages_manager.unread_count_changed.connect(_on_unread_count_changed)
 	_build_interface()
 	_fit_canvas()
 	get_viewport().size_changed.connect(_fit_canvas)
 	hide()
-	call_deferred("_connect_to_terminal")
 
 func _on_locale_changed() -> void:
 	call_deferred("_rebuild_localized_desktop")
@@ -99,6 +104,7 @@ func _rebuild_localized_desktop() -> void:
 		app_menu.queue_free()
 		app_menu = null
 	if is_instance_valid(desktop_root):
+		messages_badge = null
 		remove_child(desktop_root)
 		desktop_root.queue_free()
 	_build_interface()
@@ -109,23 +115,12 @@ func _rebuild_localized_desktop() -> void:
 		if minimized_apps.get(app_id, false):
 			window_manager.minimize_app(str(app_id))
 
-func _connect_to_terminal() -> void:
-	var current_scene := get_tree().current_scene
-	if current_scene == null:
-		return
-	terminal_ref = current_scene.get_node_or_null("SecuritySystems/SecurityTerminal")
-	if terminal_ref == null or not terminal_ref.has_signal("laptop_ready"):
-		push_warning("VICTU OS: security terminal not found; inventory mode is still available.")
-		return
-	var callback := Callable(self, "open_desktop")
-	if not terminal_ref.is_connected("laptop_ready", callback):
-		terminal_ref.connect("laptop_ready", callback)
-
 func notify_wifi_connected() -> void:
 	wifi_connected.emit()
 
 func open_desktop() -> void:
-	_open_interface(false)
+	# Legacy entry point: the notebook always opens as a local session.
+	_open_interface(true)
 
 func open_from_inventory() -> void:
 	_open_interface(true)
@@ -169,8 +164,6 @@ func close_desktop() -> void:
 	if not visible:
 		return
 
-	var was_terminal_session: bool = not opened_from_inventory
-
 	# Close OS windows without altering Wi-Fi, files, or other application state.
 	if is_instance_valid(app_menu):
 		app_menu.queue_free()
@@ -180,11 +173,6 @@ func close_desktop() -> void:
 	# Restore gameplay processing before releasing the character.
 	hide()
 	get_tree().paused = previous_pause_state
-
-	# End a remote-terminal session before restoring the player's final pose.
-	if was_terminal_session and is_instance_valid(terminal_ref):
-		if terminal_ref.has_method("cancel_access"):
-			terminal_ref.call("cancel_access")
 
 	var player: Node = _find_player()
 	if is_instance_valid(player):
@@ -346,18 +334,58 @@ func _desktop_shortcut(app: Dictionary, position_value: Vector2) -> void:
 	shortcut.add_theme_stylebox_override("hover", _style(PANEL_ALT, GREEN))
 	shortcut.add_theme_stylebox_override("pressed", _style(HEADER, GREEN))
 	_icon(shortcut, app["icon"], app["fallback"], Vector2(51, 11), Vector2(46, 44))
+	if app_id == "messages":
+		_create_messages_badge(shortcut)
 	var title_label := _label(shortcut, settings_manager.tx(str(app["title"])), Vector2(8, 68), Vector2(132, 32), 14)
 	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title_label.clip_text = true
 
+func _create_messages_badge(shortcut: Button) -> void:
+	var badge_background := Panel.new()
+	shortcut.add_child(badge_background)
+	badge_background.position = Vector2(99, 5)
+	badge_background.size = Vector2(30, 24)
+	badge_background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var badge_style := StyleBoxFlat.new()
+	badge_style.bg_color = GREEN
+	badge_style.set_corner_radius_all(10)
+	badge_background.add_theme_stylebox_override("panel", badge_style)
+	messages_badge = Label.new()
+	badge_background.add_child(messages_badge)
+	messages_badge.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	messages_badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	messages_badge.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	messages_badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	messages_badge.add_theme_color_override("font_color", BG)
+	messages_badge.add_theme_font_size_override("font_size", 14)
+	_refresh_messages_badge()
+
+
+func _on_unread_count_changed(_count: int) -> void:
+	_refresh_messages_badge()
+
+
+func _refresh_messages_badge() -> void:
+	if not is_instance_valid(messages_badge):
+		return
+	if not is_instance_valid(messages_manager):
+		messages_badge.get_parent().hide()
+		return
+	var unread_count: int = messages_manager.get_unread_count()
+	messages_badge.get_parent().visible = unread_count > 0
+	if unread_count > 0:
+		messages_badge.text = "99+" if unread_count > 99 else str(unread_count)
+
+
 func _toggle_app_menu() -> void:
 	if is_instance_valid(app_menu):
 		app_menu.queue_free()
 		app_menu = null
 		return
-	app_menu = _panel(canvas, Vector2(20, 360), Vector2(225, 282), HEADER)
+	var menu_height: float = 20.0 + float(APPS.size()) * 38.0
+	app_menu = _panel(canvas, Vector2(20, 645.0 - menu_height), Vector2(225, menu_height), HEADER)
 	canvas.move_child(app_menu, canvas.get_child_count() - 1)
 	for index in range(APPS.size()):
 		var app: Dictionary = APPS[index]
@@ -372,7 +400,7 @@ func _toggle_app_menu() -> void:
 func _update_session_status() -> void:
 	if status_label == null:
 		return
-	status_label.text = settings_manager.tx("REMOTE") + ": SEC-TERM-01" if not opened_from_inventory else settings_manager.tx("LOCAL SESSION")
+	status_label.text = settings_manager.tx("LOCAL SESSION")
 
 
 func _tx(key: String) -> String:
