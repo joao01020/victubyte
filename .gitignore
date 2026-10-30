@@ -1,15 +1,50 @@
+
 # Godot 4
 .godot/
+*.translation
 
-# Arquivos temporários
+# Arquivos temporários e backups
 *.tmp
 *.bak
+*.backup
+*.orig
+*.rej
 *~
 
 # Sistemas operacionais
 .DS_Store
 Thumbs.db
+desktop.ini
+__MACOSX/
 
-# Compilações
+# Editores e IDEs
+.idea/
+.fleet/
+.history/
+*.swp
+*.swo
+
+# Builds e exportações
 /build/
+/builds/
 /dist/
+/export/
+
+# Arquivos de ambiente e segredos
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs
+*.log
+
+# Python (ferramentas auxiliares)
+__pycache__/
+*.pyc
+.venv/
+venv/
