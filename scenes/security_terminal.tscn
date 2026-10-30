@@ -146,7 +146,7 @@ script = ExtResource("1_rf76f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=466747509]
 sprite_frames = SubResource("SpriteFrames_m13ap")
-animation = &"interacting"
+animation = &"unlocked"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612576550]
 shape = SubResource("RectangleShape2D_m13ap")
@@ -156,7 +156,8 @@ offset_left = -61.0
 offset_top = -95.0
 offset_right = 69.0
 offset_bottom = -72.0
-text = "[E] Usar terminal"
+text = "[E] "
+horizontal_alignment = 1
 
 [node name="RespawnPoint" type="Marker2D" parent="." unique_id=1228438790]
 position = Vector2(-118, 54)

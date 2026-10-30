@@ -1,21 +1,18 @@
 extends Node
 
-# ============================================================
 # VICTU OS - MESSAGES MANAGER
-# ============================================================
 
 signal message_received(message_id: String)
 signal message_read(message_id: String)
 signal unread_count_changed(count: int)
 
 const INITIAL_MESSAGE_ID := "scientist_first_message"
+const SECOND_MESSAGE_ID := "scientist_second_message"
+const THIRD_MESSAGE_ID := "scientist_third_message"
+const SHARED_VERIFICATION_CODE := "30312111"
 
 var messages: Array[Dictionary] = []
 
-
-# ============================================================
-# INITIALIZATION
-# ============================================================
 
 func _ready() -> void:
 	_initialize_messages()
@@ -45,9 +42,64 @@ Tome cuidado."""
 	)
 
 
-# ============================================================
-# ADD MESSAGE
-# ============================================================
+# Call this after the player crosses the first door.
+func trigger_second_message() -> bool:
+	if has_message(SECOND_MESSAGE_ID):
+		return false
+
+	return add_message(
+		SECOND_MESSAGE_ID,
+		"Desconhecido",
+		"Sistema de vigilância do laboratório",
+		"""Você conseguiu passar pela primeira porta!
+
+Mas tenha cuidado. O próximo setor está protegido por câmeras de vigilância. Se elas detectarem você, poderão acionar o sistema de segurança.
+
+O ESP32 que você carrega possui um interceptador capaz de interferir temporariamente nas câmeras próximas.
+
+COMO USAR O ESP32:
+- Pressione TAB ou G para encontrar e acessar o ESP32.
+- Aproxime-se de uma câmera de segurança.
+- Pressione F para ativar o interceptador quando houver uma câmera próxima.
+
+A interferência é temporária. Aproveite o momento para atravessar a área monitorada antes que a câmera volte a funcionar.
+
+Não se exponha desnecessariamente. Ainda não sabemos quem está observando este setor.
+
+Tome cuidado. Estou contando com você."""
+	)
+
+
+# Call this after the player safely crosses the camera sector.
+func trigger_third_message() -> bool:
+	if has_message(THIRD_MESSAGE_ID):
+		return false
+
+	return add_message(
+		THIRD_MESSAGE_ID,
+		"Desconhecido",
+		"Protocolo de comunicação segura",
+		"""Você conseguiu passar pelas câmeras. Muito bem!
+
+Mas agora preciso te alertar sobre algo importante.
+
+Você não pode confiar em tudo o que vê neste laboratório. Nem mesmo nas mensagens que parecem ter sido enviadas por mim. Sempre desconfie.
+
+Precisamos estabelecer um código secreto para reconhecer nossas próximas mensagens de orientação.
+
+NOSSO CÓDIGO: 30312111
+
+A partir de agora, confira se essa sequência aparece em cada nova mensagem de orientação que eu enviar.
+
+Se uma mensagem não tiver o código 30312111, considere-a suspeita. Ela pode ter sido interceptada ou alterada. Não siga as instruções antes de verificar.
+
+Guarde essa sequência e não a revele.
+
+CÓDIGO DE VERIFICAÇÃO: %s
+
+Tome cuidado. Não sabemos até onde vai o controle deles.""" % SHARED_VERIFICATION_CODE
+	)
+
 
 func add_message(
 	message_id: String,
@@ -60,7 +112,6 @@ func add_message(
 		return false
 
 	if has_message(message_id):
-		push_warning("VICTU OS: Duplicate message ID: " + message_id)
 		return false
 
 	var message: Dictionary = {
@@ -77,10 +128,6 @@ func add_message(
 	unread_count_changed.emit(get_unread_count())
 	return true
 
-
-# ============================================================
-# GET MESSAGES
-# ============================================================
 
 func get_messages() -> Array[Dictionary]:
 	return messages.duplicate(true)
@@ -99,10 +146,6 @@ func has_message(message_id: String) -> bool:
 			return true
 	return false
 
-
-# ============================================================
-# UNREAD MESSAGES
-# ============================================================
 
 func get_unread_count() -> int:
 	var count: int = 0
@@ -127,10 +170,6 @@ func is_message_read(message_id: String) -> bool:
 	return false
 
 
-# ============================================================
-# MARK MESSAGE AS READ
-# ============================================================
-
 func mark_as_read(message_id: String) -> bool:
 	for index: int in range(messages.size()):
 		if str(messages[index].get("id", "")) != message_id:
@@ -147,10 +186,6 @@ func mark_as_read(message_id: String) -> bool:
 	return false
 
 
-# ============================================================
-# MARK MESSAGE AS UNREAD
-# ============================================================
-
 func mark_as_unread(message_id: String) -> bool:
 	for index: int in range(messages.size()):
 		if str(messages[index].get("id", "")) != message_id:
@@ -166,10 +201,6 @@ func mark_as_unread(message_id: String) -> bool:
 	return false
 
 
-# ============================================================
-# MARK ALL AS READ
-# ============================================================
-
 func mark_all_as_read() -> void:
 	var changed: bool = false
 	for index: int in range(messages.size()):
@@ -184,10 +215,6 @@ func mark_all_as_read() -> void:
 		unread_count_changed.emit(get_unread_count())
 
 
-# ============================================================
-# REMOVE MESSAGE
-# ============================================================
-
 func remove_message(message_id: String) -> bool:
 	for index: int in range(messages.size()):
 		if str(messages[index].get("id", "")) != message_id:
@@ -199,10 +226,6 @@ func remove_message(message_id: String) -> bool:
 
 	return false
 
-
-# ============================================================
-# RESET MESSAGES
-# ============================================================
 
 func reset_messages() -> void:
 	messages.clear()

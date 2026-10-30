@@ -41,7 +41,10 @@
 [ext_resource type="Texture2D" uid="uid://c8yamk2ca1o1e" path="res://assets/environment/industrial/wall_props/wall_vent.png" id="35_vke2r"]
 [ext_resource type="Texture2D" uid="uid://bjxu7du4quwyw" path="res://assets/environment/industrial/wall_props/cable_loop_orange.png" id="36_uit24"]
 [ext_resource type="Texture2D" uid="uid://bv42ovi86jl4u" path="res://assets/environment/industrial/wall_props/cable_vertical.png" id="37_ruth0"]
+[ext_resource type="PackedScene" uid="uid://dsr8mn4upilgo" path="res://scenes/security/door_keypad/door_keypad.tscn" id="37_y0aao"]
 [ext_resource type="Texture2D" uid="uid://bctpyahc1t5yt" path="res://assets/environment/industrial/wall_props/electric_junction_box.png" id="38_rm4vd"]
+[ext_resource type="Script" uid="uid://dttks23w8kcfs" path="res://scripts/triggers/second_sector_trigger.gd" id="38_wm5rm"]
+[ext_resource type="Script" uid="uid://mkrqi6uj32eh" path="res://scripts/triggers/third_sector_trigger.gd" id="39_ekl5k"]
 [ext_resource type="Texture2D" uid="uid://d04eic2137k26" path="res://assets/environment/industrial/wall_props/electric_warning_box.png" id="39_pjyto"]
 [ext_resource type="Texture2D" uid="uid://de6if7e4mqgnj" path="res://assets/environment/industrial/wall_props/fluorescent_light_cyan.png" id="40_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://c1e4l6jg7uu0y" path="res://assets/environment/industrial/wall_props/pipe_corner_bottom_left.png" id="41_b17eg"]
@@ -274,6 +277,12 @@ animations = [{
 "name": &"idle",
 "speed": 1.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jucyu"]
+size = Vector2(20, 145.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4bcc"]
+size = Vector2(22.75, 351)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m13ap"]
 size = Vector2(2000, 24)
@@ -1041,6 +1050,7 @@ script = ExtResource("18_1slqb")
 
 [node name="MessageNotification" type="CanvasLayer" parent="UI" unique_id=1579053428]
 script = ExtResource("19_uo83y")
+laptop_path = NodePath("../LaptopDesktop")
 
 [node name="GameSystems" type="Node2D" parent="." unique_id=1435129142]
 metadata/_edit_lock_ = true
@@ -1342,7 +1352,8 @@ position = Vector2(654, 175)
 scale = Vector2(0.45, 0.45)
 
 [node name="SecurityCamera01" parent="SecuritySystems" unique_id=43128996 groups=["security_cameras"] instance=ExtResource("6_7mycd")]
-position = Vector2(784, 101)
+position = Vector2(2674, 104)
+metadata/_edit_lock_ = true
 
 [node name="DetectionArea" parent="SecuritySystems/SecurityCamera01" index="0" unique_id=1129456261]
 metadata/_edit_lock_ = true
@@ -1366,8 +1377,9 @@ rotation = 1.5707964
 metadata/_edit_lock_ = true
 
 [node name="SecurityCamera2" parent="SecuritySystems" unique_id=2093430885 groups=["security_cameras"] instance=ExtResource("6_7mycd")]
-position = Vector2(2678, 110)
+position = Vector2(4560, 107)
 camera_id = "CAM_002"
+metadata/_edit_lock_ = true
 
 [node name="DetectionArea" parent="SecuritySystems/SecurityCamera2" index="0" unique_id=1129456261]
 metadata/_edit_lock_ = true
@@ -1375,6 +1387,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" parent="SecuritySystems/SecurityCamera2/DetectionArea" index="0" unique_id=1160548947]
 position = Vector2(64, 55)
 scale = Vector2(0.3, 0.32)
+metadata/_edit_lock_ = true
 
 [node name="CameraPivot" parent="SecuritySystems/SecurityCamera2" index="1" unique_id=833092106]
 metadata/_edit_lock_ = true
@@ -1383,6 +1396,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-3.7587671, 1.3680793)
 rotation = 0.5235988
 scale = Vector2(0.041269764, 0.04059283)
+metadata/_edit_lock_ = true
 
 [node name="CameraMount" parent="SecuritySystems/SecurityCamera2" index="2" unique_id=483373215]
 position = Vector2(-3.0000005, 1.9999998)
@@ -1409,7 +1423,7 @@ texture = ExtResource("9_kek77")
 metadata/_edit_lock_ = true
 
 [node name="WallAlarm" type="Node2D" parent="SecuritySystems" unique_id=1296481863]
-position = Vector2(583, -5)
+position = Vector2(2891, -12)
 script = ExtResource("77_ovcoh")
 metadata/_edit_lock_ = true
 
@@ -1435,7 +1449,7 @@ max_distance = 1500.0
 metadata/_edit_lock_ = true
 
 [node name="WallAlarm2" type="Node2D" parent="SecuritySystems" unique_id=2120909811]
-position = Vector2(1093, -5)
+position = Vector2(3661, -9)
 script = ExtResource("77_ovcoh")
 metadata/_edit_lock_ = true
 
@@ -1461,16 +1475,14 @@ max_distance = 1500.0
 metadata/_edit_lock_ = true
 
 [node name="WallAlarm3" type="Node2D" parent="SecuritySystems" unique_id=1915555062]
-position = Vector2(1797, 8)
+position = Vector2(5699, 4)
 script = ExtResource("77_ovcoh")
-metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecuritySystems/WallAlarm3" unique_id=1205871229]
 position = Vector2(240, 80)
 scale = Vector2(0.068033785, 0.06803379)
 sprite_frames = SubResource("SpriteFrames_wy5fy")
 animation = &"alert"
-metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="SecuritySystems/WallAlarm3" unique_id=2003567892]
 position = Vector2(241.00002, 71)
@@ -1479,25 +1491,21 @@ color = Color(2.296754, 0, 0, 1)
 energy = 1.3
 texture = ExtResource("44_gngh3")
 texture_scale = 2.0
-metadata/_edit_lock_ = true
 
 [node name="AlarmSound" type="AudioStreamPlayer2D" parent="SecuritySystems/WallAlarm3" unique_id=844524112]
 position = Vector2(2, -15)
 stream = ExtResource("83_ppx11")
 max_distance = 1500.0
-metadata/_edit_lock_ = true
 
 [node name="WallAlarm4" type="Node2D" parent="SecuritySystems" unique_id=1134811059]
-position = Vector2(3079, -10)
+position = Vector2(6792, -9)
 script = ExtResource("77_ovcoh")
-metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecuritySystems/WallAlarm4" unique_id=1973549879]
 position = Vector2(238, 95)
 scale = Vector2(0.068033785, 0.06803379)
 sprite_frames = SubResource("SpriteFrames_wy5fy")
 animation = &"alert"
-metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="SecuritySystems/WallAlarm4" unique_id=1573960556]
 position = Vector2(239.00002, 86)
@@ -1506,67 +1514,33 @@ color = Color(2.296754, 0, 0, 1)
 energy = 1.3
 texture = ExtResource("44_gngh3")
 texture_scale = 2.0
-metadata/_edit_lock_ = true
 
 [node name="AlarmSound" type="AudioStreamPlayer2D" parent="SecuritySystems/WallAlarm4" unique_id=739186572]
 stream = ExtResource("83_ppx11")
 max_distance = 1500.0
-metadata/_edit_lock_ = true
-
-[node name="WallAlarm5" type="Node2D" parent="SecuritySystems" unique_id=724649886]
-position = Vector2(4487, -9)
-script = ExtResource("77_ovcoh")
-metadata/_edit_lock_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecuritySystems/WallAlarm5" unique_id=1275909431]
-position = Vector2(238, 95)
-scale = Vector2(0.068033785, 0.06803379)
-sprite_frames = SubResource("SpriteFrames_wy5fy")
-animation = &"alert"
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="SecuritySystems/WallAlarm5" unique_id=1258733292]
-position = Vector2(239.00002, 86)
-scale = Vector2(0.18554688, 0.18554688)
-color = Color(2.296754, 0, 0, 1)
-energy = 1.3
-texture = ExtResource("44_gngh3")
-texture_scale = 2.0
-metadata/_edit_lock_ = true
-
-[node name="AlarmSound" type="AudioStreamPlayer2D" parent="SecuritySystems/WallAlarm5" unique_id=1727348118]
-stream = ExtResource("83_ppx11")
-max_distance = 1500.0
-metadata/_edit_lock_ = true
-
-[node name="WallAlarm6" type="Node2D" parent="SecuritySystems" unique_id=1181407810]
-position = Vector2(5960, -9)
-script = ExtResource("77_ovcoh")
-metadata/_edit_lock_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecuritySystems/WallAlarm6" unique_id=1685680809]
-position = Vector2(238, 95)
-scale = Vector2(0.068033785, 0.06803379)
-sprite_frames = SubResource("SpriteFrames_wy5fy")
-animation = &"alert"
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="SecuritySystems/WallAlarm6" unique_id=1561385319]
-position = Vector2(239.00002, 86)
-scale = Vector2(0.18554688, 0.18554688)
-color = Color(2.296754, 0, 0, 1)
-energy = 1.3
-texture = ExtResource("44_gngh3")
-texture_scale = 2.0
-metadata/_edit_lock_ = true
-
-[node name="AlarmSound" type="AudioStreamPlayer2D" parent="SecuritySystems/WallAlarm6" unique_id=30184102]
-stream = ExtResource("83_ppx11")
-max_distance = 1500.0
-metadata/_edit_lock_ = true
 
 [node name="SecuritySystem" type="Node" parent="SecuritySystems" unique_id=1697034950]
 script = ExtResource("82_4obbf")
+
+[node name="DoorKeypad" parent="SecuritySystems/SecuritySystem" unique_id=73860176 instance=ExtResource("37_y0aao")]
+position = Vector2(1972, 151)
+scale = Vector2(0.32770145, 0.32770145)
+
+[node name="SecondSectorTrigger" type="Area2D" parent="SecuritySystems/SecuritySystem" unique_id=1005853732]
+script = ExtResource("38_wm5rm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecuritySystems/SecuritySystem/SecondSectorTrigger" unique_id=664015087]
+position = Vector2(2067, 136.4375)
+shape = SubResource("RectangleShape2D_jucyu")
+
+[node name="ThirdSectorTrigger" type="Area2D" parent="SecuritySystems/SecuritySystem" unique_id=1072991094]
+script = ExtResource("39_ekl5k")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecuritySystems/SecuritySystem/ThirdSectorTrigger" unique_id=910106430]
+position = Vector2(3312.625, 19.5)
+shape = SubResource("RectangleShape2D_n4bcc")
+metadata/_edit_lock_ = true
 
 [node name="Door" parent="SecuritySystems" unique_id=1795148932 instance=ExtResource("4_1bvp3")]
 position = Vector2(768, 216)
@@ -2497,6 +2471,8 @@ offset_right = 7363.0
 offset_bottom = 133.0
 color = Color(0.02745098, 0.06666667, 0.16862746, 1)
 metadata/_edit_lock_ = true
+
+[connection signal="access_granted" from="SecuritySystems/SecuritySystem/DoorKeypad" to="SecuritySystems/Door" method="open_door"]
 
 [editable path="Characters/Player"]
 [editable path="Characters/ByteAgent"]
