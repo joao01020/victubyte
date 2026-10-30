@@ -2,6 +2,17 @@
   <img src="branding/cover.png" alt="VICTUBYTE Game Cover" width="100%">
 </p>
 
+<h2 align="center">Characters</h2>
+
+<p align="center">
+  <img
+    src="branding/scientist-character.png"
+    alt="VICTUBYTE - Scientist Character"
+    width="70%"
+  />
+</p>
+
+
 # VICTUBYTE
 
 > **E se aprender programação fosse passar de fase?**
